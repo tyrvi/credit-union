@@ -10,7 +10,7 @@
     <?php
     echo "My first PHP script!";
     #Database=cudb;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=b3749d9a9bbf00;Password=c55f1efd
-    $servername = "cudb.us-cdbr-azure-central-a.cloudapp.net";
+    $servername = "us-cdbr-azure-central-a.cloudapp.net";
     $username = "b3749d9a9bbf00";
     $password = "c55f1efd";
 
