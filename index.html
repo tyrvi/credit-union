@@ -5,6 +5,21 @@
     <title>credit union test page</title>
 </head>
 <body>
+
     <h1>heading</h1>
+    <?php
+    $servername = "credit-union-tesdb.database.windows.net,1433";
+    $username = "thais";
+    $password = "98074Minet";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+    echo "Connected successfully";
+    ?>
 </body>
 </html>
