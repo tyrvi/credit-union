@@ -9,11 +9,8 @@
     <h1>heading</h1>
     <?php
     $db = mysqli_init();
-    $db->ssl_set(PATH_TO_SSL_CLIENT_KEY_FILE, PATH_TO_SSL_CLIENT_CERT_FILE, PATH_TO_CA_CERT_FILE, null, null);
-    $db->real_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE_NAME);
-    
-    
-    Database=cudb;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=b3749d9a9bbf00;Password=c55f1efd
+    $db->ssl_set(PATH_TO_SSL_CLIENT_KEY_FILE, PATH_TO_SSL_CLIENT_CERT_FILE, cleardb-ca.pem, null, null);
+    $db->real_connect(us-cdbr-azure-central-a.cloudapp.net, b3749d9a9bbf00, c55f1efd, cudb);
     ?>
     
 </body>
