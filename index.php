@@ -7,6 +7,8 @@
 <body>
 
     <h1>hello</h1>
-    
+    <?php
+    echo "My first PHP script!";
+    ?>
 </body>
 </html>
