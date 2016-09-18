@@ -8,26 +8,10 @@
 
     <h1>heading</h1>
     <?php
-    <?php
-    $servername = "localhost";
-    $username = "username";
-    $password = "password";
+    $db = mysqli_init();
+    $db->ssl_set(PATH_TO_SSL_CLIENT_KEY_FILE, PATH_TO_SSL_CLIENT_CERT_FILE, PATH_TO_CA_CERT_FILE, null, null);
+    $db->real_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE_NAME);
     
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "CREATE DATABASE myDBPDO";
-        // use exec() because no results are returned
-        $conn->exec($sql);
-        echo "Database created successfully<br>";
-        }
-    catch(PDOException $e)
-        {
-        echo $sql . "<br>" . $e->getMessage();
-        }
-    
-    $conn = null;
     
     Database=cudb;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=b3749d9a9bbf00;Password=c55f1efd
     ?>
