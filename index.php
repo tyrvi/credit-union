@@ -13,9 +13,10 @@
     $servername = "us-cdbr-azure-central-a.cloudapp.net";
     $username = "b3749d9a9bbf00";
     $password = "c55f1efd";
+    $database = "cudb"
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password);
+    $conn = new mysqli($servername, $username, $password, $database);
 
     // Check connection
     if ($conn->connect_error) {
