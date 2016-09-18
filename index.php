@@ -22,6 +22,17 @@
         die("Connection failed: " . $conn->connect_error);
     } 
     echo "Connected successfully";
+
+    $sql = "INSERT INTO Persons (PersonID, LastName, FirstName, Address, City)
+    VALUES (1, 'Smith', 'Erik','1 University Dr','Nashville')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
     ?>
 </body>
 </html>
