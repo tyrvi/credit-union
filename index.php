@@ -7,6 +7,6 @@
 <body>
 	<?php include_once "header.php"; ?>
     <h1>hello</h1>
-    <p>This is a test paragraph. Penis - it's gonna be huge</p>    
+    <p>This is a test paragraph. It's gonna be huge</p>
 </body>
 </html>
