@@ -46,26 +46,26 @@
 }
 
 #menu {
-	background-color: #2a1c1c;
+	/*background-color: #2a1c1c;*/
 	width: 100vw;
 	height: 100vh;
 	position: fixed;
 	left: -100vw;
 	right: 0;
-	transition: ease-in 0.3s;
+	/*transition: ease-in-out 0.4s;*/
 	z-index: 20000;
 }
 
 #menu-inner {
 	position: relative;
-	left: 20px;
-	top: 20px;
-	background-color: #311f1f;
+	left: 0px;
+	top: 120px;
+	/*background-color: #311f1f;*/
+	/*border: 8px solid #311f1f;*/
 	width: 500px;
-	height: calc(100vh - 40px);
-	transition: ease-in 0.3s;
+	height: calc(100vh);
+	transition: ease-in-out 0.3s;
 	z-index: 20000;
-	border-radius: 20px;
 	overflow: hidden;
 }
 
@@ -83,7 +83,7 @@
 	color: rgba(255, 255, 255, 0.8) !important;
 	font-size: 30px;
 	text-transform: uppercase;
-	font-family: Roboto;
+	font-family: federation;
 	letter-spacing: 4px;
 	cursor: pointer;
 }
@@ -127,11 +127,33 @@
 .list-group-item:hover .highlight2 {
 	width: 40%;
 }
+
+.del {
+	position: absolute;
+	width: 500px;
+	height: calc(100vh);
+	overflow: hidden;
+	z-index: 20000;
+}
+
+#menu-button {
+	position: relative;
+	left: 70px;
+	top: 70px;
+	transform: translate(-50%, -50%);
+}
 </style>
+
+<div class="del">
+	
 
 <div id="menu-button">
 	<i class="menu-icon fa fa-bars" aria-hidden="true"></i>
 </div>
+</div>
+
+
+
 
 <div id="menu-exit-button">
 	<i class="menu-icon fa fa-times" aria-hidden="true"></i>
@@ -183,7 +205,12 @@ $(document).ready(function() {
 	listGroupItemTransition = $('#menu-inner .list-group-item').css('transition');
 	
 	$('#menu-button').click(function() {
-		$('#menu-button').css('top', menuButtonTopAway);
+		//$('#menu-button').css('top', menuButtonTopAway);
+		$('#menu-button').css('width', 'calc(100vw + 100vh)');
+		$('#menu-button').css('height', 'calc(100vw + 100vh)');
+		
+		
+		$('#main').css('filter', 'blur(4px)');
 		
 		setTimeout(function() {
 			$('#menu').css('left', 0);
@@ -209,6 +236,7 @@ $(document).ready(function() {
 		$('#menu').css('left', menuLeftAway);
 		$('#menu-button').css('top', menuButtonTop);
 		$('#menu-exit-button').css('top', menuButtonTopAway);
+		$('#main').css('filter', 'none');
 	});
 });
 

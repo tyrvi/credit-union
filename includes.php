@@ -9,3 +9,16 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="fonts/" rel="stylesheet">
+
+<style>
+@font-face {
+    font-family: aurebesh;
+    src: url('fonts/Aurebesh.ttf');
+}
+
+@font-face {
+    font-family: federation;
+    src: url('fonts/FEC_____.TTF');
+}
+</style>

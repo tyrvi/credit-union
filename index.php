@@ -16,12 +16,15 @@
 
 body {
     text-align: center;
+	transition: 0.3s filter;
 }
 </style>
 
 </head>
 <body>
 	<?php include_once "navbar.php"; ?>
-	<?php include_once "caption.php"; ?>
+	<div id="main">
+		<?php include_once "caption.php"; ?>
+	</div>
 </body>
 </html>
