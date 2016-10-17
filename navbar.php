@@ -1,53 +1,216 @@
-<nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">Brand</a>
-		</div>
+<style>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-				<li><a href="#">Link</a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul>
-				</li>
-			</ul>
-			<form class="navbar-form navbar-left">
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Search">
-				</div>
-				<button type="submit" class="btn btn-default">Submit</button>
-			</form>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Link</a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div><!-- /.navbar-collapse -->
-	</div><!-- /.container-fluid -->
-</nav>
+#menu-button {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 80px;
+	height: 80px;
+	z-index: 200000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100%;
+	cursor: pointer;
+	
+	transition: ease-in 0.3s;
+}
+
+.menu-icon {
+	font-size: 38px;
+	position: absolute;
+	color: white;
+	transition: color ease-in-out 0.2s;
+}
+
+#menu-button:hover .menu-icon, #menu-exit-button:hover .menu-icon {
+	color: #ec2a2a;
+}
+
+#menu-exit-button {
+	position: fixed;
+	top: -100px;
+	right: 20px;
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 80px;
+	height: 80px;
+	z-index: 200000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100%;
+	cursor: pointer;
+	
+	transition: ease-in 0.3s;
+}
+
+#menu {
+	background-color: #2a1c1c;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	left: -100vw;
+	right: 0;
+	transition: ease-in 0.3s;
+	z-index: 20000;
+}
+
+#menu-inner {
+	position: relative;
+	left: 20px;
+	top: 20px;
+	background-color: #311f1f;
+	width: 500px;
+	height: calc(100vh - 40px);
+	transition: ease-in 0.3s;
+	z-index: 20000;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+#menu-inner .list-group {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+#menu-inner .list-group-item {
+	position: relative;
+	transition: ease-in-out 0.3s;
+	background-color: transparent;
+	border: none;
+	border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+	color: rgba(255, 255, 255, 0.8) !important;
+	font-size: 30px;
+	text-transform: uppercase;
+	font-family: Roboto;
+	letter-spacing: 4px;
+	cursor: pointer;
+}
+
+#menu-inner * {
+	color: white;
+	text-decoration: none;
+}
+
+#menu-button:hover > #menu-icon {
+	color: rgb(220, 30, 30);
+}
+
+.list-group-item .highlight {
+	background-color: rgba(255, 255, 255, 0.2);
+	position: absolute;
+	left: 50%;
+	top: 0;
+	width: 0;
+	height: 100%;
+	transform: translateX(-50%);
+	transition: width ease-in-out 0.2s;
+}
+
+.list-group-item:hover .highlight {
+	width: 100%;
+}
+
+.list-group-item .highlight2 {
+	background-color: rgba(255, 255, 255, 0.8);
+	position: absolute;
+	left: 50%;
+	bottom: 2px;
+	width: 0;
+	height: 2px;
+	border-radius: 20px;
+	transform: translateX(-50%);
+	transition: width 0.4s;
+}
+
+.list-group-item:hover .highlight2 {
+	width: 40%;
+}
+</style>
+
+<div id="menu-button">
+	<i class="menu-icon fa fa-bars" aria-hidden="true"></i>
+</div>
+
+<div id="menu-exit-button">
+	<i class="menu-icon fa fa-times" aria-hidden="true"></i>
+</div>
+
+<div id="menu">
+	<div id="menu-inner">
+		<ul class="list-group">
+		  <li class="list-group-item">
+			  <div class="highlight"></div>
+			  <div class="highlight2"></div>
+			  <a>Home</a>
+		  </li>
+		  <li class="list-group-item">
+			  <div class="highlight"></div>
+			  <div class="highlight2"></div>
+			  <a>Invest</a>
+		  </li>
+		  <li class="list-group-item">
+			  <div class="highlight"></div>
+			  <div class="highlight2"></div>
+			  <a>Borrow</a>
+		  </li>
+		  <li class="list-group-item">
+			  <div class="highlight"></div>
+			  <div class="highlight2"></div>
+			  <a>Apply</a>
+		  </li>
+		  <li class="list-group-item">
+			  <div class="highlight"></div>
+			  <div class="highlight2"></div>
+			  <a>Sign up</a>
+		  </li>
+		</ul>
+	</div>
+</div>
+
+
+<script>
+(function() {
+
+var menuButtonTop;
+var menuButtonTopAway = '-100px';
+var menuLeftAway;
+
+$(document).ready(function() {
+	menuButtonTop = $('#menu-button').css('top');
+	menuLeftAway = $('#menu').css('left');
+	listGroupItemTransition = $('#menu-inner .list-group-item').css('transition');
+	
+	$('#menu-button').click(function() {
+		$('#menu-button').css('top', menuButtonTopAway);
+		
+		setTimeout(function() {
+			$('#menu').css('left', 0);
+		}, 100);
+		
+		setTimeout(function() {
+			$('#menu-exit-button').css('top', menuButtonTop);
+		}, 200);
+		
+		$('#menu-inner .list-group-item').css('transition', 'none');
+		$('#menu-inner .list-group-item').css('top', 40);
+		$('#menu-inner .list-group-item').css('opacity', 0);
+		$('#menu-inner .list-group-item').each(function(i, obj) {
+			setTimeout(function() {
+				$(obj).css('transition', listGroupItemTransition);
+				$(obj).css('top', 0);
+				$(obj).css('opacity', 1);
+			}, i * 150);
+		});
+	});
+	
+	$('#menu-exit-button').click(function() {
+		$('#menu').css('left', menuLeftAway);
+		$('#menu-button').css('top', menuButtonTop);
+		$('#menu-exit-button').css('top', menuButtonTopAway);
+	});
+});
+
+})();
+</script>

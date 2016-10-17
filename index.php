@@ -3,10 +3,25 @@
 <head>
     <?php include_once "includes.php" ?>
     <title>credit union test page</title>
+<style>
+
+.fudge, .fudge2 {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding: 0;
+	margin: 0;
+	background-color: red;
+}
+
+body {
+    text-align: center;
+}
+</style>
+
 </head>
 <body>
 	<?php include_once "navbar.php"; ?>
-    <h1>hello</h1>
-    <p>This is a test paragraph. It's gonna be huge</p>
+	<?php include_once "caption.php"; ?>
 </body>
 </html>
