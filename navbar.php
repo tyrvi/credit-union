@@ -118,6 +118,7 @@
 	height: calc(100vh);
 	overflow: hidden;
 	z-index: 20000;
+	transition: 0.2s ease-in;
 }
 
 #menu.inactive {
@@ -262,6 +263,7 @@ var active = false;
 var menuShadowSize;
 var listGroupItemTransition;
 var socialIconTransition;
+var menuSizeTimeout;
 
 function onActivate() {
 	$('#menu-shadow').css('width', 'calc(200vw + 100vh)');
@@ -304,11 +306,16 @@ function onDeactivate() {
 	$('#menu-shadow').css('width', menuShadowSize);
 	$('#menu-shadow').css('height', menuShadowSize);
 	
-	setTimeout(function() {
-		$('#menu').removeClass('active');
-		$('#menu').addClass('inactive');
+	if(menuSizeTimeout) {
+		clearTimeout(menuSizeTimeout);
+	}
+	menuSizeTimeout = setTimeout(function() {
+		if(!active) {
+			$('#menu').removeClass('active');
+			$('#menu').addClass('inactive');
+		}
 	}, 1000);
-	
+		
 	$('#menu-icon .bars-and-x').removeClass('active');
 	$('#menu-icon .bars-and-x').addClass('inactive');
 	
