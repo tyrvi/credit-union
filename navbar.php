@@ -120,8 +120,13 @@
 	z-index: 20000;
 }
 
+#menu.inactive {
+	width: 100px;
+	height: 100px;
+}
+
 @media screen and (max-width: 860px) {
-	#menu {
+	#menu.active {
 		width: 100%;
 	}
 }
@@ -208,7 +213,7 @@
 
 </style>
 
-<div id="menu">
+<div id="menu" class="inactive">
 	<div id="menu-button">
 		<span id="menu-shadow"></span>
 		<span id="menu-icon"><span class="bars-and-x inactive"></span></span>
@@ -262,6 +267,9 @@ function onActivate() {
 	$('#menu-shadow').css('width', 'calc(200vw + 100vh)');
 	$('#menu-shadow').css('height', 'calc(200vw + 100vh)');
 	
+	$('#menu').removeClass('inactive');
+	$('#menu').addClass('active');
+	
 	$('#menu-icon .bars-and-x').removeClass('inactive');
 	$('#menu-icon .bars-and-x').addClass('active');
 	
@@ -295,6 +303,11 @@ function onActivate() {
 function onDeactivate() {
 	$('#menu-shadow').css('width', menuShadowSize);
 	$('#menu-shadow').css('height', menuShadowSize);
+	
+	setTimeout(function() {
+		$('#menu').removeClass('active');
+		$('#menu').addClass('inactive');
+	}, 1000);
 	
 	$('#menu-icon .bars-and-x').removeClass('active');
 	$('#menu-icon .bars-and-x').addClass('inactive');

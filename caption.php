@@ -1,7 +1,7 @@
 <style>
 
 #mainCarousel {
-	height: 400px;
+	height: 300px;
 	overflow: hidden;
 }
 
