@@ -14,9 +14,8 @@
 	background-color: red;
 }
 
-body {
-    text-align: center;
-	transition: 0.3s filter;
+#main {
+	transition: 0.2s filter;
 }
 </style>
 

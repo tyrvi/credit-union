@@ -50,6 +50,7 @@
 	transition: ease-in-out 0.3s;
 	z-index: 20000;
 	overflow: hidden;
+	text-align: center;
 }
 
 #menu-inner .list-group {
@@ -119,6 +120,12 @@
 	z-index: 20000;
 }
 
+@media screen and (max-width: 860px) {
+	#menu {
+		width: 100%;
+	}
+}
+
 #menu-shadow {
 	position: fixed;
 	top: 56px;
@@ -128,7 +135,7 @@
 	width: 80px;
 	height: 80px;
 	border-radius: 100%;
-	transition: 0.3s ease-in;
+	transition: 0.4s ease-in;
 }
 
 .bars-and-x, .bars-and-x:before, .bars-and-x:after {
@@ -252,8 +259,8 @@ var listGroupItemTransition;
 var socialIconTransition;
 
 function onActivate() {
-	$('#menu-shadow').css('width', 'calc(100vw + 100vh)');
-	$('#menu-shadow').css('height', 'calc(100vw + 100vh)');
+	$('#menu-shadow').css('width', 'calc(200vw + 100vh)');
+	$('#menu-shadow').css('height', 'calc(200vw + 100vh)');
 	
 	$('#menu-icon .bars-and-x').removeClass('inactive');
 	$('#menu-icon .bars-and-x').addClass('active');
@@ -270,7 +277,7 @@ function onActivate() {
 			$(obj).css('transition', listGroupItemTransition);
 			$(obj).css('top', 0);
 			$(obj).css('opacity', 1);
-		}, i * 150);
+		}, 120 + i * 150);
 	});
 	
 	$('.menu-social-icon').css('transition', 'none');
