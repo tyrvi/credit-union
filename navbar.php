@@ -1,12 +1,6 @@
 <style>
 
 #menu-button {
-	position: fixed;
-	top: 20px;
-	left: 20px;
-	background-color: rgba(0, 0, 0, 0.6);
-	width: 80px;
-	height: 80px;
 	z-index: 200000;
 	display: flex;
 	justify-content: center;
@@ -14,7 +8,7 @@
 	border-radius: 100%;
 	cursor: pointer;
 	
-	transition: ease-in 0.3s;
+	transition: width ease-in 4s, height ease-in 4s;
 }
 
 .menu-icon {
@@ -57,12 +51,12 @@
 }
 
 #menu-inner {
+	display: none;
 	position: relative;
-	left: 0px;
+	left: 50%;
+	transform: translate(-50%, 0);
 	top: 120px;
-	/*background-color: #311f1f;*/
-	/*border: 8px solid #311f1f;*/
-	width: 500px;
+	width: 400px;
 	height: calc(100vh);
 	transition: ease-in-out 0.3s;
 	z-index: 20000;
@@ -70,8 +64,8 @@
 }
 
 #menu-inner .list-group {
-	-webkit-box-shadow: none;
-	box-shadow: none;
+	-webkit-box-menu-shadow: none;
+	box-menu-shadow: none;
 }
 
 #menu-inner .list-group-item {
@@ -136,30 +130,68 @@
 	z-index: 20000;
 }
 
-#menu-button {
-	position: relative;
-	left: 70px;
-	top: 70px;
+#menu-shadow {
+	position: fixed;
+	top: 56px;
+	left: 56px;
 	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 80px;
+	height: 80px;
+	border-radius: 100%;
+	transition: 0.3s ease-in;
+}
+
+.bars-and-x, .bars-and-x:before, .bars-and-x:after {
+	border-radius: 1px;
+	height: 5px;
+	width: 35px;
+	position: absolute;
+	display: block;
+	content: '';
+	background: white;
+}
+
+#menu-icon {
+	position: fixed;
+	left: 39px;
+	top: 53px;
+}
+
+.bars-and-x:before {
+	top: -10px;
+}
+
+.bars-and-x:after {
+	bottom: -10px;
+}
+
+.bars-and-x, .bars-and-x:before, .bars-and-x:after {
+	transition: all 0.4s ease-in-out;
+}
+
+.bars-and-x.active {
+	background-color: transparent;
+}
+
+.bars-and-x.active:before, .bars-and-x.active:after {
+	top: 0;
+}
+
+.bars-and-x.active:before {
+	transform: rotate(45deg);
+}
+
+.bars-and-x.active:after {
+	transform: rotate(-45deg);
 }
 </style>
 
-<div class="del">
-	
-
-<div id="menu-button">
-	<i class="menu-icon fa fa-bars" aria-hidden="true"></i>
-</div>
-</div>
-
-
-
-
-<div id="menu-exit-button">
-	<i class="menu-icon fa fa-times" aria-hidden="true"></i>
-</div>
-
-<div id="menu">
+<div class="del">	
+	<div id="menu-button">
+		<span id="menu-shadow"></span>
+		<span id="menu-icon"><span class="bars-and-x"></span></span>
+	</div>
 	<div id="menu-inner">
 		<ul class="list-group">
 		  <li class="list-group-item">
@@ -185,7 +217,7 @@
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
 			  <div class="highlight2"></div>
-			  <a>Sign up</a>
+			  <a>Log In</a>
 		  </li>
 		</ul>
 	</div>
@@ -195,48 +227,53 @@
 <script>
 (function() {
 
-var menuButtonTop;
-var menuButtonTopAway = '-100px';
-var menuLeftAway;
+var active = false;
+var menuShadowSize;
+
+function onActivate() {
+	$('#menu-shadow').css('width', 'calc(100vw + 100vh)');
+	$('#menu-shadow').css('height', 'calc(100vw + 100vh)');
+	
+	$('#menu-icon .bars-and-x').addClass('active');
+	
+	$('#main').css('filter', 'blur(4px)');
+	
+	$('#menu-inner').css('display', 'block');
+	
+	$('#menu-inner .list-group-item').css('transition', 'none');
+	$('#menu-inner .list-group-item').css('top', 40);
+	$('#menu-inner .list-group-item').css('opacity', 0);
+	$('#menu-inner .list-group-item').each(function(i, obj) {
+		setTimeout(function() {
+			$(obj).css('transition', listGroupItemTransition);
+			$(obj).css('top', 0);
+			$(obj).css('opacity', 1);
+		}, i * 150);
+	});
+}
+
+function onDeactivate() {
+	$('#menu-shadow').css('width', menuShadowSize);
+	$('#menu-shadow').css('height', menuShadowSize);
+	
+	$('#menu-icon .bars-and-x').removeClass('active');
+	
+	$('#main').css('filter', 'none');
+	
+	$('#menu-inner').css('display', 'none');
+}
 
 $(document).ready(function() {
-	menuButtonTop = $('#menu-button').css('top');
-	menuLeftAway = $('#menu').css('left');
+	menuShadowSize = $('#menu-shadow').css('width');
 	listGroupItemTransition = $('#menu-inner .list-group-item').css('transition');
 	
 	$('#menu-button').click(function() {
-		//$('#menu-button').css('top', menuButtonTopAway);
-		$('#menu-button').css('width', 'calc(100vw + 100vh)');
-		$('#menu-button').css('height', 'calc(100vw + 100vh)');
-		
-		
-		$('#main').css('filter', 'blur(4px)');
-		
-		setTimeout(function() {
-			$('#menu').css('left', 0);
-		}, 100);
-		
-		setTimeout(function() {
-			$('#menu-exit-button').css('top', menuButtonTop);
-		}, 200);
-		
-		$('#menu-inner .list-group-item').css('transition', 'none');
-		$('#menu-inner .list-group-item').css('top', 40);
-		$('#menu-inner .list-group-item').css('opacity', 0);
-		$('#menu-inner .list-group-item').each(function(i, obj) {
-			setTimeout(function() {
-				$(obj).css('transition', listGroupItemTransition);
-				$(obj).css('top', 0);
-				$(obj).css('opacity', 1);
-			}, i * 150);
-		});
-	});
-	
-	$('#menu-exit-button').click(function() {
-		$('#menu').css('left', menuLeftAway);
-		$('#menu-button').css('top', menuButtonTop);
-		$('#menu-exit-button').css('top', menuButtonTopAway);
-		$('#main').css('filter', 'none');
+		if(active) {
+			onDeactivate();
+		} else {
+			onActivate();
+		}
+		active = !active;
 	});
 });
 
