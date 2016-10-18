@@ -39,17 +39,6 @@
 	transition: ease-in 0.3s;
 }
 
-#menu {
-	/*background-color: #2a1c1c;*/
-	width: 100vw;
-	height: 100vh;
-	position: fixed;
-	left: -100vw;
-	right: 0;
-	/*transition: ease-in-out 0.4s;*/
-	z-index: 20000;
-}
-
 #menu-inner {
 	display: none;
 	position: relative;
@@ -122,7 +111,7 @@
 	width: 40%;
 }
 
-.del {
+#menu {
 	position: absolute;
 	width: 500px;
 	height: calc(100vh);
@@ -158,6 +147,10 @@
 	top: 53px;
 }
 
+#menu-button:hover .bars-and-x.inactive, #menu-button:hover .bars-and-x:before, #menu-button:hover .bars-and-x:after {
+	background-color: red;
+}
+
 .bars-and-x:before {
 	top: -10px;
 }
@@ -185,12 +178,33 @@
 .bars-and-x.active:after {
 	transform: rotate(-45deg);
 }
+
+.menu-social {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: absolute;
+	width: 100%;
+	left: -16px;
+	top: calc(100vh - 212px);
+}
+
+.menu-social-icon {
+	position: relative;
+	cursor: pointer;
+	transition: ease-out 0.2s;
+}
+
+.menu-social-icon:hover {
+	top: -5px !important;
+}
+
 </style>
 
-<div class="del">	
+<div id="menu">
 	<div id="menu-button">
 		<span id="menu-shadow"></span>
-		<span id="menu-icon"><span class="bars-and-x"></span></span>
+		<span id="menu-icon"><span class="bars-and-x inactive"></span></span>
 	</div>
 	<div id="menu-inner">
 		<ul class="list-group">
@@ -220,6 +234,11 @@
 			  <a>Log In</a>
 		  </li>
 		</ul>
+		<div class="menu-social">
+			<img class="menu-social-icon" width="80px" src="images/Twitter_Social_Icon_White.png"/>
+			<img class="menu-social-icon" width="49px" src="images/FB-f-Logo__white_512.png"/>
+			<img class="menu-social-icon" width="56px" src="images/LinkedIn-In-White-128px-TM.png"/>
+		</div>
 	</div>
 </div>
 
@@ -229,11 +248,14 @@
 
 var active = false;
 var menuShadowSize;
+var listGroupItemTransition;
+var socialIconTransition;
 
 function onActivate() {
 	$('#menu-shadow').css('width', 'calc(100vw + 100vh)');
 	$('#menu-shadow').css('height', 'calc(100vw + 100vh)');
 	
+	$('#menu-icon .bars-and-x').removeClass('inactive');
 	$('#menu-icon .bars-and-x').addClass('active');
 	
 	$('#main').css('filter', 'blur(4px)');
@@ -250,6 +272,17 @@ function onActivate() {
 			$(obj).css('opacity', 1);
 		}, i * 150);
 	});
+	
+	$('.menu-social-icon').css('transition', 'none');
+	$('.menu-social-icon').css('opacity', 0);
+	$('.menu-social-icon').css('top', '20px');
+	$('.menu-social-icon').each(function(i, obj) {
+		setTimeout(function() {
+			$(obj).css('transition', socialIconTransition);
+			$(obj).css('top', 0);
+			$(obj).css('opacity', 1);
+		}, 450 + i * 150);
+	});
 }
 
 function onDeactivate() {
@@ -257,6 +290,7 @@ function onDeactivate() {
 	$('#menu-shadow').css('height', menuShadowSize);
 	
 	$('#menu-icon .bars-and-x').removeClass('active');
+	$('#menu-icon .bars-and-x').addClass('inactive');
 	
 	$('#main').css('filter', 'none');
 	
@@ -266,6 +300,7 @@ function onDeactivate() {
 $(document).ready(function() {
 	menuShadowSize = $('#menu-shadow').css('width');
 	listGroupItemTransition = $('#menu-inner .list-group-item').css('transition');
+	socialIconTransition = $('.menu-social-icon').css('transition');
 	
 	$('#menu-button').click(function() {
 		if(active) {
