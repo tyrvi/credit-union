@@ -1,38 +1,4 @@
-<style>
-
-#mainCarousel {
-	height: 300px;
-	overflow: hidden;
-}
-
-#caption {
-	z-index: 10;
-	position: absolute;
-	width: 300px;
-	height: 80px;
-	background-color: rgba(0, 0, 0, 0.4);
-	border-radius: 10px;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	color: white;
-	font-size: 30px;
-	text-align: center;
-}
-
-#caption > * {
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	padding: 0;
-	margin: 0;
-}
-
-#caption-intro {
-	top: 0;
-}
-</style>
+<link rel="stylesheet" href="style.php/caption.scss">
 
 <script>
 (function() {

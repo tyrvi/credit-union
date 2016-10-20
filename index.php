@@ -24,6 +24,7 @@
 	<?php include_once "navbar.php"; ?>
 	<div id="main">
 		<?php include_once "caption.php"; ?>
+		<?php include_once "statement.php"; ?>
 	</div>
 </body>
 </html>
