@@ -1,0 +1,32 @@
+/* compiled by scssphp v0.0.12 on Thu, 20 Oct 2016 05:34:51 +0200 (0.0063s) */
+
+.statement-title {
+  font-family: federation;
+  text-align: center;
+  font-size: 100px; }
+
+.statement-sub-title {
+  font-family: federation;
+  text-align: center;
+  font-size: 25px;
+  position: relative;
+  top: -30px; }
+
+.statement-header > div {
+  display: flex;
+  justify-content: center;
+  font-family: Federation;
+  font-size: 30px; }
+  .statement-header > div:nth-child(2) {
+    border-left: 2px solid black;
+    border-right: 2px solid black; }
+
+.statement > div {
+  display: flex;
+  justify-content: center;
+  font-family: Roboto;
+  font-size: 25px;
+  text-align: justify; }
+  .statement > div:nth-child(2) {
+    border-left: 2px solid black;
+    border-right: 2px solid black; }
