@@ -15,7 +15,7 @@
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
 			  <div class="highlight2"></div>
-			  <a>Invest</a>
+			  <a href="invest.php">Invest</a>
 		  </li>
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
