@@ -23,16 +23,18 @@
 			  <div class="highlight2"></div>
 			  <a>Borrow</a>
 		  </li>
+		  <a href="apply.php">
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
 			  <div class="highlight2"></div>
-			  <a href="apply.php">Apply</a>
-		  </li>
+			  <div>Apply</div>
+		  </li></a>
+		  <a href="login.php">
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
 			  <div class="highlight2"></div>
-			  <a href="login.php">Log In</a>
-		  </li>
+			  <div>Log In</div>
+		  </li></a>
 		</ul>
 		<div class="menu-social">
 			<img class="menu-social-icon" width="80px" src="images/Twitter_Social_Icon_White.png"/>
