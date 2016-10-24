@@ -7,11 +7,12 @@
 	</div>
 	<div id="menu-inner">
 		<ul class="list-group">
+		  <a href="index.php">
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
 			  <div class="highlight2"></div>
 			  <a href="index.php">Home</a>
-		  </li>
+		  </li></a>
 		  <a href="invest.php">
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
