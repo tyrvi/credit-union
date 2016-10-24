@@ -12,11 +12,12 @@
 			  <div class="highlight2"></div>
 			  <a href="index.php">Home</a>
 		  </li>
+		  <a href="invest.php">
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
 			  <div class="highlight2"></div>
-			  <a href="invest.php">Invest</a>
-		  </li>
+			  <div>Invest</div>
+		  </li></a>
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
 			  <div class="highlight2"></div>
