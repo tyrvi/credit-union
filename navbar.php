@@ -10,7 +10,7 @@
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
 			  <div class="highlight2"></div>
-			  <a>Home</a>
+			  <a href="index.php">Home</a>
 		  </li>
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
