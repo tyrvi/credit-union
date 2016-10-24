@@ -30,7 +30,7 @@
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
 			  <div class="highlight2"></div>
-			  <a>Log In</a>
+			  <a href="login.php">Log In</a>
 		  </li>
 		</ul>
 		<div class="menu-social">
