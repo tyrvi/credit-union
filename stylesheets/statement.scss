@@ -1,28 +1,29 @@
 .statement-title {
 	font-family: federation;
 	text-align: center;
-	font-size: 100px;
-}
-
-.statement-sub-title {
-	font-family: federation;
-	text-align: center;
 	font-size: 25px;
-	position: relative;
-	top: -30px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	background-color: rgb(223, 223, 223);
+	margin-bottom: 20px;
 }
 
 .statement-header {
+	font-size: 90px;
+	text-align: center;
+}
+
+.statement-sub-header {
+	font-size: 30px;
 	> div {
 		display: flex;
 		justify-content: center;
 		font-family: Federation;
-		font-size: 30px;
 	}
 	
 	> div:nth-child(2) {
-		border-left: 2px solid black;
-		border-right: 2px solid black;
+		border-left: 2px solid rgba(0, 0, 0, 0.17);
+		border-right: 2px solid rgba(0, 0, 0, 0.17);
 	}
 }
 
@@ -36,7 +37,7 @@
 	}
 	
 	> div:nth-child(2) {
-		border-left: 2px solid black;
-		border-right: 2px solid black;
+		border-left: 2px solid rgba(0, 0, 0, 0.17);
+		border-right: 2px solid rgba(0, 0, 0, 0.17);
 	}
 }

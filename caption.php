@@ -4,7 +4,7 @@
 (function() {
 
 var height = 40;
-var statements = ['World', 'Future', 'Community', 'Bank'];
+var statements = ['World', 'Future', 'Community', 'Life'];
 var animation = 'ease-in 0.3s';
 
 $(document).ready(function() {

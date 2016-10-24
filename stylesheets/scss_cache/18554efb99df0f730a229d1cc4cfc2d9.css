@@ -1,25 +1,27 @@
-/* compiled by scssphp v0.0.12 on Thu, 20 Oct 2016 05:34:51 +0200 (0.0063s) */
+/* compiled by scssphp v0.0.12 on Fri, 21 Oct 2016 05:40:35 +0200 (0.0173s) */
 
 .statement-title {
   font-family: federation;
   text-align: center;
-  font-size: 100px; }
-
-.statement-sub-title {
-  font-family: federation;
-  text-align: center;
   font-size: 25px;
-  position: relative;
-  top: -30px; }
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: #dfdfdf;
+  margin-bottom: 20px; }
 
-.statement-header > div {
-  display: flex;
-  justify-content: center;
-  font-family: Federation;
+.statement-header {
+  font-size: 90px;
+  text-align: center; }
+
+.statement-sub-header {
   font-size: 30px; }
-  .statement-header > div:nth-child(2) {
-    border-left: 2px solid black;
-    border-right: 2px solid black; }
+  .statement-sub-header > div {
+    display: flex;
+    justify-content: center;
+    font-family: Federation; }
+  .statement-sub-header > div:nth-child(2) {
+    border-left: 2px solid rgba(0, 0, 0, 0.17);
+    border-right: 2px solid rgba(0, 0, 0, 0.17); }
 
 .statement > div {
   display: flex;
@@ -28,5 +30,5 @@
   font-size: 25px;
   text-align: justify; }
   .statement > div:nth-child(2) {
-    border-left: 2px solid black;
-    border-right: 2px solid black; }
+    border-left: 2px solid rgba(0, 0, 0, 0.17);
+    border-right: 2px solid rgba(0, 0, 0, 0.17); }
