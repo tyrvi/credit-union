@@ -25,7 +25,7 @@
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
 			  <div class="highlight2"></div>
-			  <a>Apply</a>
+			  <a href="apply.php">Apply</a>
 		  </li>
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
