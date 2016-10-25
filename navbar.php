@@ -19,11 +19,12 @@
 			  <div class="highlight2"></div>
 			  <div>Invest</div>
 		  </li></a>
+		  <a href="borrow.php">
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
 			  <div class="highlight2"></div>
-			  <a>Borrow</a>
-		  </li>
+			  <div>Borrow</div>
+		  </li></a>
 		  <a href="apply.php">
 		  <li class="list-group-item">
 			  <div class="highlight"></div>
