@@ -16,6 +16,7 @@
 				<div><input type="text" name="Address1" placeholder="Address 1"></div>
 				<div><input type="text" name="Address2" placeholder="Address 2"></br></div>
 				<div><input type="text" name="City" placeholder="City"></div>
+				<div><input type="tel" name="Phone" placeholder="Phone"></div>
 				<select>
 					<option placeholder="TA">TA - Tatooine</option>
 					<option placeholder="DA">DA - Dantooine</option>
@@ -23,8 +24,9 @@
 				</select></br>
 				Date of Birth: <input type="date" name="DOB" placeholder="Date of Birth">
 				<div><input type="text" name="SS" placeholder="Social Security"></br></div>
-				<div><input type="password" name="Pass" placeholder="Password"></br></div>
 				<div><input type="number" name="income" placeholder="Income"><br/></div>
+				<div><input type="email" name="email" placeholder="Email"></br></div>
+				<div><input type="password" name="Pass" placeholder="Password"></br></div>
 			</form>
 		</div>
 	</div>
