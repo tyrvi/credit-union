@@ -24,6 +24,7 @@
 				Date of Birth: <input type="date" name="DOB" placeholder="Date of Birth">
 				<div><input type="text" name="SS" placeholder="Social Security"></br></div>
 				<div><input type="password" name="Pass" placeholder="Password"></br></div>
+				<div><input type="number" name="income" placeholder="Income"><br/></div>
 			</form>
 		</div>
 	</div>
