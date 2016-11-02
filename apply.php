@@ -10,20 +10,20 @@
 		<!-- Content -->
 		<div>
 			<form>
-				<input type="text" name="Fname" value="First Name">
-				<input type="text" name="Mname" value="Middle Name">
-				<input type="text" name="Lname" value="Last Name"></br>
-				<input type="text" name="Address1" value="Address 1">
-				<input type="text" name="Address2" value="Address 2"></br>
-				<input type="text" name="City" value="City">
+				<input type="text" name="Fname" placeholder="First Name">
+				<input type="text" name="Mname" placeholder="Middle Name">
+				<input type="text" name="Lname" placeholder="Last Name"></br>
+				<input type="text" name="Address1" placeholder="Address 1">
+				<input type="text" name="Address2" placeholder="Address 2"></br>
+				<input type="text" name="City" placeholder="City">
 				<select>
-					<option value="TA">TA - Tatooine</option>
-					<option value="DA">DA - Dantooine</option>
-					<option value="KA">KA - Kashyyyk</option>
+					<option placeholder="TA">TA - Tatooine</option>
+					<option placeholder="DA">DA - Dantooine</option>
+					<option placeholder="KA">KA - Kashyyyk</option>
 				</select></br>
-				Date of Birth: <input type="date" name="DOB" value="Date of Birth">
-				<input type="text" name="SS" value="Social Security"></br>
-				<input type="password" name="Pass" value="Password"></br>
+				Date of Birth: <input type="date" name="DOB" placeholder="Date of Birth">
+				<input type="text" name="SS" placeholder="Social Security"></br>
+				<input type="password" name="Pass" placeholder="Password"></br>
 			</form>
 		</div>
 	</div>
