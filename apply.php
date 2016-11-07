@@ -23,10 +23,15 @@
 					<option placeholder="KA">KA - Kashyyyk</option>
 				</select></br>
 				Date of Birth: <input type="date" name="DOB" placeholder="Date of Birth">
+				<div>
+					Male: <input type="radio" name="gender" value="male">
+					Female: <input type="radio" name="gender" value="female">
+				</div>
 				<div><input type="text" name="SS" placeholder="Social Security"></br></div>
 				<div><input type="number" name="income" placeholder="Income"><br/></div>
 				<div><input type="email" name="email" placeholder="Email"></br></div>
-				<div><input type="password" name="Pass" placeholder="Password"></br></div>
+				<div><input type="password" name="pass" placeholder="Password"></br></div>
+				<div><input type="password" name="confirm_pass" placeholder="Confirm Password"></br></div>
 			</form>
 		</div>
 		<?php
