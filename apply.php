@@ -35,6 +35,7 @@
 			</form>
 		</div>
 		<?php
+			/*
 			$link = mysqli_connect("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
 
 			if (!$link) {
@@ -48,6 +49,7 @@
 			echo "Host information: ".mysqli_get_host_info($link).PHP_EOL;
 
 			mysqli_close($link);
+			*/
 		?>
 	</div>
 </body>
