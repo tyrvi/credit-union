@@ -25,6 +25,7 @@
 	<div id="main">
 		<?php include_once "caption.php"; ?>
 		<?php include_once "statement.php"; ?>
+		<?php include_once "recommendations.php"; ?>
 	</div>
 </body>
 </html>
