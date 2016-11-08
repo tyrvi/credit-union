@@ -7,7 +7,7 @@
 <body>
 	<?php include_once "navbar.php"; ?>
 	<div id="main">
-	Heerearea
+	 Hey 
 	</div>
 </body>
 </html>
