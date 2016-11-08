@@ -7,7 +7,7 @@
 <body>
 	<?php include_once "navbar.php"; ?>
 	<div id="main">
-	Heerearea
+	We are about saving Darth Vader
 	</div>
 </body>
 </html>
