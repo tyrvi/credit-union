@@ -28,9 +28,7 @@
 				$password = $_POST["pass"];
 			}
 
-			
-
-
+			//$res = $mysqli->query("SELECT C_Id from cudb.customers where C_Id = $username")
 		?>
 	</div>
 </body>
