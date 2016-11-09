@@ -1,0 +1,14 @@
+/* compiled by scssphp v0.0.12 on Wed, 09 Nov 2016 16:52:27 +0100 (0.0031s) */
+
+.statement-title {
+  text-align: center;
+  font-size: 40px;
+  font-family: federation; }
+
+.statement-icon {
+  text-align: center;
+  font-size: 35px; }
+
+.statement-message {
+  text-align: center;
+  font-size: 20px; }
