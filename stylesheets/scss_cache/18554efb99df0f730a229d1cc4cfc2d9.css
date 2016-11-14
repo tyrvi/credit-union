@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.0.12 on Fri, 21 Oct 2016 05:40:35 +0200 (0.0173s) */
+/* compiled by scssphp v0.0.12 on Mon, 07 Nov 2016 20:10:44 +0100 (0.009s) */
 
 .statement-title {
   font-family: federation;
@@ -8,10 +8,6 @@
   padding-top: 10px;
   background-color: #dfdfdf;
   margin-bottom: 20px; }
-
-.statement-header {
-  font-size: 90px;
-  text-align: center; }
 
 .statement-sub-header {
   font-size: 30px; }

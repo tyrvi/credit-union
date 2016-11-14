@@ -1,0 +1,17 @@
+/* compiled by scssphp v0.0.12 on Mon, 07 Nov 2016 20:51:18 +0100 (0.0041s) */
+
+.apply {
+  display: flex;
+  justify-content: center; }
+
+.apply-box {
+  width: 90vw;
+  padding: 30px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  border: 2px solid #d9d9d9; }
+  @media screen and (min-width: 800px) {
+  .apply-box {
+    width: 500px; } }
+  .apply-box p {
+    font-family: federation; }

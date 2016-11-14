@@ -97,7 +97,7 @@
 
 #menu {
 	position: absolute;
-	width: 500px;
+	width: 100%;
 	height: calc(100vh);
 	overflow: hidden;
 	z-index: 20000;
@@ -106,12 +106,6 @@
 	&.inactive {
 		width: 100px;
 		height: 100px;	
-	}
-	
-	&.active {
-		@media screen and (max-width: 860px) {
-			width: 100%;
-		}
 	}
 }
 
