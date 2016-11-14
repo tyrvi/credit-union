@@ -9,7 +9,7 @@
 	<?php include_once "navbar.php"; ?>
 	<div id="main" class="apply">
 		<div>
-			<form class="apply-box">
+			<form class="apply-box" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				<div class="form-group">
 					<p>FIRST NAME</p>
 					<input class="form-control" type="text" name="Fname" placeholder="First Name">
@@ -101,24 +101,57 @@
 					<p>PASSWORD</p>
 					<input class="form-control" type="password" name="confirm_pass" placeholder="Confirm Password">
 				</div>
+				
+				<input type="submit" value="Submit">
 			</form>
 		</div>
 		<?php
-			/*
 			$link = mysqli_connect("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
-
-			if (!$link) {
-				echo "Error: Unable to connect to MySQL.".PHP_EOL;
-				echo "Debugging errno: ".mysqli_connect_errno().PHP_EOL;
-				echo "Debugging error: ".mysqli_connect_error().PHP_EOL;
-				exit;
+			
+			$mysqli = new mysqli("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
+			if ($mysqli->connect_errno) {
+				echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+			}
+			//echo $mysqli->host_info . "\n";
+			// init variables for form collection/validation
+			$Fname = $Mname = $Lname = $Address1 = $Address2 = $City = $Phone = $Planet = $SS = $Pass = $confirm_pass = $email = $gender = "";
+			// collect form values
+			if ($_SERVER["REQUEST_METHOD"] == "POST") {
+				$Fname = validate($_POST["Fname"]);
+				$Mname = validate($_POST["Mname"]);
+				$Lname = validate($_POST["Lname"]);
+				$Address1 = validate($_POST["Address1"]);
+				$Address2 = validate($_POST["Address2"]);
+				$City = validate($_POST["City"]);
+				$Phone = validate($_POST["Phone"]);
+				$SS =validate($_POST["SS"]);
+				$Pass = validate($_POST["Pass"]);
+				$confirm_pass = validate($_POST["confirm_pass"]);
+				$email = validate($_POST["email"]);
+				$gender = validate($_POST["gender"]);
+				$Planet = validate($_POST["Planet"]);
 			}
 
-			echo "Success: A proper connection to MySQL was made! The my_db database is great.".PHP_EOL;
-			echo "Host information: ".mysqli_get_host_info($link).PHP_EOL;
+			function validate($data) {
+				$data = trim($data);
+				$data = stripslashes($data);
+				$data = htmlspecialchars($data);
+				return $data;
+			}
+			
+			echo $Fname;
+			
+			/*$res = $mysqli->query("select * from cudb.customers where C_Id=1;");
+
+			$row = $res->fetch_assoc();
+			echo gettype($row);
+			
+			foreach($row as $item) {
+				echo "<br>";
+				echo $item;
+			}*/
 
 			mysqli_close($link);
-			*/
 		?>
 	</div>
 </body>
