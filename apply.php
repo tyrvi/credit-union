@@ -2,36 +2,105 @@
 <html>
 <head>
     <?php include_once "includes.php" ?>
+	<link rel="stylesheet" href="style.php/apply.scss">
     <title>Apply</title>
 </head>
 <body>
 	<?php include_once "navbar.php"; ?>
-	<div id="main">
-		<!-- Content -->
+	<div id="main" class="apply">
 		<div>
-			<form>
-				<div><input type="text" name="Fname" placeholder="First Name"></div>
-				<div><input type="text" name="Mname" placeholder="Middle Name"></div>
-				<div><input type="text" name="Lname" placeholder="Last Name"></br></div>
-				<div><input type="text" name="Address1" placeholder="Address 1"></div>
-				<div><input type="text" name="Address2" placeholder="Address 2"></br></div>
-				<div><input type="text" name="City" placeholder="City"></div>
-				<div><input type="tel" name="Phone" placeholder="Phone"></div>
-				<select>
-					<option placeholder="TA">TA - Tatooine</option>
-					<option placeholder="DA">DA - Dantooine</option>
-					<option placeholder="KA">KA - Kashyyyk</option>
-				</select></br>
-				Date of Birth: <input type="date" name="DOB" placeholder="Date of Birth">
-				<div>
-					Male: <input type="radio" name="gender" value="male">
-					Female: <input type="radio" name="gender" value="female">
+			<form class="apply-box">
+				<div class="form-group">
+					<p>FIRST NAME</p>
+					<input class="form-control" type="text" name="Fname" placeholder="First Name">
 				</div>
-				<div><input type="text" name="SS" placeholder="Social Security"></br></div>
-				<div><input type="number" name="income" placeholder="Income"><br/></div>
-				<div><input type="email" name="email" placeholder="Email"></br></div>
-				<div><input type="password" name="pass" placeholder="Password"></br></div>
-				<div><input type="password" name="confirm_pass" placeholder="Confirm Password"></br></div>
+				
+				<div class="form-group">
+					<p>MIDDLE NAME</p>
+					<input class="form-control" type="text" name="Mname" placeholder="Middle Name">
+				</div>
+				
+				<div class="form-group">
+					<p>LAST NAME</p>
+					<input class="form-control" type="text" name="Lname" placeholder="Last Name">
+				</div>
+				
+				<div class="form-group">
+					<p>ADDRESS ONE</p>
+					<input class="form-control" type="text" name="Address1" placeholder="Address 1">
+				</div>
+				
+				<div class="form-group">
+					<p>ADDRESS TWO</p>
+					<input class="form-control" type="text" name="Address2" placeholder="Address 2">
+				</div>
+				
+				<div class="form-group">
+					<p>PLANET</p>
+					<select class="form-control">
+						<option placeholder="TA">TA - Tatooine</option>
+						<option placeholder="DA">DA - Dantooine</option>
+						<option placeholder="KA">KA - Kashyyyk</option>
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<p>CITY</p>
+					<input class="form-control" type="text" name="City" placeholder="City">
+				</div>
+				
+				<div class="form-group">
+					<p>PHONE</p>
+					<input class="form-control" type="tel" name="Phone" placeholder="Phone">
+				</div>
+				
+				<div class="form-group">
+					<p>DATE OF BIRTH</p>
+					<input class="form-control" type="date" name="DOB" placeholder="Date of Birth">
+				</div>
+				
+				<div class="form-group">
+					<p>GENDER</p>
+					<div class="radio">
+						<label><input type="radio" name="gender" value="male">Male</label>
+					</div>
+					<div class="radio">
+						<label><input type="radio" name="gender" value="female">Female</label>
+					</div>
+					<div class="radio">
+						<label><input type="radio" name="gender" value="droid">Droid</label>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<p>DATE OF BIRTH</p>
+					<input class="form-control" type="date" name="DOB" placeholder="Date of Birth">
+				</div>
+				
+				<div class="form-group">
+					<p>SOCIAL SECURITY</p>
+					<input class="form-control" type="date" name="SS" placeholder="Social Security">
+				</div>
+				
+				<div class="form-group">
+					<p>INCOME</p>
+					<input class="form-control" type="number" name="income" placeholder="Income">
+				</div>
+				
+				<div class="form-group">
+					<p>EMAIL</p>
+					<input class="form-control" type="email" name="email" placeholder="Email">
+				</div>
+				
+				<div class="form-group">
+					<p>PASSWORD</p>
+					<input class="form-control" type="password" name="pass" placeholder="Password">
+				</div>
+
+				<div class="form-group">
+					<p>PASSWORD</p>
+					<input class="form-control" type="password" name="confirm_pass" placeholder="Confirm Password">
+				</div>
 			</form>
 		</div>
 		<?php

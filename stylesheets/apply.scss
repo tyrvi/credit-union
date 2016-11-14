@@ -1,0 +1,24 @@
+$apply-box-color: #f2f2f2;
+.apply {
+	display: flex;
+	justify-content: center;
+}
+
+.apply-box {
+	width: 90vw;
+	@media screen and (min-width: 800px) {
+		width: 500px;
+	}
+	padding: 30px;
+	background-color: $apply-box-color;
+	border-radius: 10px;
+	border: 2px solid darken($apply-box-color, 0.1);
+	
+	input {
+		
+	}
+	
+	p {
+		font-family: federation;
+	}
+}
