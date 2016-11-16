@@ -74,3 +74,6 @@ $(document).ready(function() {
 		</div>
 	</div>
 </div>
+<div class="caption-summary">
+	<i>build a better way to do credit</i>
+</div>

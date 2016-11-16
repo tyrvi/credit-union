@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.0.12 on Wed, 16 Nov 2016 01:48:21 +0100 (0.1198s) */
+/* compiled by scssphp v0.0.12 on Wed, 09 Nov 2016 16:34:14 +0100 (0.0595s) */
 
 #menu-button {
   z-index: 200000;
@@ -74,7 +74,7 @@
 
 #menu {
   position: absolute;
-  width: 100%;
+  width: 500px;
   height: calc(100vh);
   overflow: hidden;
   z-index: 20000;
@@ -82,6 +82,9 @@
   #menu.inactive {
     width: 100px;
     height: 100px; }
+  @media screen and (max-width: 860px) {
+    #menu.active {
+      width: 100%; } }
 
 #menu-shadow {
   position: fixed;

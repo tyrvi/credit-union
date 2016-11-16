@@ -1,30 +1,15 @@
-/* compiled by scssphp v0.0.12 on Wed, 16 Nov 2016 02:49:00 +0100 (0.0085s) */
+/* compiled by scssphp v0.0.12 on Mon, 14 Nov 2016 20:33:41 +0100 (0.1761s) */
 
 .apply {
   display: flex;
   justify-content: center; }
-  .apply:before {
-    content: "";
-    z-index: -20;
-    position: fixed;
-    top: -100%;
-    width: 100%;
-    height: 200%;
-    background-image: url("http://cdn.wallpapersafari.com/92/74/GN4hjW.jpg");
-    filter: blur(5px);
-    background-position: 75%, 0; }
-
-.btn {
-  background-color: white; }
 
 .apply-box {
-  margin-top: 40px;
   width: 90vw;
-  font-size: 16px;
   padding: 30px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #f2f2f2;
   border-radius: 10px;
-  border: 2px solid black; }
+  border: 2px solid #d9d9d9; }
   @media screen and (min-width: 800px) {
   .apply-box {
     width: 500px; } }
