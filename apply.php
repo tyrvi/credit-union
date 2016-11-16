@@ -101,6 +101,14 @@
 			</form>
 		</div>
 		<?php
+			// validates input and makes sure it is not corrupt or malicious
+			function validate($data) {
+				$data = trim($data);
+				$data = stripslashes($data);
+				$data = htmlspecialchars($data);
+				return $data;
+			}
+
 			$link = mysqli_connect("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
 			
 			$mysqli = new mysqli("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
@@ -108,33 +116,30 @@
 				echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 			}
 			//echo $mysqli->host_info . "\n";
-			// init variables for form collection/validation
+			//init variables for form collection/validation
 			$Fname = $Mname = $Lname = $Address1 = $Address2 = $City = $Phone = $Planet = $SS = $Pass = $confirm_pass = $email = $gender = "";
 			// collect form values
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				$Fname = validate($_POST["Fname"]);
 				$Mname = validate($_POST["Mname"]);
-				$Lname = validate($_POST["Lname"]);
+				$Lname = validate($_POST["Lname"]);				
 				$Address1 = validate($_POST["Address1"]);
 				$Address2 = validate($_POST["Address2"]);
 				$City = validate($_POST["City"]);
 				$Phone = validate($_POST["Phone"]);
 				$SS =validate($_POST["SS"]);
-				$Pass = validate($_POST["Pass"]);
+				$Pass = validate($_POST["pass"]);
 				$confirm_pass = validate($_POST["confirm_pass"]);
 				$email = validate($_POST["email"]);
 				$gender = validate($_POST["gender"]);
 				$Planet = validate($_POST["Planet"]);
+				if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
+				echo "This $email is not a valid email address.";
+				}
 			}
 
-			function validate($data) {
-				$data = trim($data);
-				$data = stripslashes($data);
-				$data = htmlspecialchars($data);
-				return $data;
-			}
-			
-			echo $Fname;
+			$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass) 
+				VALUES ($Fname"
 			
 			/*$res = $mysqli->query("select * from cudb.customers where C_Id=1;");
 
