@@ -16,32 +16,30 @@
 			</form>
 		</div>
 		<?php
+			// open connection to database
 			$mysqli = new mysqli("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
+			// check for database connection error
 			if ($mysqli->connect_errno) {
 				echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 			}
-			//echo $mysqli->host_info . "\n";
+
 			$username = $password = "";
 
+			// TO-DO: these nested statements are so bad need to fix them at some point
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				$username = $_POST["username"];
 				$password = $_POST["pass"];
+
 				$res = $mysqli->query("SELECT Email, Pass from cudb.customers where Email = '$username'");
 				$row = $res->fetch_assoc();
 
 				if ($row["Pass"] != $password) {
-					echo "Incorrect password please try again.";
+					echo "Incorrect email or password please try again.";
+				}
+				else {
+					echo "Congratulations you remembered your username and password!";
 				}
 				
-
-				/*
-				echo $row["Email"];
-				echo $row["Pass"];
-				foreach ($row as $item) {
-					echo "<br>";
-					echo $item;
-				}
-				*/
 			}
 			mysqli_close($mysqli);
 		?>
