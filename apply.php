@@ -143,7 +143,8 @@
 				}
 			}
 
-			
+			$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass) 
+				VALUES ($Fname"
 			
 			/*$res = $mysqli->query("select * from cudb.customers where C_Id=1;");
 
