@@ -138,18 +138,19 @@
 				if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
 				echo "This $email is not a valid email address.";
 				}
-			}
-			
-			
-			$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass) 
+				$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass) 
 				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass')";
 
-			if ($mysqli->query($form) === TRUE) {
-				echo "Application successful!";
-			} 
-			else {
-				echo "Error: ".$form."<br>".$mysqli->error;
+				if ($mysqli->query($form) === TRUE) {
+					echo "Application successful!";
+				} 
+				else {
+					echo "Error: ".$form."<br>".$mysqli->error;
+				}
 			}
+			
+			
+			
 			
 			/*$res = $mysqli->query("select * from cudb.customers where C_Id=1;");
 
