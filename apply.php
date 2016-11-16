@@ -7,8 +7,8 @@
 </head>
 <body>
 	<?php include_once "navbar.php"; ?>
-	<div id="main" class="apply">
-		<div>
+	<div id="main">
+		<div class="apply">
 			<form class="apply-box" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				<div class="form-group">
 					<p>FIRST NAME</p>
@@ -62,24 +62,19 @@
 				<div class="form-group">
 					<p>GENDER</p>
 					<div class="radio">
-						<label><input type="radio" name="gender" value="male">Male</label>
+						<label><input type="radio" name="gender" value="male"><p>MALE</p></label>
 					</div>
 					<div class="radio">
-						<label><input type="radio" name="gender" value="female">Female</label>
+						<label><input type="radio" name="gender" value="female"><p>FEMALE</p></label>
 					</div>
 					<div class="radio">
-						<label><input type="radio" name="gender" value="droid">Droid</label>
+						<label><input type="radio" name="gender" value="droid"><p>DROID</p></label>
 					</div>
-				</div>
-				
-				<div class="form-group">
-					<p>DATE OF BIRTH</p>
-					<input class="form-control" type="date" name="DOB" placeholder="Date of Birth">
 				</div>
 				
 				<div class="form-group">
 					<p>SOCIAL SECURITY</p>
-					<input class="form-control" type="date" name="SS" placeholder="Social Security">
+					<input class="form-control" type="text" name="SS" placeholder="Social Security">
 				</div>
 				
 				<div class="form-group">
@@ -98,11 +93,11 @@
 				</div>
 
 				<div class="form-group">
-					<p>PASSWORD</p>
+					<p>CONFIRM PASSWORD</p>
 					<input class="form-control" type="password" name="confirm_pass" placeholder="Confirm Password">
 				</div>
 				
-				<input type="submit" value="Submit">
+				<input type="submit" value="Submit" class="btn">
 			</form>
 		</div>
 		<?php
