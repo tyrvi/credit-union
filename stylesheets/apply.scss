@@ -2,6 +2,11 @@ $apply-box-color: #f2f2f2;
 .apply {
 	display: flex;
 	justify-content: center;
+	background-image: url("http://cdn.wallpapersafari.com/92/74/GN4hjW.jpg");
+}
+
+.apply-background {
+	
 }
 
 .apply-box {
@@ -9,10 +14,12 @@ $apply-box-color: #f2f2f2;
 	@media screen and (min-width: 800px) {
 		width: 500px;
 	}
+	
 	padding: 30px;
-	background-color: $apply-box-color;
+	background-color: rgba(255, 255, 255, 0.5);
+	
 	border-radius: 10px;
-	border: 2px solid darken($apply-box-color, 0.1);
+	border: 2px solid black;
 	
 	input {
 		

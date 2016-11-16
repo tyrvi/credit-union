@@ -7,8 +7,10 @@
 </head>
 <body>
 	<?php include_once "navbar.php"; ?>
-	<div id="main" class="apply">
-		<div>
+	
+	<div id="main">
+		<div class="apply-background"></div>
+		<div class="apply">
 			<form class="apply-box">
 				<div class="form-group">
 					<p>FIRST NAME</p>
@@ -73,13 +75,8 @@
 				</div>
 				
 				<div class="form-group">
-					<p>DATE OF BIRTH</p>
-					<input class="form-control" type="date" name="DOB" placeholder="Date of Birth">
-				</div>
-				
-				<div class="form-group">
 					<p>SOCIAL SECURITY</p>
-					<input class="form-control" type="date" name="SS" placeholder="Social Security">
+					<input class="form-control" type="text" name="SS" placeholder="Social Security">
 				</div>
 				
 				<div class="form-group">
@@ -98,7 +95,7 @@
 				</div>
 
 				<div class="form-group">
-					<p>PASSWORD</p>
+					<p>CONFIRM PASSWORD</p>
 					<input class="form-control" type="password" name="confirm_pass" placeholder="Confirm Password">
 				</div>
 			</form>
