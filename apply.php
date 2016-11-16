@@ -9,7 +9,6 @@
 	<?php include_once "navbar.php"; ?>
 	
 	<div id="main">
-		<div class="apply-background"></div>
 		<div class="apply">
 			<form class="apply-box">
 				<div class="form-group">
@@ -64,13 +63,13 @@
 				<div class="form-group">
 					<p>GENDER</p>
 					<div class="radio">
-						<label><input type="radio" name="gender" value="male">Male</label>
+						<label><input type="radio" name="gender" value="male"><p>MALE</p></label>
 					</div>
 					<div class="radio">
-						<label><input type="radio" name="gender" value="female">Female</label>
+						<label><input type="radio" name="gender" value="female"><p>FEMALE</p></label>
 					</div>
 					<div class="radio">
-						<label><input type="radio" name="gender" value="droid">Droid</label>
+						<label><input type="radio" name="gender" value="droid"><p>DROID</p></label>
 					</div>
 				</div>
 				
@@ -98,6 +97,8 @@
 					<p>CONFIRM PASSWORD</p>
 					<input class="form-control" type="password" name="confirm_pass" placeholder="Confirm Password">
 				</div>
+				
+				<input type="submit" class="btn">
 			</form>
 		</div>
 		<?php

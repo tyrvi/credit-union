@@ -1,0 +1,30 @@
+/* compiled by scssphp v0.0.12 on Wed, 16 Nov 2016 02:32:51 +0100 (0.0086s) */
+
+.statement-title {
+  font-family: federation;
+  text-align: center;
+  font-size: 25px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: #dfdfdf;
+  margin-bottom: 20px; }
+
+.statement-sub-header {
+  font-size: 30px; }
+  .statement-sub-header > div {
+    display: flex;
+    justify-content: center;
+    font-family: Federation; }
+  .statement-sub-header > div:nth-child(2) {
+    border-left: 2px solid rgba(0, 0, 0, 0.17);
+    border-right: 2px solid rgba(0, 0, 0, 0.17); }
+
+.statement > div {
+  display: flex;
+  justify-content: center;
+  font-family: Roboto;
+  font-size: 25px;
+  text-align: justify; }
+  .statement > div:nth-child(2) {
+    border-left: 2px solid rgba(0, 0, 0, 0.17);
+    border-right: 2px solid rgba(0, 0, 0, 0.17); }
