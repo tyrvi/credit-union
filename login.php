@@ -28,7 +28,12 @@
 				$password = $_POST["pass"];
 			}
 
-			//$res = $mysqli->query("SELECT C_Id from cudb.customers where C_Id = $username")
+			echo $username;
+			echo $password;
+
+			//$res = $mysqli->query("SELECT Email, Pass from cudb.customers where Email = '$username'");
+
+			mysqli_close($mysqli);
 		?>
 	</div>
 </body>
