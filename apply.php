@@ -140,9 +140,9 @@
 				}
 			}
 			
-			/*
+			
 			$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass) 
-				VALUES ($Fname, $Mname, $Lname, $Address1, $Address2, $City, $Planet, $DOB, $SS, $email, $Pass)";
+				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass')";
 
 			if ($mysqli->query($form) === TRUE) {
 				echo "Application successful!";
@@ -150,7 +150,7 @@
 			else {
 				echo "Error: ".$form."<br>".$mysqli->error;
 			}
-			*/
+			
 			/*$res = $mysqli->query("select * from cudb.customers where C_Id=1;");
 
 			$row = $res->fetch_assoc();
