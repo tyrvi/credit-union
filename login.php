@@ -26,13 +26,23 @@
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				$username = $_POST["username"];
 				$password = $_POST["pass"];
+				$res = $mysqli->query("SELECT Email, Pass from cudb.customers where Email = '$username'");
+				$row = $res->fetch_assoc();
+
+				if ($row["Pass"] != $password) {
+					echo "Incorrect password please try again.";
+				}
+				
+
+				/*
+				echo $row["Email"];
+				echo $row["Pass"];
+				foreach ($row as $item) {
+					echo "<br>";
+					echo $item;
+				}
+				*/
 			}
-
-			echo $username;
-			echo $password;
-
-			//$res = $mysqli->query("SELECT Email, Pass from cudb.customers where Email = '$username'");
-
 			mysqli_close($mysqli);
 		?>
 	</div>
