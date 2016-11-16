@@ -37,7 +37,7 @@
 				
 				<div class="form-group">
 					<p>PLANET</p>
-					<select class="form-control">
+					<select class="form-control" name="Planet">
 						<option placeholder="TA">TA - Tatooine</option>
 						<option placeholder="DA">DA - Dantooine</option>
 						<option placeholder="KA">KA - Kashyyyk</option>
@@ -109,7 +109,7 @@
 				return $data;
 			}
 
-			$link = mysqli_connect("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
+			//$link = mysqli_connect("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
 			
 			$mysqli = new mysqli("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
 			if ($mysqli->connect_errno) {
@@ -117,8 +117,8 @@
 			}
 			//echo $mysqli->host_info . "\n";
 			//init variables for form collection/validation
-			$Fname = $Mname = $Lname = $Address1 = $Address2 = $City = $Phone = $Planet = $SS = $Pass = $confirm_pass = $email = $gender = "";
-			$DOB = date('Y-m-d', strtotime(str_replace('-', '/', $date)));
+			$Fname = $Mname = $Lname = $Address1 = $Address2 = $City = $Phone = $Planet = $SS = $Pass = $confirm_pass = $email = $DOB = $gender = "";
+			
 			// collect form values
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				$Fname = validate($_POST["Fname"]);
@@ -132,15 +132,24 @@
 				$Pass = validate($_POST["pass"]);
 				$confirm_pass = validate($_POST["confirm_pass"]);
 				$email = validate($_POST["email"]);
+				$DOB = date('Y-m-d', strtotime(str_replace('-', '/', $_POST["DOB"])));
 				$gender = validate($_POST["gender"]);
 				$Planet = validate($_POST["Planet"]);
 				if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
 				echo "This $email is not a valid email address.";
 				}
 			}
-
+			
+			
 			$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass) 
-				VALUES ($Fname, $Mname, $Lname, $Address1, $Address2, $City, $Planet, $DOB, $SS, $email, $Pass)";
+				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass')";
+
+			if ($mysqli->query($form) === TRUE) {
+				echo "Application successful!";
+			} 
+			else {
+				echo "Error: ".$form."<br>".$mysqli->error;
+			}
 			
 			/*$res = $mysqli->query("select * from cudb.customers where C_Id=1;");
 
@@ -152,7 +161,7 @@
 				echo $item;
 			}*/
 
-			mysqli_close($link);
+			mysqli_close($mysqli);
 		?>
 	</div>
 </body>
