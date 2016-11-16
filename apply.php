@@ -118,6 +118,7 @@
 			//echo $mysqli->host_info . "\n";
 			//init variables for form collection/validation
 			$Fname = $Mname = $Lname = $Address1 = $Address2 = $City = $Phone = $Planet = $SS = $Pass = $confirm_pass = $email = $gender = "";
+			$DOB = date('Y-m-d', strtotime(str_replace('-', '/', $date)));
 			// collect form values
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				$Fname = validate($_POST["Fname"]);
@@ -139,7 +140,7 @@
 			}
 
 			$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass) 
-				VALUES ($Fname"
+				VALUES ($Fname, $Mname, $Lname, $Address1, $Address2, $City, $Planet, $DOB, $SS, $email, $Pass)";
 			
 			/*$res = $mysqli->query("select * from cudb.customers where C_Id=1;");
 
