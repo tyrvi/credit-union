@@ -125,20 +125,9 @@
 			$Fname = $Mname = $Lname = $Address1 = $Address2 = $City = $Phone = $Planet = $SS = $Pass = $confirm_pass = $email = $gender = "";
 			// collect form values
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				if (empty($_POST["Fname"])) {
-					$FnameErr = "First Name is required.";
-				}
-				else {
-					$Fname = validate($_POST["Fname"]);
-				}
+				$Fname = validate($_POST["Fname"]);
 				$Mname = validate($_POST["Mname"]);
-				if (empty($_POST["Lname"])) {
-					$LnameErr = "Last Name is required.";
-				}
-				else {
-					$Lname = validate($_POST["Lname"]);
-				}
-				
+				$Lname = validate($_POST["Lname"]);				
 				$Address1 = validate($_POST["Address1"]);
 				$Address2 = validate($_POST["Address2"]);
 				$City = validate($_POST["City"]);
@@ -148,11 +137,10 @@
 				$confirm_pass = validate($_POST["confirm_pass"]);
 				$email = validate($_POST["email"]);
 				$gender = validate($_POST["gender"]);
-				//$Planet = validate($_POST["Planet"]);
+				$Planet = validate($_POST["Planet"]);
 				if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
-				echo "This ($email) is no a valid email address.";
+				echo "This $email is not a valid email address.";
 				}
-			
 			}
 
 			
