@@ -2,6 +2,7 @@ $login-box-text-color: rgb(131, 131, 131);
 
 body {
 	background-color: rgb(240, 240, 240);
+	background: linear-gradient(to bottom, rgb(241, 241, 241) 0%, rgb(189, 189, 189) 100%);
 }
 
 .login {
@@ -13,13 +14,10 @@ body {
 }
 
 .login-text {
+	position: relative;
     font-family: federation;
     text-align: center;
     font-size: 25px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    background-color: #dfdfdf;
-    margin-bottom: 20px;
 }
 
 .login-box {
@@ -31,7 +29,7 @@ body {
 
 .login-box-text {
 	font-size: 20px;
-	font-family: federation;
+	font-family: Roboto;
 	text-align: center;
 	border-bottom: 1px solid $login-box-text-color;
 	color: $login-box-text-color;

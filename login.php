@@ -8,28 +8,30 @@
 <body>
 	<?php include_once "navbar.php"; ?>
 	<div id="main">
-		<div class="login-text">
-			BUILD A BETTER WAY TO DO CREDIT
-		</div>
 		
 		<div class="login">
 			<img class="login-image" src="http://i.imgur.com/RcIH3Do.png">
-			<div class="login-box">
-				<div class="login-box-text">LOGIN</div>
-				<form name="login" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-					<div class="form-group">
-						<input class="form-control" type="text" name="Fname" placeholder="First Name">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" name="username" placeholder="ID or email">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="password" name="pass" placeholder="Password">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="submit" name="submit" value="Login">
-					</div>
-				</form>
+			<div>
+				<div class="login-text">
+					WELCOME TO THE DARKSIDE
+				</div>
+				<div class="login-box">
+					<div class="login-box-text">ICU</div>
+					<form name="login" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+						<div class="form-group">
+							<input class="form-control" type="text" name="Fname" placeholder="First Name">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" name="username" placeholder="ID or email">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="password" name="pass" placeholder="Password">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="submit" name="submit" value="Login">
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 		<?php
