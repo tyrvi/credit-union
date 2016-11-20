@@ -9,6 +9,7 @@
 	<?php include_once "navbar.php"; ?>
 	<div id="main">
 		<div class="apply">
+			<div class="apply-text">Join the dark side.</div>
 			<form class="apply-box" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				<div class="form-group">
 					<p>FIRST NAME</p>
