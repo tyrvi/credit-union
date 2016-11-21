@@ -9,41 +9,7 @@
 
 <body>
 	<?php include_once "navbar.php"; ?>
-	<script>
-	(() => {
-		var dotW = 20;
-		var lineW = 44;
-		
-		$(document).ready(() => {			
-			$('#apply-caption-carousel').on('slide.bs.carousel', (e) => {
-			    var slideTo = $(e.relatedTarget).index();
-				var maxW = $('.apply-progress').innerWidth();		
-				var w = dotW * (slideTo + 1) + lineW * (slideTo);
-				$('.apply-current-progress').css('width', w + 'px');
-				$('.apply-current-slider').css('width', w + 'px');
-			});
-
-			$('#apply-next').click(() => {
-				$('#apply-caption-carousel').carousel('next');
-					
-				setTimeout(() => { 
-					$('#apply-carousel').carousel('next'); 
-				}, 200);
-			});
-			
-			$('#apply-prev').click(() => {
-				$('#apply-caption-carousel').carousel('prev');
-					
-				setTimeout(() => { 
-					$('#apply-carousel').carousel('prev'); 
-				}, 200);
-			});
-		});
-	})();
-	</script>
 	<div id="main" ng-app="app" ng-controller="ctrl">
-		<a id="apply-next">Next</a>
-		<a id="apply-prev">Prev</a>
 		<div class="apply">
 			<div class="apply-text">Join the dark side.</div>
 			<form class="apply-box" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -51,13 +17,19 @@
 					<span class="apply-progress-point"></span>
 					<span class="apply-progress-point"></span>
 					<span class="apply-progress-point"></span>
+					<span class="apply-progress-point"></span>
+					<span class="apply-progress-point"></span>
+					<span class="apply-progress-point"></span>
+					
+					<div class="apply-current-progress">
+						<span class="apply-progress-point"></span>
+						<span class="apply-progress-point"></span>
+						<span class="apply-progress-point"></span>
+						<span class="apply-progress-point"></span>
+						<span class="apply-progress-point"></span>
+						<span class="apply-progress-point"></span>
+					</div>
 				</span>
-				
-				<div class="apply-current-progress">
-					<span class="apply-progress-point"></span>
-					<span class="apply-progress-point"></span>
-					<span class="apply-progress-point"></span>
-				</div>
 				
 				<div id="apply-caption-carousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
 					<div class="carousel-inner" role="listbox">
@@ -68,12 +40,27 @@
 						</div>
 						<div class="item">
 							<div class="apply-mini-form">
-								<p>Hello {{name}}</p>
+								<p>Hello {{Fname}}.</p>
 							</div>
 						</div>
 						<div class="item">
 							<div class="apply-mini-form">
-								<p>Woah there</p>
+								<p>Are you a boy or a girl?</p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<p>Where are you from?</p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<p>Set your income.</p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<p>Wrapping up.</p>
 							</div>
 						</div>
 					</div>
@@ -83,21 +70,88 @@
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
 							<div class="apply-mini-form">
-								<input ng-model="name" class="form-control" type="text" name="Fname" placeholder="First Name">
+								<input ng-model="Fname" class="form-control" type="text" name="Fname" placeholder="First Name">
+								<p id="FnameErr" class="apply-error"></p>
+								
+								<input ng-model="Mname" class="form-control" type="text" name="Mname" placeholder="Middle Name">
+								<p id="MnameErr" class="apply-error"></p>
+								
+								<input ng-model="Lname" class="form-control" type="text" name="Lname" placeholder="Last Name">
+								<p id="LnameErr" class="apply-error"></p>
 							</div>
 						</div>
 						<div class="item">
 							<div class="apply-mini-form">
-								<input class="form-control" type="text" name="Fname" placeholder="First Name">
+								<p>Date of Birth</p>
+								<input ng-model="DOB" class="form-control" type="date" name="DOB" placeholder="Date of Birth">
+								<p id="DOBErr" class="apply-error"></p>
+								
+								<p>Phone</p>
+								<input ng-model="Phone" class="form-control" type="tel" name="Phone" placeholder="Phone">
+								<p id="PhoneErr" class="apply-error"></p>
+
+								<p>Social Security</p>
+								<input ng-model="SS" class="form-control" type="text" name="SS" placeholder="Social Security">
+								<p id="SSErr" class="apply-error"></p>
 							</div>
 						</div>
 						<div class="item">
 							<div class="apply-mini-form">
-								<input class="form-control" type="text" name="Fname" placeholder="First Name">
+								<div class="apply-gender">
+									<label>
+										<input ng-model="gender" class="apply-gender-radio" type="radio" name="gender" value="male">
+										<div class="apply-gender-img">
+											<img src="http://latimes-graphics-media.s3.amazonaws.com/assets/img/stormtrooper_images/imperial.png?">
+											<p>Male</p>
+										</div>
+									</label>
+									<label>
+										<input ng-model="gender" class="apply-gender-radio" type="radio" name="gender" value="female">
+										<div class="apply-gender-img">
+											<img src="http://latimes-graphics-media.s3.amazonaws.com/assets/img/stormtrooper_images/imperial.png?">
+											<p>Female</p>
+										</div>
+									</label>
+									<label>
+										<input ng-model="gender" class="apply-gender-radio" type="radio" name="gender" value="droid">
+										<div class="apply-gender-img">
+											<img src="http://iconbug.com/data/e9/256/689bfad4f0f80f1a21dd67dcb8583020.png">
+											<p>Droid</p>
+										</div>
+									</label>
+								</div>
+								<p id="genderErr" class="apply-error"></p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<input ng-model="Address1" class="form-control" type="text" name="Address1" placeholder="Address 1">
+								<p id="Address1Err" class="apply-error"></p>
+								<input class="form-control" type="text" name="Address2" placeholder="Address 2">
+								<p id="Address2Err" class="apply-error"></p>
+								<select class="form-control" name="Planet">
+									<option placeholder="TA">TA - Tatooine</option>
+									<option placeholder="DA">DA - Dantooine</option>
+									<option placeholder="KA">KA - Kashyyyk</option>
+								</select>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<input class="form-control" type="number" name="income" placeholder="Income">
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<input class="form-control" type="email" name="email" placeholder="Email">
+								<input class="form-control" type="password" name="pass" placeholder="Password">
+								<input class="form-control" type="password" name="confirm_pass" placeholder="Confirm Password">
 							</div>
 						</div>
 					</div>
 				</div>
+				<button id="apply-prev" type="button" class="btn btn-primary">Back</button>
+				<button ng-click="next()" id="apply-next" type="button" class="btn btn-primary pull-right">Next</button>
 			</form>
 		</div>
 		<?php
@@ -163,11 +217,6 @@
 			mysqli_close($mysqli);
 		?>
 	</div>
-	<script>
-	var app = angular.module('app', []);
-	app.controller('ctrl', ($scope) => {
-		
-	});
-	</script>
+	<script src="apply.js"></script>
 </body>
 </html>

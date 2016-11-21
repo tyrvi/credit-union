@@ -13,11 +13,12 @@ body {
 }
 
 #apply-carousel {
-	height: 100%;
+	height: 367px;
 }
 
 #apply-caption-carousel {
 	p {
+		font-family: roboto;
 		font-size: 24px;
 		font-weight: 500;
 		line-height: 1.1;
@@ -119,7 +120,6 @@ body {
 
 .apply-box {
 	height: 70vh;
-	overflow-y: scroll;
 	width: 90vw;
 	font-size: 16px;
 	
@@ -132,3 +132,60 @@ body {
 		width: 500px;
 	}
 }
+
+.apply-error {
+	font-family: roboto;
+	color: rgb(249, 76, 71);
+	height: 20px;
+	margin-left: 10px;
+}
+
+#genderErr {
+	margin-left: 0;
+	text-align: center;
+}
+
+.apply-gender {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 70%;
+	input[type=radio] {
+		position: absolute;
+		opacity: 0;
+		display: none;
+		
+		&:checked {
+			~* {
+				background-color: rgb(231, 228, 228);
+				border: none;
+				transform: translateY(5px);
+			}
+		}
+	}
+}
+
+.apply-gender-img {
+	cursor: pointer;
+	margin-top: -46px;
+	padding-top: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 134px;
+	height: 134px;
+	
+	img {
+		width: 73px;
+		filter: grayscale(100%);
+	}
+	
+	p {
+		font-family: Roboto;
+	}
+	
+	background-color: rgb(242, 242, 242);
+	border-bottom: 5px solid rgb(231, 228, 228);
+}
+
