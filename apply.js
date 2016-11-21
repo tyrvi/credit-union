@@ -1,6 +1,6 @@
 const dotW = 20;
 const lineW = 44.4;
-var skip = false;
+var skip = true;
 var curPage = 0;
 
 $(document).ready(() => {			
@@ -53,7 +53,7 @@ var validators = {
 			return 'Please enter a valid social security number';
 	},
 	'Email': (email) => {
-		if(!/.*@.+/.test(email))
+		if(!/.+@.+/.test(email))
 			return 'Must be a valid email address';
 	},
 };
@@ -61,6 +61,21 @@ var validators = {
 var app = angular.module('app', []);
 app.controller('ctrl', ($scope) => {
 	$scope.income = 100;
+	
+	$scope.socialSecChange = () => {
+		$scope.SS = $scope.SS.replace('-', '');
+		$scope.SS = $scope.SS.replace(/\D/, '');
+		if($scope.SS.length > 3) {
+			$scope.SS = $scope.SS.slice(0, 3) + '-' + $scope.SS.slice(3);
+		}
+		
+		if($scope.SS.length > 6) {
+			$scope.SS = $scope.SS.slice(0, 6) + '-' + $scope.SS.slice(6);
+		}
+		if($scope.SS.length > 10) {
+			$scope.SS = $scope.SS.slice(0, 11);
+		}
+	}
 	
 	$scope.validate = () => {
 		errors = [];
@@ -75,7 +90,6 @@ app.controller('ctrl', ($scope) => {
 		switch(curPage) {
 			case 0:
 				check('Fname', 'Required');
-				check('Mname', 'Required');
 				check('Lname', 'Required');
 				break;
 			case 1:
@@ -87,6 +101,7 @@ app.controller('ctrl', ($scope) => {
 				check('gender', 'Required');
 				break;
 			case 3:
+				check('City', 'Required');
 				check('Address1', 'Required');
 				break;
 			case 5:
