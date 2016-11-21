@@ -1,39 +1,210 @@
-.apply {
+$no-progress-color: rgb(206, 216, 218);
+$progress-color: rgb(228, 105, 105);
+
+body {
+	background-color: rgb(240, 240, 240);
+	background: linear-gradient(to bottom, rgb(241, 241, 241) 0%, rgb(189, 189, 189) 100%);	
+}
+
+#main {
 	display: flex;
-	justify-content: center;
-	
-	&:before {
-		content: "";
-		z-index: -20;
-		position: fixed;
-		top: -100%;
-		width: 100%;
-		height: 200%;
-		background-image: url("http://cdn.wallpapersafari.com/92/74/GN4hjW.jpg");
-		filter: blur(5px);
-		background-position: 75%, 0; 
+	align-items: center;
+	min-height: 100%;
+}
+
+#apply-carousel {
+	height: 367px;
+}
+
+#apply-caption-carousel {
+	p {
+		font-family: roboto;
+		font-size: 24px;
+		font-weight: 500;
+		line-height: 1.1;
 	}
 }
 
-.btn {
-	background-color: white;
+#apply-carousel, #apply-caption-carousel {
+	.item {
+		.apply-mini-form {
+			position: relative;
+			top: 10px;
+			opacity: 0;
+			transition: 0.8s;
+		}
+	}
+	
+	.item.active {
+		.apply-mini-form {
+			opacity: 1.0;
+			top: 0;
+		}
+	}
+}
+
+.apply {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.apply-break {
+	display: block;
+	width: 100%;
+	border-bottom: 1px solid $no-progress-color;
+	height: 0px;
+	margin-bottom: 20px;
+}
+
+.apply-text {
+	text-align: center;
+	font-family: damion;
+	font-size: 30px;
+	margin-top: 40px;
+}
+
+.apply-progress, .apply-current-progress {
+	width: 100%;
+	height: 40px;
+	
+	span {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		background-color: $no-progress-color;
+		border-radius: 100%;
+		margin-right: 40px;
+		
+		cursor: pointer;
+		
+		&:last-child {
+			margin-right: 0;
+		}
+		
+		&:before {
+			content: "";
+			position: relative;
+			left: -45px;
+			top: 8.5px;
+			display: inline-block;
+			width: 46px;
+			height: 5px;
+			background-color: $no-progress-color;
+		}
+		
+		&:first-child {
+			top: 20px;
+			&:before {
+				width: 0;
+			}
+		}
+	}
+}
+
+.apply-current-progress {
+	position: relative;
+	top: -32px;
+	overflow-x: hidden;
+	width: 20px;
+	white-space: nowrap;
+	transition: width 0.5s;
+	span {
+		background-color: $progress-color;
+		
+		&:before {
+			background-color: $progress-color;
+		}
+	}
 }
 
 .apply-box {
-	margin-top: 40px;
+	height: 70vh;
 	width: 90vw;
 	font-size: 16px;
+	
+	background-color: white;
+	border: 1px solid rgb(237, 237, 237);
+	padding: 20px;
+	box-shadow: 0px 0px 5px rgb(228, 228, 228);
+	
 	@media screen and (min-width: 800px) {
 		width: 500px;
 	}
+}
+
+.apply-error {
+	font-family: roboto;
+	color: rgb(249, 76, 71);
+	height: 20px;
+	margin-left: 10px;
+}
+
+#genderErr {
+	margin-left: 0;
+	text-align: center;
+}
+
+.apply-gender {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 70%;
+	input[type=radio] {
+		position: absolute;
+		opacity: 0;
+		display: none;
+		
+		&:checked {
+			~* {
+				background-color: rgb(231, 228, 228);
+				border: none;
+			}
+		}
+	}
+}
+
+.apply-gender-img {
+	cursor: pointer;
+	margin-top: -46px;
+	padding-top: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 134px;
+	height: 134px;
 	
-	padding: 30px;
-	background-color: rgba(255, 255, 255, 0.5);
-	
-	border-radius: 10px;
-	border: 2px solid black;
+	img {
+		width: 73px;
+		filter: grayscale(100%);
+	}
 	
 	p {
-		font-family: federation;
+		font-family: Roboto;
 	}
+	
+	background-color: rgb(242, 242, 242);
+	border-bottom: 5px solid rgb(231, 228, 228);
+}
+
+.apply-income {
+	font-family: aurebesh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	
+	b {
+		font-size: 90px;
+	}
+}
+
+
+#apply-prev, #apply-next {
+	width: 100px;
+	color: white;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	background-color: $progress-color;
 }

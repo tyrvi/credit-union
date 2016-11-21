@@ -24,7 +24,7 @@
 
 #menu-inner {
 	display: none;
-	position: relative;
+	position: fixed;
 	left: 50%;
 	transform: translate(-50%, 0);
 	top: 120px;
@@ -98,7 +98,7 @@
 #menu {
 	position: absolute;
 	width: 100%;
-	height: calc(100vh);
+	height: 100%;
 	overflow: hidden;
 	z-index: 20000;
 	transition: 0.2s ease-in;

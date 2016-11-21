@@ -2,18 +2,37 @@
 <html>
 <head>
     <?php include_once "includes.php" ?>
+	<link rel="stylesheet" href="style.php/login.scss">
     <title>Log in</title>
 </head>
 <body>
 	<?php include_once "navbar.php"; ?>
 	<div id="main">
-		<!-- Content -->
-		<div style="display:inline-block; position:absolute; text-align:center; margin-left:50%; margin-right:50%;">
-			<form name="login" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-				<div><input type="text" name="username" placeholder="ID or email"></div>
-				<div><input type="password" name="pass" value="Password"></div>
-				<div><input type="submit" name="submit" value="submit">
-			</form>
+		
+		<div class="login">
+			<img class="login-image" src="images/atat.png">
+			<div>
+				<div class="login-text">
+					WELCOME TO THE DARKSIDE
+				</div>
+				<div class="login-box">
+					<div class="login-box-text">ICU</div>
+					<form name="login" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+						<div class="form-group">
+							<input class="form-control" type="text" name="Fname" placeholder="First Name">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" name="username" placeholder="ID or email">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="password" name="pass" placeholder="Password">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="submit" name="submit" value="Login">
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 		<?php
 			// open connection to database
@@ -43,6 +62,7 @@
 			}
 			mysqli_close($mysqli);
 		?>
+		<?php include_once "footer.php"; ?>
 	</div>
 </body>
 </html>

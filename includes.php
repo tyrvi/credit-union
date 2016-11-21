@@ -20,4 +20,10 @@
     font-family: federation;
     src: url('fonts/FEC_____.TTF');
 }
+
+@font-face {
+    font-family: damion;
+    src: url('fonts/Damion-Regular.ttf');
+}
+
 </style>
