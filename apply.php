@@ -3,102 +3,101 @@
 <head>
     <?php include_once "includes.php" ?>
 	<link rel="stylesheet" href="style.php/apply.scss">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <title>Apply</title>
 </head>
+
 <body>
 	<?php include_once "navbar.php"; ?>
-	<div id="main">
+	<script>
+	(() => {
+		var dotW = 20;
+		var lineW = 44;
+		
+		$(document).ready(() => {			
+			$('#apply-caption-carousel').on('slide.bs.carousel', (e) => {
+			    var slideTo = $(e.relatedTarget).index();
+				var maxW = $('.apply-progress').innerWidth();		
+				var w = dotW * (slideTo + 1) + lineW * (slideTo);
+				$('.apply-current-progress').css('width', w + 'px');
+				$('.apply-current-slider').css('width', w + 'px');
+			});
+
+			$('#apply-next').click(() => {
+				$('#apply-caption-carousel').carousel('next');
+					
+				setTimeout(() => { 
+					$('#apply-carousel').carousel('next'); 
+				}, 200);
+			});
+			
+			$('#apply-prev').click(() => {
+				$('#apply-caption-carousel').carousel('prev');
+					
+				setTimeout(() => { 
+					$('#apply-carousel').carousel('prev'); 
+				}, 200);
+			});
+		});
+	})();
+	</script>
+	<div id="main" ng-app="app" ng-controller="ctrl">
+		<a id="apply-next">Next</a>
+		<a id="apply-prev">Prev</a>
 		<div class="apply">
 			<div class="apply-text">Join the dark side.</div>
 			<form class="apply-box" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-				<div class="form-group">
-					<p>FIRST NAME</p>
-					<input class="form-control" type="text" name="Fname" placeholder="First Name">
+				<span class="apply-progress">
+					<span class="apply-progress-point"></span>
+					<span class="apply-progress-point"></span>
+					<span class="apply-progress-point"></span>
+				</span>
+				
+				<div class="apply-current-progress">
+					<span class="apply-progress-point"></span>
+					<span class="apply-progress-point"></span>
+					<span class="apply-progress-point"></span>
 				</div>
 				
-				<div class="form-group">
-					<p>MIDDLE NAME</p>
-					<input class="form-control" type="text" name="Mname" placeholder="Middle Name">
-				</div>
-				
-				<div class="form-group">
-					<p>LAST NAME</p>
-					<input class="form-control" type="text" name="Lname" placeholder="Last Name">
-				</div>
-				
-				<div class="form-group">
-					<p>ADDRESS ONE</p>
-					<input class="form-control" type="text" name="Address1" placeholder="Address 1">
-				</div>
-				
-				<div class="form-group">
-					<p>ADDRESS TWO</p>
-					<input class="form-control" type="text" name="Address2" placeholder="Address 2">
-				</div>
-				
-				<div class="form-group">
-					<p>PLANET</p>
-					<select class="form-control" name="Planet">
-						<option placeholder="TA">TA - Tatooine</option>
-						<option placeholder="DA">DA - Dantooine</option>
-						<option placeholder="KA">KA - Kashyyyk</option>
-					</select>
-				</div>
-				
-				<div class="form-group">
-					<p>CITY</p>
-					<input class="form-control" type="text" name="City" placeholder="City">
-				</div>
-				
-				<div class="form-group">
-					<p>PHONE</p>
-					<input class="form-control" type="tel" name="Phone" placeholder="Phone">
-				</div>
-				
-				<div class="form-group">
-					<p>DATE OF BIRTH</p>
-					<input class="form-control" type="date" name="DOB" placeholder="Date of Birth">
-				</div>
-				
-				<div class="form-group">
-					<p>GENDER</p>
-					<div class="radio">
-						<label><input type="radio" name="gender" value="male"><p>MALE</p></label>
-					</div>
-					<div class="radio">
-						<label><input type="radio" name="gender" value="female"><p>FEMALE</p></label>
-					</div>
-					<div class="radio">
-						<label><input type="radio" name="gender" value="droid"><p>DROID</p></label>
+				<div id="apply-caption-carousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<div class="apply-mini-form">
+								<p>Tell us about yourself.</p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<p>Hello {{name}}</p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<p>Woah there</p>
+							</div>
+						</div>
 					</div>
 				</div>
-				
-				<div class="form-group">
-					<p>SOCIAL SECURITY</p>
-					<input class="form-control" type="text" name="SS" placeholder="Social Security">
+				<div class="apply-break"></div>
+				<div id="apply-carousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<div class="apply-mini-form">
+								<input ng-model="name" class="form-control" type="text" name="Fname" placeholder="First Name">
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<input class="form-control" type="text" name="Fname" placeholder="First Name">
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<input class="form-control" type="text" name="Fname" placeholder="First Name">
+							</div>
+						</div>
+					</div>
 				</div>
-				
-				<div class="form-group">
-					<p>INCOME</p>
-					<input class="form-control" type="number" name="income" placeholder="Income">
-				</div>
-				
-				<div class="form-group">
-					<p>EMAIL</p>
-					<input class="form-control" type="email" name="email" placeholder="Email">
-				</div>
-				
-				<div class="form-group">
-					<p>PASSWORD</p>
-					<input class="form-control" type="password" name="pass" placeholder="Password">
-				</div>
-
-				<div class="form-group">
-					<p>CONFIRM PASSWORD</p>
-					<input class="form-control" type="password" name="confirm_pass" placeholder="Confirm Password">
-				</div>
-				
-				<input type="submit" value="Submit" class="btn">
 			</form>
 		</div>
 		<?php
@@ -151,8 +150,6 @@
 			}
 			
 			
-			
-			
 			/*$res = $mysqli->query("select * from cudb.customers where C_Id=1;");
 
 			$row = $res->fetch_assoc();
@@ -166,5 +163,11 @@
 			mysqli_close($mysqli);
 		?>
 	</div>
+	<script>
+	var app = angular.module('app', []);
+	app.controller('ctrl', ($scope) => {
+		
+	});
+	</script>
 </body>
 </html>
