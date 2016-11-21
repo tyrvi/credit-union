@@ -86,7 +86,7 @@
 								<input ng-model="DOB" class="form-control" type="date" name="DOB" placeholder="Date of Birth">
 								<p id="DOBErr" class="apply-error"></p>
 								
-								<p>Phone</p>
+								<p>Primary Phone Contact</p>
 								<input ng-model="Phone" class="form-control" type="tel" name="Phone" placeholder="Phone">
 								<p id="PhoneErr" class="apply-error"></p>
 
@@ -162,7 +162,7 @@
 				</div>
 				<button id="apply-prev" type="button" class="btn">Back</button>
 				<button ng-click="next()" id="apply-next" type="button" class="btn pull-right">Next</button>
-				<input class="form-control" type="submit" name="submit" value="Submit">
+				<input id="submit" class="form-control pull-right" type="submit" name="submit" value="Submit">
 			</form>
 		</div>
 		<?php
