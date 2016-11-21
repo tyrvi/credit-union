@@ -91,7 +91,7 @@
 								<p id="PhoneErr" class="apply-error"></p>
 
 								<p>Social Security</p>
-								<input ng-model="SS" class="form-control" type="text" name="SS" placeholder="Social Security">
+								<input ng-model="SS" class="form-control" type="text" name="SS" placeholder="xxx-xx-xxxx">
 								<p id="SSErr" class="apply-error"></p>
 							</div>
 						</div>
