@@ -228,14 +228,14 @@
 				$Planet = validate($_POST['Planet']);
 				$income = validate($_POST['income']);
 				
-				$form = "INSERT INTO cudb.customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass, Income, Gender) 
-				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass', $income, '$Gender')";
+				$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass, Income, Gender) 
+				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass', '$income', '$gender')";
 
 				if ($mysqli->query($form) === TRUE) {
 					$res = $mysqli->query("SELECT C_Id FROM customers where Email = $email");
 					$row = $res->fetch_assoc();
 					$C_Id = $row["C_Id"];
-					$insert_phone = "INSERT INTO cudb.contact (C_Id, Phone, Ptype)
+					$insert_phone = "INSERT INTO contact (C_Id, Phone, Ptype)
 					VALUES ($C_Id, '$Phone', 'Primary')";
 					echo "Application successful!";
 				} 
