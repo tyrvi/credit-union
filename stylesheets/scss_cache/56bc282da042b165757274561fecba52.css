@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.0.12 on Thu, 20 Oct 2016 04:56:14 +0200 (0.0184s) */
+/* compiled by scssphp v0.0.12 on Wed, 09 Nov 2016 16:51:27 +0100 (0.0123s) */
 
 #mainCarousel {
   height: 300px;
@@ -28,3 +28,12 @@
 
 #caption-intro {
   top: 0; }
+
+.caption-summary {
+  font-family: federation;
+  text-align: center;
+  font-size: 25px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: #dfdfdf;
+  margin-bottom: 20px; }
