@@ -91,7 +91,7 @@
 								<p id="PhoneErr" class="apply-error"></p>
 
 								<p>Social Security</p>
-								<input ng-model="SS" class="form-control" type="text" name="SS" placeholder="xxx-xx-xxxx">
+								<input ng-model="SS" ng-change="socialSecChange()" class="form-control" type="text" name="SS" placeholder="xxx-xx-xxxx">
 								<p id="SSErr" class="apply-error"></p>
 							</div>
 						</div>
@@ -125,6 +125,8 @@
 						</div>
 						<div class="item">
 							<div class="apply-mini-form">
+								<input ng-model="City" class="form-control" type="text" name="City" placeholder="City">
+								<p id="CityErr" class="apply-error"></p>
 								<input ng-model="Address1" class="form-control" type="text" name="Address1" placeholder="Address 1">
 								<p id="Address1Err" class="apply-error"></p>
 								<input class="form-control" type="text" name="Address2" placeholder="Address 2">
@@ -186,6 +188,7 @@
 				</div>
 				<button id="apply-prev" type="button" class="btn">Back</button>
 				<button ng-click="next()" id="apply-next" type="button" class="btn pull-right">Next</button>
+				<input class="form-control" type="submit" name="submit" value="Submit">
 			</form>
 		</div>
 		<?php
