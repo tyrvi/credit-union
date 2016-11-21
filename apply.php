@@ -139,7 +139,7 @@
 						<div class="item">
 							<div class="apply-mini-form">
 								<div class="apply-income">
-									<input ng-model="income" type="range" name="income">
+									<input ng-model="income" type="range" name="income" min="100" max="10000">
 									<b>{{income}}$</b>
 								</div>
 							</div>
@@ -158,8 +158,8 @@
 						</div>
 					</div>
 				</div>
-				<button id="apply-prev" type="button" class="btn btn-primary">Back</button>
-				<button ng-click="next()" id="apply-next" type="button" class="btn btn-primary pull-right">Next</button>
+				<button id="apply-prev" type="button" class="btn">Back</button>
+				<button ng-click="next()" id="apply-next" type="button" class="btn pull-right">Next</button>
 			</form>
 		</div>
 		<?php

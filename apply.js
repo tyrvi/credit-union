@@ -60,6 +60,8 @@ var validators = {
 
 var app = angular.module('app', []);
 app.controller('ctrl', ($scope) => {
+	$scope.income = 100;
+	
 	$scope.validate = () => {
 		errors = [];
 		

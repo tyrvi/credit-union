@@ -159,7 +159,6 @@ body {
 			~* {
 				background-color: rgb(231, 228, 228);
 				border: none;
-				transform: translateY(5px);
 			}
 		}
 	}
@@ -199,4 +198,13 @@ body {
 	b {
 		font-size: 90px;
 	}
+}
+
+
+#apply-prev, #apply-next {
+	width: 100px;
+	color: white;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	background-color: $progress-color;
 }
