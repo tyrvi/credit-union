@@ -212,33 +212,37 @@
 			
 			// collect form values
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				$Fname = validate($_POST["Fname"]);
-				$Mname = validate($_POST["Mname"]);
-				$Lname = validate($_POST["Lname"]);				
-				$Address1 = validate($_POST["Address1"]);
-				$Address2 = validate($_POST["Address2"]);
-				$City = validate($_POST["City"]);
-				$Phone = validate($_POST["Phone"]);
-				$SS =validate($_POST["SS"]);
-				$Pass = validate($_POST["pass"]);
-				$confirm_pass = validate($_POST["confirm_pass"]);
-				$email = validate($_POST["email"]);
-				$DOB = date('Y-m-d', strtotime(str_replace('-', '/', $_POST["DOB"])));
-				$gender = validate($_POST["gender"]);
-				$Planet = validate($_POST["Planet"]);
-				$income = validate($_POST["income"]);
+				$Fname = validate($_POST['Fname']);
+				$Mname = validate($_POST['Mname']);
+				$Lname = validate($_POST['Lname']);				
+				$Address1 = validate($_POST['Address1']);
+				$Address2 = validate($_POST['Address2']);
+				$City = validate($_POST['City']);
+				$Phone = validate($_POST['Phone']);
+				$SS =validate($_POST['SS']);
+				$Pass = validate($_POST['pass']);
+				$confirm_pass = validate($_POST['confirm_pass']);
+				$email = validate($_POST['email']);
+				$DOB = date('Y-m-d', strtotime(str_replace('-', '/', $_POST['DOB'])));
+				$gender = validate($_POST['gender']);
+				$Planet = validate($_POST['Planet']);
+				$income = validate($_POST['income']);
 				
-				$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass, Income, Gender) 
+				$form = "INSERT INTO cudb.customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass, Income, Gender) 
 				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass', $income, '$Gender')";
 
 				if ($mysqli->query($form) === TRUE) {
+					$res = $mysqli->query("SELECT C_Id FROM customers where Email = $email");
+					$row = $res->fetch_assoc();
+					$C_Id = $row["C_Id"];
+					$insert_phone = "INSERT INTO cudb.contact (C_Id, Phone, Ptype)
+					VALUES ($C_Id, '$Phone', 'Primary')";
 					echo "Application successful!";
 				} 
 				else {
 					echo "Error: ".$form."<br>".$mysqli->error;
 				}
 			}
-			
 			
 			/*$res = $mysqli->query("select * from cudb.customers where C_Id=1;");
 
