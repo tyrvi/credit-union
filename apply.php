@@ -138,14 +138,22 @@
 						</div>
 						<div class="item">
 							<div class="apply-mini-form">
-								<input class="form-control" type="number" name="income" placeholder="Income">
+								<div class="apply-income">
+									<input ng-model="income" type="range" name="income">
+									<b>{{income}}$</b>
+								</div>
 							</div>
 						</div>
 						<div class="item">
 							<div class="apply-mini-form">
-								<input class="form-control" type="email" name="email" placeholder="Email">
-								<input class="form-control" type="password" name="pass" placeholder="Password">
-								<input class="form-control" type="password" name="confirm_pass" placeholder="Confirm Password">
+								<input ng-model="email" class="form-control" type="email" name="email" placeholder="Email">
+								<p id="emailErr" class="apply-error"></p>
+								
+								<input ng-model="pass" class="form-control" type="password" name="pass" placeholder="Password">
+								<p id="passErr" class="apply-error"></p>
+								
+								<input ng-model="confirm_pass" class="form-control" type="password" name="confirm_pass" placeholder="Confirm Password">
+								<p id="confirm_passErr" class="apply-error"></p>
 							</div>
 						</div>
 					</div>

@@ -51,7 +51,11 @@ var validators = {
 		ss = ss.replace('-', '');
 		if(/.*\D.*/.test(ss) || ss.length != 9)
 			return 'Please enter a valid social security number';
-	}
+	},
+	'Email': (email) => {
+		if(!/.*@.+/.test(email))
+			return 'Must be a valid email address';
+	},
 };
 
 var app = angular.module('app', []);
@@ -79,8 +83,19 @@ app.controller('ctrl', ($scope) => {
 				break;
 			case 2:
 				check('gender', 'Required');
+				break;
 			case 3:
 				check('Address1', 'Required');
+				break;
+			case 5:
+				check('email', 'Email');
+				check('pass', 'Required');
+				check('confirm_pass', 'Required');
+				
+				if($scope.confirm_pass != $scope.pass) {
+					errors.push({id: 'confirm_pass', error: 'Passwords must match'});
+				}
+				break;
 		}
 		
 		return errors;

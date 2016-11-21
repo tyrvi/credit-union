@@ -189,3 +189,14 @@ body {
 	border-bottom: 5px solid rgb(231, 228, 228);
 }
 
+.apply-income {
+	font-family: aurebesh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	
+	b {
+		font-size: 90px;
+	}
+}
