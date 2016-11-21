@@ -3,101 +3,163 @@
 <head>
     <?php include_once "includes.php" ?>
 	<link rel="stylesheet" href="style.php/apply.scss">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <title>Apply</title>
 </head>
+
 <body>
 	<?php include_once "navbar.php"; ?>
-	<div id="main">
+	<div id="main" ng-app="app" ng-controller="ctrl">
 		<div class="apply">
+			<div class="apply-text">Join the dark side.</div>
 			<form class="apply-box" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-				<div class="form-group">
-					<p>FIRST NAME</p>
-					<input class="form-control" type="text" name="Fname" placeholder="First Name">
-				</div>
-				
-				<div class="form-group">
-					<p>MIDDLE NAME</p>
-					<input class="form-control" type="text" name="Mname" placeholder="Middle Name">
-				</div>
-				
-				<div class="form-group">
-					<p>LAST NAME</p>
-					<input class="form-control" type="text" name="Lname" placeholder="Last Name">
-				</div>
-				
-				<div class="form-group">
-					<p>ADDRESS ONE</p>
-					<input class="form-control" type="text" name="Address1" placeholder="Address 1">
-				</div>
-				
-				<div class="form-group">
-					<p>ADDRESS TWO</p>
-					<input class="form-control" type="text" name="Address2" placeholder="Address 2">
-				</div>
-				
-				<div class="form-group">
-					<p>PLANET</p>
-					<select class="form-control" name="Planet">
-						<option placeholder="TA">TA - Tatooine</option>
-						<option placeholder="DA">DA - Dantooine</option>
-						<option placeholder="KA">KA - Kashyyyk</option>
-					</select>
-				</div>
-				
-				<div class="form-group">
-					<p>CITY</p>
-					<input class="form-control" type="text" name="City" placeholder="City">
-				</div>
-				
-				<div class="form-group">
-					<p>PHONE</p>
-					<input class="form-control" type="tel" name="Phone" placeholder="Phone">
-				</div>
-				
-				<div class="form-group">
-					<p>DATE OF BIRTH</p>
-					<input class="form-control" type="date" name="DOB" placeholder="Date of Birth">
-				</div>
-				
-				<div class="form-group">
-					<p>GENDER</p>
-					<div class="radio">
-						<label><input type="radio" name="gender" value="male"><p>MALE</p></label>
+				<span class="apply-progress">
+					<span class="apply-progress-point"></span>
+					<span class="apply-progress-point"></span>
+					<span class="apply-progress-point"></span>
+					<span class="apply-progress-point"></span>
+					<span class="apply-progress-point"></span>
+					<span class="apply-progress-point"></span>
+					
+					<div class="apply-current-progress">
+						<span class="apply-progress-point"></span>
+						<span class="apply-progress-point"></span>
+						<span class="apply-progress-point"></span>
+						<span class="apply-progress-point"></span>
+						<span class="apply-progress-point"></span>
+						<span class="apply-progress-point"></span>
 					</div>
-					<div class="radio">
-						<label><input type="radio" name="gender" value="female"><p>FEMALE</p></label>
-					</div>
-					<div class="radio">
-						<label><input type="radio" name="gender" value="droid"><p>DROID</p></label>
+				</span>
+				
+				<div id="apply-caption-carousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<div class="apply-mini-form">
+								<p>Tell us about yourself.</p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<p>Hello {{Fname}}.</p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<p>Are you a boy or a girl?</p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<p>Where are you from?</p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<p>Set your income.</p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<p>Wrapping up.</p>
+							</div>
+						</div>
 					</div>
 				</div>
-				
-				<div class="form-group">
-					<p>SOCIAL SECURITY</p>
-					<input class="form-control" type="text" name="SS" placeholder="Social Security">
-				</div>
-				
-				<div class="form-group">
-					<p>INCOME</p>
-					<input class="form-control" type="number" name="income" placeholder="Income">
-				</div>
-				
-				<div class="form-group">
-					<p>EMAIL</p>
-					<input class="form-control" type="email" name="email" placeholder="Email">
-				</div>
-				
-				<div class="form-group">
-					<p>PASSWORD</p>
-					<input class="form-control" type="password" name="pass" placeholder="Password">
-				</div>
+				<div class="apply-break"></div>
+				<div id="apply-carousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<div class="apply-mini-form">
+								<input ng-model="Fname" class="form-control" type="text" name="Fname" placeholder="First Name">
+								<p id="FnameErr" class="apply-error"></p>
+								
+								<input ng-model="Mname" class="form-control" type="text" name="Mname" placeholder="Middle Name">
+								<p id="MnameErr" class="apply-error"></p>
+								
+								<input ng-model="Lname" class="form-control" type="text" name="Lname" placeholder="Last Name">
+								<p id="LnameErr" class="apply-error"></p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<p>Date of Birth</p>
+								<input ng-model="DOB" class="form-control" type="date" name="DOB" placeholder="Date of Birth">
+								<p id="DOBErr" class="apply-error"></p>
+								
+								<p>Phone</p>
+								<input ng-model="Phone" class="form-control" type="tel" name="Phone" placeholder="Phone">
+								<p id="PhoneErr" class="apply-error"></p>
 
-				<div class="form-group">
-					<p>CONFIRM PASSWORD</p>
-					<input class="form-control" type="password" name="confirm_pass" placeholder="Confirm Password">
+								<p>Social Security</p>
+								<input ng-model="SS" class="form-control" type="text" name="SS" placeholder="Social Security">
+								<p id="SSErr" class="apply-error"></p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<div class="apply-gender">
+									<label>
+										<input ng-model="gender" class="apply-gender-radio" type="radio" name="gender" value="male">
+										<div class="apply-gender-img">
+											<img src="http://latimes-graphics-media.s3.amazonaws.com/assets/img/stormtrooper_images/imperial.png?">
+											<p>Male</p>
+										</div>
+									</label>
+									<label>
+										<input ng-model="gender" class="apply-gender-radio" type="radio" name="gender" value="female">
+										<div class="apply-gender-img">
+											<img src="http://latimes-graphics-media.s3.amazonaws.com/assets/img/stormtrooper_images/imperial.png?">
+											<p>Female</p>
+										</div>
+									</label>
+									<label>
+										<input ng-model="gender" class="apply-gender-radio" type="radio" name="gender" value="droid">
+										<div class="apply-gender-img">
+											<img src="http://iconbug.com/data/e9/256/689bfad4f0f80f1a21dd67dcb8583020.png">
+											<p>Droid</p>
+										</div>
+									</label>
+								</div>
+								<p id="genderErr" class="apply-error"></p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<input ng-model="Address1" class="form-control" type="text" name="Address1" placeholder="Address 1">
+								<p id="Address1Err" class="apply-error"></p>
+								<input class="form-control" type="text" name="Address2" placeholder="Address 2">
+								<p id="Address2Err" class="apply-error"></p>
+								<select class="form-control" name="Planet">
+									<option placeholder="TA">TA - Tatooine</option>
+									<option placeholder="DA">DA - Dantooine</option>
+									<option placeholder="KA">KA - Kashyyyk</option>
+								</select>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<div class="apply-income">
+									<input ng-model="income" type="range" name="income" min="100" max="10000">
+									<b>{{income}}$</b>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<input ng-model="email" class="form-control" type="email" name="email" placeholder="Email">
+								<p id="emailErr" class="apply-error"></p>
+								
+								<input ng-model="pass" class="form-control" type="password" name="pass" placeholder="Password">
+								<p id="passErr" class="apply-error"></p>
+								
+								<input ng-model="confirm_pass" class="form-control" type="password" name="confirm_pass" placeholder="Confirm Password">
+								<p id="confirm_passErr" class="apply-error"></p>
+							</div>
+						</div>
+					</div>
 				</div>
-				
-				<input type="submit" value="Submit" class="btn">
+				<button id="apply-prev" type="button" class="btn">Back</button>
+				<button ng-click="next()" id="apply-next" type="button" class="btn pull-right">Next</button>
 			</form>
 		</div>
 		<?php
@@ -150,8 +212,6 @@
 			}
 			
 			
-			
-			
 			/*$res = $mysqli->query("select * from cudb.customers where C_Id=1;");
 
 			$row = $res->fetch_assoc();
@@ -165,5 +225,6 @@
 			mysqli_close($mysqli);
 		?>
 	</div>
+	<script src="apply.js"></script>
 </body>
 </html>
