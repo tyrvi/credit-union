@@ -223,11 +223,10 @@
 				$DOB = date('Y-m-d', strtotime(str_replace('-', '/', $_POST["DOB"])));
 				$gender = validate($_POST["gender"]);
 				$Planet = validate($_POST["Planet"]);
-				if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
-				echo "This $email is not a valid email address.";
-				}
-				$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass) 
-				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass')";
+				$income = validate($_POST["income"]);
+				
+				$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass, Income, Gender) 
+				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass', $income, '$Gender')";
 
 				if ($mysqli->query($form) === TRUE) {
 					echo "Application successful!";
