@@ -1,6 +1,6 @@
 const dotW = 20;
 const lineW = 44.4;
-var skip = true;
+var skip = false;
 var curPage = 0;
 
 $(document).ready(() => {			
@@ -14,6 +14,14 @@ $(document).ready(() => {
 		var w = dotW * (slideTo + 1) + lineW * (slideTo);
 		$('.apply-current-progress').css('width', w + 'px');
 		$('.apply-current-slider').css('width', w + 'px');
+		
+		if(curPage == 5) {
+			$('#submit').addClass('lastPage');
+			$('#apply-next').addClass('lastPage');
+		} else {
+			$('#submit').removeClass('lastPage');
+			$('#apply-next').removeClass('lastPage');
+		}
 	});
 	
 	$('#apply-prev').click(() => {
@@ -40,7 +48,10 @@ var validators = {
 		if(phone == undefined)
 			return 'Required';
 		
-		phone = phone.replace('-', '');
+		phone = phone.replace(/-/g, '');
+		phone = phone.replace(/\(/g, '');
+		phone = phone.replace(/\)/g, '');
+		phone = phone.replace(/ /g, '');
 		if(/.*\D.*/.test(phone))
 			return 'Please enter a valid phone number';
 	},
@@ -48,7 +59,7 @@ var validators = {
 		if(ss == undefined)
 			return 'Required';
 		
-		ss = ss.replace('-', '');
+		ss = ss.replace(/-/g, '');
 		if(/.*\D.*/.test(ss) || ss.length != 9)
 			return 'Please enter a valid social security number';
 	},
@@ -63,8 +74,9 @@ app.controller('ctrl', ($scope) => {
 	$scope.income = 100;
 	
 	$scope.socialSecChange = () => {
-		$scope.SS = $scope.SS.replace('-', '');
+		$scope.SS = $scope.SS.replace(/-/g, '');
 		$scope.SS = $scope.SS.replace(/\D/, '');
+		
 		if($scope.SS.length > 3) {
 			$scope.SS = $scope.SS.slice(0, 3) + '-' + $scope.SS.slice(3);
 		}
@@ -72,6 +84,7 @@ app.controller('ctrl', ($scope) => {
 		if($scope.SS.length > 6) {
 			$scope.SS = $scope.SS.slice(0, 6) + '-' + $scope.SS.slice(6);
 		}
+		
 		if($scope.SS.length > 10) {
 			$scope.SS = $scope.SS.slice(0, 11);
 		}
