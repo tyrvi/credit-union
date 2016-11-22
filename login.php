@@ -1,6 +1,17 @@
 <?php
+<<<<<<< HEAD
 	$GLOBALS['badLogin'] = false;
 	
+=======
+	// start session
+	session_start();
+
+	if (array_key_exists('Email', $_SESSION)) {
+		header("Location: account.php");
+	}
+
+	$GLOBALS['badLogin'] = FALSE;
+>>>>>>> database-connect
 	// open connection to database
 	$mysqli = new mysqli("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
 	
@@ -16,15 +27,20 @@
 		$username = $_POST["username"];
 		$password = $_POST["pass"];
 
-		$res = $mysqli->query("SELECT Email, Pass from cudb.customers where Email = '$username'");
+		$res = $mysqli->query("SELECT * from cudb.customers where Email = '$username'");
 		$row = $res->fetch_assoc();
 		
 		if ($row === NULL || $row["Pass"] != $password) {
 			$GLOBALS['badLogin'] = true;
+			
+			
 		}
 		else {
 			header('Location: account.php');
 			$GLOBALS['badLogin'] = false;
+			//$_SESSION['email'] = $row["Email"];
+			//$_SESSION['password'] = $row["Pass"];
+			$_SESSION = $row;
 		}
 	}
 	mysqli_close($mysqli);
