@@ -87,7 +87,7 @@
 								<p id="DOBErr" class="apply-error"></p>
 								
 								<p>Primary Phone Contact</p>
-								<input ng-model="Phone" class="form-control" type="tel" name="Phone" placeholder="Phone">
+								<input ng-model="Phone" ng-change="telChange()" class="form-control" type="tel" name="Phone" placeholder="xxx-xxx-xxxx">
 								<p id="PhoneErr" class="apply-error"></p>
 
 								<p>Social Security</p>

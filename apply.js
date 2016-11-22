@@ -75,7 +75,7 @@ app.controller('ctrl', ($scope) => {
 	
 	$scope.socialSecChange = () => {
 		$scope.SS = $scope.SS.replace(/-/g, '');
-		$scope.SS = $scope.SS.replace(/\D/, '');
+		$scope.SS = $scope.SS.replace(/\D/g, '');
 		
 		if($scope.SS.length > 3) {
 			$scope.SS = $scope.SS.slice(0, 3) + '-' + $scope.SS.slice(3);
@@ -90,6 +90,23 @@ app.controller('ctrl', ($scope) => {
 		}
 	}
 	
+	$scope.telChange = () => {
+		$scope.Phone = $scope.Phone.replace(/-/g, '');
+		$scope.Phone = $scope.Phone.replace(/\D/g, '');
+
+		if ($scope.Phone.length > 3) {
+			$scope.Phone = $scope.Phone.slice(0, 3) + '-' + $scope.Phone.slice(3);
+		}
+
+		if ($scope.Phone.length > 7) {
+			$scope.Phone = $scope.Phone.slice(0, 7) + '-' + $scope.Phone.slice(7);
+		}
+
+		if ($scope.Phone.length > 11) {
+			$scope.Phone = $scope.Phone.slice(0, 12);
+		}
+	}
+
 	$scope.validate = () => {
 		errors = [];
 		
