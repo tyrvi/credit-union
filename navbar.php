@@ -1,5 +1,4 @@
 <?php 
-	session_start();
 	$GLOBALS['loggedIn'] = array_key_exists('Email', $_SESSION);
 ?>
 

@@ -1,0 +1,12 @@
+{
+	"extension.databases": [
+		{
+			"type": "mysql",
+			"name": "us-cdbr-azure-central-a.cloudapp.net (mysql)",
+			"host": "us-cdbr-azure-central-a.cloudapp.net:3306",
+			"user": "b3749d9a9bbf00",
+			"password": "c55f1efd",
+			"database": "cudb"
+		}
+	]
+}

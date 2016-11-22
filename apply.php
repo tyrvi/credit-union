@@ -1,3 +1,6 @@
+<?php 
+	session_start();
+?>
 <!DOCTYPE <html>
 <html>
 <head>
@@ -87,7 +90,7 @@
 								<p id="DOBErr" class="apply-error"></p>
 								
 								<p>Primary Phone Contact</p>
-								<input ng-model="Phone" class="form-control" type="tel" name="Phone" placeholder="Phone">
+								<input ng-model="Phone" ng-change="telChange()" class="form-control" type="tel" name="Phone" placeholder="xxx-xxx-xxxx">
 								<p id="PhoneErr" class="apply-error"></p>
 
 								<p>Social Security</p>
@@ -200,13 +203,15 @@
 				return $data;
 			}
 
-			//$link = mysqli_connect("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
+			// change to this database when merging to master 
+			//mysqli = mysqli_connect("us-cdbr-azure-southcentral-f.cloudapp.net", "b7974b78735401", "50849710", "icudb");
 			
+			// comment out this connection when merging to master
 			$mysqli = new mysqli("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
 			if ($mysqli->connect_errno) {
 				echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 			}
-			//echo $mysqli->host_info . "\n";
+
 			//init variables for form collection/validation
 			$Fname = $Mname = $Lname = $Address1 = $Address2 = $City = $Phone = $Planet = $SS = $Pass = $confirm_pass = $email = $DOB = $gender = "";
 			
@@ -226,15 +231,18 @@
 				$DOB = date('Y-m-d', strtotime(str_replace('-', '/', $_POST['DOB'])));
 				$gender = validate($_POST['gender']);
 				$Planet = validate($_POST['Planet']);
+				// income not initialized anywhere but it works so leaving it as is...
 				$income = validate($_POST['income']);
 				
 				$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass, Income, Gender) 
 				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass', '$income', '$gender')";
 
+				// If the application is successful insert phone number using C_Id
 				if ($mysqli->query($form) === TRUE) {
 					$find_C_Id = "SELECT C_Id FROM customers where Email = '$email'";
-					$res = $mysqli->query($find_C_Id);
+					$res = $mysqli->query($find_C_Id); // get C_Id for this person
 
+					// TO-DO: phone number is not being correctly inserted into the phone database
 					if ($res !== FALSE) {
 						$row = $res->fetch_assoc();
 						$C_Id = $row["C_Id"];
@@ -242,26 +250,18 @@
 						VALUES ('$C_Id', '$Phone', 'Primary')";
 						echo "Application successful!";
 					}
+					// error with C_Id query
 					else {
 						echo "Error: ".$find_C_Id."<br>".$mysqli->error;
 					}
 					
 				} 
+				// error with form database insertion
 				else {
 					echo "Error: ".$form."<br>".$mysqli->error;
 				}
 			}
 			
-			/*$res = $mysqli->query("select * from cudb.customers where C_Id=1;");
-
-			$row = $res->fetch_assoc();
-			echo gettype($row);
-			
-			foreach($row as $item) {
-				echo "<br>";
-				echo $item;
-			}*/
-
 			mysqli_close($mysqli);
 		?>
 	</div>
