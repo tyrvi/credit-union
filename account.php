@@ -9,16 +9,15 @@
 <html>
 <head>
     <?php include_once "includes.php" ?>
-    <title>TITLE</title>
+    <title>Hello <?php echo $_SESSION["Fname"]; ?></title>
 </head>
 <body>
 	<?php include_once "navbar.php"; ?>
 	<div id="main">
-		<!-- Content -->
 		<?php
-		foreach ($_SESSION as $item) {
+		foreach ($_SESSION as $key => $item) {
 			echo "</br>";
-			echo $item;
+			echo $key;
 		}
 		?>
 	</div>

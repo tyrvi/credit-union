@@ -1,3 +1,5 @@
+@import 'globals';
+
 #menu-button {
 	z-index: 200000;
 	display: flex;
@@ -10,7 +12,7 @@
 	
 	&:hover {
 		.bars-and-x.inactive, .bars-and-x:before, .bars-and-x:after {
-			background-color: rgb(219, 79, 79);
+			background-color: $error-color;
 		}
 	}
 }
@@ -27,7 +29,6 @@
 	position: fixed;
 	left: 50%;
 	transform: translate(-50%, 0);
-	top: 120px;
 	width: 400px;
 	height: calc(100vh);
 	transition: ease-in-out 0.3s;
@@ -181,7 +182,32 @@
 	position: relative;
 	cursor: pointer;
 	transition: ease-out 0.2s;
+	
 	&:hover {
-		top: -5px !important;	
+		top: -5px !important;
+	}
+}
+
+#menu-signout {
+	position: relative;
+	bottom: 90px;
+	font-size: 40px;
+	font-family: federation;
+	text-align: center;
+	transition: 0.5s ease-in-out;
+	opacity: 0.0;
+	
+	* {
+		color: $error-color !important;
+	}
+	
+	a {
+		text-transform: uppercase !important;
+		cursor: pointer;
+	}
+	
+	&.active {
+		bottom: 0;
+		opacity: 1.0;
 	}
 }

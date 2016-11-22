@@ -28,8 +28,6 @@
 		
 		if ($row === NULL || $row["Pass"] != $password) {
 			$GLOBALS['badLogin'] = true;
-			
-			
 		}
 		else {
 			header('Location: account.php');

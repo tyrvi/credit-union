@@ -1,3 +1,8 @@
+<?php 
+	session_start();
+	$GLOBALS['loggedIn'] = array_key_exists('Email', $_SESSION);
+?>
+
 <link rel="stylesheet" href="style.php/navbar.scss">
 
 <div id="menu" class="inactive">
@@ -6,37 +11,51 @@
 		<span id="menu-icon"><span class="bars-and-x inactive"></span></span>
 	</div>
 	<div id="menu-inner">
+		<?php if($GLOBALS['loggedIn']): ?>
+		<div id="menu-signout">
+			<span>HELLO </span>
+			<a><?php echo $_SESSION['Fname']; ?></a>
+		</div>
+		<?php endif; ?>
 		<ul class="list-group">
-		  <a href="index.php">
-		  <li class="list-group-item">
-			  <div class="highlight"></div>
-			  <div class="highlight2"></div>
-			  <a href="index.php">Home</a>
-		  </li></a>
-		  <a href="invest.php">
-		  <li class="list-group-item">
-			  <div class="highlight"></div>
-			  <div class="highlight2"></div>
-			  <div>Invest</div>
-		  </li></a>
-		  <a href="borrow.php">
-		  <li class="list-group-item">
-			  <div class="highlight"></div>
-			  <div class="highlight2"></div>
-			  <div>Borrow</div>
-		  </li></a>
-		  <a href="apply.php">
-		  <li class="list-group-item">
-			  <div class="highlight"></div>
-			  <div class="highlight2"></div>
-			  <div>Apply</div>
-		  </li></a>
-		  <a href="login.php">
-		  <li class="list-group-item">
-			  <div class="highlight"></div>
-			  <div class="highlight2"></div>
-			  <div>Log In</div>
-		  </li></a>
+			<a href="index.php">
+				<li class="list-group-item">
+					<div class="highlight"></div>
+					<div class="highlight2"></div>
+					<a href="index.php">Home</a>
+				</li>
+			</a>
+			<a href="invest.php">
+				<li class="list-group-item">
+					<div class="highlight"></div>
+					<div class="highlight2"></div>
+					<div>Invest</div>
+				</li>
+			</a>
+				<a href="borrow.php">
+				<li class="list-group-item">
+					<div class="highlight"></div>
+					<div class="highlight2"></div>
+					<div>Borrow</div>
+				</li>
+			</a>
+			<a href="apply.php">
+				<li class="list-group-item">
+					<div class="highlight"></div>
+					<div class="highlight2"></div>
+					<div>Apply</div>
+				</li></a>
+			<a href="login.php">
+				<li class="list-group-item">
+					<div class="highlight"></div>
+					<div class="highlight2"></div>
+					<?php if($GLOBALS['loggedIn']): ?>
+						<div>Sign Out</div>
+					<?php else: ?>
+						<div>Log In</div>
+					<?php endif; ?>
+				</li>
+			</a>
 		</ul>
 		<div class="menu-social">
 			<img class="menu-social-icon" width="80px" src="images/Twitter_Social_Icon_White.png"/>
@@ -45,7 +64,6 @@
 		</div>
 	</div>
 </div>
-
 
 <script>
 (function() {
@@ -91,6 +109,10 @@ function onActivate() {
 			$(obj).css('opacity', 1);
 		}, 450 + i * 150);
 	});
+	
+	setTimeout(() => { 
+		$('#menu-signout').addClass('active');
+	}, 300);
 }
 
 function onDeactivate() {
@@ -113,6 +135,8 @@ function onDeactivate() {
 	$('#main').css('filter', 'none');
 	
 	$('#menu-inner').css('display', 'none');
+	
+	$('#menu-signout').removeClass('active');
 }
 
 $(document).ready(function() {
