@@ -248,7 +248,6 @@
 						$C_Id = $row["C_Id"];
 						$insert_phone = "INSERT INTO contact (C_Id, Phone, Ptype)
 						VALUES ('$C_Id', '$Phone', 'Primary')";
-						echo "Application successful!";
 					}
 					// error with C_Id query
 					else {
