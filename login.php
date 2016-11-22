@@ -19,10 +19,7 @@
 					<div class="login-box-text">ICU</div>
 					<form name="login" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 						<div class="form-group">
-							<input class="form-control" type="text" name="Fname" placeholder="First Name">
-						</div>
-						<div class="form-group">
-							<input class="form-control" type="text" name="username" placeholder="ID or email">
+							<input class="form-control" type="text" name="username" placeholder="Email">
 						</div>
 						<div class="form-group">
 							<input class="form-control" type="password" name="pass" placeholder="Password">
