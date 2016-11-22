@@ -1,4 +1,6 @@
 <?php
+	$GLOBALS['badLogin'] = false;
+	
 	// open connection to database
 	$mysqli = new mysqli("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
 	
@@ -56,7 +58,7 @@
 						<div class="form-group">
 							<input class="form-control" type="submit" name="submit" value="Login">
 						</div>
-						<div>
+						<div class="login-error">
 						<?php 
 							if($GLOBALS['badLogin']) {
 								echo 'Incorrect password/email';
