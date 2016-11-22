@@ -112,7 +112,7 @@ function onActivate() {
 	
 	setTimeout(() => { 
 		$('#menu-signout').addClass('active');
-	}, 300);
+	}, 400);
 }
 
 function onDeactivate() {

@@ -28,6 +28,7 @@
 	display: none;
 	position: fixed;
 	left: 50%;
+	padding-top: 60px;
 	transform: translate(-50%, 0);
 	width: 400px;
 	height: calc(100vh);
@@ -190,7 +191,7 @@
 
 #menu-signout {
 	position: relative;
-	bottom: 90px;
+	bottom: 20px;
 	font-size: 40px;
 	font-family: federation;
 	text-align: center;
