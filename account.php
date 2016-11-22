@@ -1,6 +1,7 @@
 <?php 
 	session_start();
 	
+	// check if logged in and if they are not redirect to home page
 	if (!array_key_exists('Email', $_SESSION)) {
 		header("Location: index.php");
 	}
@@ -15,12 +16,7 @@
 	<?php include_once "navbar.php"; ?>
 	<div id="main">
 		<!-- Content -->
-		<?php
-		foreach ($_SESSION as $item) {
-			echo "</br>";
-			echo $item;
-		}
-		?>
+			
 	</div>
 </body>
 </html>

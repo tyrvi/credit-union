@@ -2,11 +2,16 @@
 	// start session
 	session_start();
 
+	// check if already logged in and redirect to account if they are logged in
 	if (array_key_exists('Email', $_SESSION)) {
 		header("Location: account.php");
 	}
 
 	$GLOBALS['badLogin'] = FALSE;
+
+	// change to this database when merging to master 
+	//mysqli = mysqli_connect("us-cdbr-azure-southcentral-f.cloudapp.net", "b7974b78735401", "50849710", "icudb");
+
 	// open connection to database
 	$mysqli = new mysqli("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
 	
@@ -25,16 +30,14 @@
 		$res = $mysqli->query("SELECT * from cudb.customers where Email = '$username'");
 		$row = $res->fetch_assoc();
 		
+		// if the password does not match or the user does not exist then login fails
 		if ($row === NULL || $row["Pass"] != $password) {
 			$GLOBALS['badLogin'] = true;
-			
-			
 		}
+		// email exists and password is correct redirect to account
 		else {
 			header('Location: account.php');
 			$GLOBALS['badLogin'] = false;
-			//$_SESSION['email'] = $row["Email"];
-			//$_SESSION['password'] = $row["Pass"];
 			$_SESSION = $row;
 		}
 	}
