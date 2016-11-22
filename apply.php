@@ -195,7 +195,7 @@
 			</form>
 		</div>
 		<?php
-			// validates input and makes sure it is not corrupt or malicious
+			// validates input
 			function validate($data) {
 				$data = trim($data);
 				$data = stripslashes($data);
