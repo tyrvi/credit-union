@@ -248,6 +248,7 @@
 						$C_Id = $row["C_Id"];
 						$insert_phone = "INSERT INTO contact (C_Id, Phone, Ptype)
 						VALUES ('$C_Id', '$Phone', 'Primary')";
+						$mysqli->query($insert_phone);
 					}
 					// error with C_Id query
 					else {
@@ -266,4 +267,4 @@
 	</div>
 	<script src="apply.js"></script>
 </body>
-</html>
+</html> 
