@@ -1,8 +1,6 @@
 <?php
-<<<<<<< HEAD
 	$GLOBALS['badLogin'] = false;
 	
-=======
 	// start session
 	session_start();
 
@@ -10,8 +8,6 @@
 		header("Location: account.php");
 	}
 
-	$GLOBALS['badLogin'] = FALSE;
->>>>>>> database-connect
 	// open connection to database
 	$mysqli = new mysqli("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
 	
