@@ -202,7 +202,7 @@
 
 			//$link = mysqli_connect("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
 			
-			$mysqli = new mysqli("us-cdbr-azure-southcentral-f.cloudapp.net", "b7974b78735401", "50849710", "icudb");
+			$mysqli = new mysqli("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
 			if ($mysqli->connect_errno) {
 				echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 			}
@@ -212,33 +212,45 @@
 			
 			// collect form values
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				$Fname = validate($_POST["Fname"]);
-				$Mname = validate($_POST["Mname"]);
-				$Lname = validate($_POST["Lname"]);				
-				$Address1 = validate($_POST["Address1"]);
-				$Address2 = validate($_POST["Address2"]);
-				$City = validate($_POST["City"]);
-				$Phone = validate($_POST["Phone"]);
-				$SS =validate($_POST["SS"]);
-				$Pass = validate($_POST["pass"]);
-				$confirm_pass = validate($_POST["confirm_pass"]);
-				$email = validate($_POST["email"]);
-				$DOB = date('Y-m-d', strtotime(str_replace('-', '/', $_POST["DOB"])));
-				$gender = validate($_POST["gender"]);
-				$Planet = validate($_POST["Planet"]);
-				$income = validate($_POST["income"]);
+				$Fname = validate($_POST['Fname']);
+				$Mname = validate($_POST['Mname']);
+				$Lname = validate($_POST['Lname']);				
+				$Address1 = validate($_POST['Address1']);
+				$Address2 = validate($_POST['Address2']);
+				$City = validate($_POST['City']);
+				$Phone = validate($_POST['Phone']);
+				$SS =validate($_POST['SS']);
+				$Pass = validate($_POST['pass']);
+				$confirm_pass = validate($_POST['confirm_pass']);
+				$email = validate($_POST['email']);
+				$DOB = date('Y-m-d', strtotime(str_replace('-', '/', $_POST['DOB'])));
+				$gender = validate($_POST['gender']);
+				$Planet = validate($_POST['Planet']);
+				$income = validate($_POST['income']);
 				
 				$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass, Income, Gender) 
-				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass', $income, '$Gender')";
+				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass', '$income', '$gender')";
 
 				if ($mysqli->query($form) === TRUE) {
-					echo "Application successful!";
+					$find_C_Id = "SELECT C_Id FROM customers where Email = '$email'";
+					$res = $mysqli->query($find_C_Id);
+
+					if ($res !== FALSE) {
+						$row = $res->fetch_assoc();
+						$C_Id = $row["C_Id"];
+						$insert_phone = "INSERT INTO contact (C_Id, Phone, Ptype)
+						VALUES ('$C_Id', '$Phone', 'Primary')";
+						echo "Application successful!";
+					}
+					else {
+						echo "Error: ".$find_C_Id."<br>".$mysqli->error;
+					}
+					
 				} 
 				else {
 					echo "Error: ".$form."<br>".$mysqli->error;
 				}
 			}
-			
 			
 			/*$res = $mysqli->query("select * from cudb.customers where C_Id=1;");
 

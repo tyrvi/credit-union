@@ -33,7 +33,7 @@
 		</div>
 		<?php
 			// open connection to database
-			$mysqli = new mysqli("us-cdbr-azure-southcentral-f.cloudapp.net", "b7974b78735401", "50849710", "icudb");
+			$mysqli = new mysqli("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
 			// check for database connection error
 			if ($mysqli->connect_errno) {
 				echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -46,7 +46,7 @@
 				$username = $_POST["username"];
 				$password = $_POST["pass"];
 
-				$res = $mysqli->query("SELECT Email, Pass from icudb.customers where Email = '$username'");
+				$res = $mysqli->query("SELECT Email, Pass from cudb.customers where Email = '$username'");
 				$row = $res->fetch_assoc();
 
 				if ($row["Pass"] != $password) {
