@@ -25,7 +25,19 @@
 	</div>
 	<div id="main">
 		<!-- main content -->
-		<?php //var_dump($_SESSION['Phones']); ?>
+		<?php
+			/* 
+			var_dump($_SESSION['Phones']);
+			foreach ($_SESSION['Phones'] as $item) {
+				echo "</br>";
+				echo $item;
+				for ($i = 0; $i < count($item); $i++) {
+					echo "</br>";
+					echo $item;
+				}
+			}
+			*/
+		?>
 		<div>
 			<!-- accounts -->
 			<div>
@@ -38,6 +50,7 @@
 					<input type="text" name="Mname" value="<?php echo $_SESSION['Mname']; ?>">
 					<input type="text" name="Lname" value="<?php echo $_SESSION['Lname']; ?>">
 					<input type="text" name="email" value="<?php echo $_SESSION['Email']; ?>">
+					<input type="tel" name="Phone" value="<?php echo $_SESSION['Phones']['Phone']; ?>">
 					<input type="text" name="Address1" value="<?php echo $_SESSION['Address1']; ?>">
 					<input type="text" name="Address2" value="<?php echo $_SESSION['Address2']; ?>">
 					<input type="text" name="City" value="<?php echo $_SESSION['City']; ?>">
@@ -61,7 +74,8 @@
 						echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 					}
 
-					
+
+
 
 					mysqli_close($mysqli);
 				?>
