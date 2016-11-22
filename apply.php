@@ -15,24 +15,28 @@
 	<div id="main" ng-app="app" ng-controller="ctrl">
 		<div class="apply">
 			<div class="apply-text">Join the dark side.</div>
-			<form class="apply-box" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-				<span class="apply-progress">
-					<span class="apply-progress-point"></span>
-					<span class="apply-progress-point"></span>
-					<span class="apply-progress-point"></span>
-					<span class="apply-progress-point"></span>
-					<span class="apply-progress-point"></span>
-					<span class="apply-progress-point"></span>
-					
-					<div class="apply-current-progress">
+			<form id="applyForm" class="apply-box" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				<div style="display: flex; justify-content: center;">
+					<span class="apply-progress">
 						<span class="apply-progress-point"></span>
 						<span class="apply-progress-point"></span>
 						<span class="apply-progress-point"></span>
 						<span class="apply-progress-point"></span>
 						<span class="apply-progress-point"></span>
 						<span class="apply-progress-point"></span>
-					</div>
-				</span>
+						<span class="apply-progress-point"></span>
+						
+						<div class="apply-current-progress">
+							<span class="apply-progress-point"></span>
+							<span class="apply-progress-point"></span>
+							<span class="apply-progress-point"></span>
+							<span class="apply-progress-point"></span>
+							<span class="apply-progress-point"></span>
+							<span class="apply-progress-point"></span>
+							<span class="apply-progress-point"></span>
+						</div>
+					</span>
+				</div>
 				
 				<div id="apply-caption-carousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
 					<div class="carousel-inner" role="listbox">
@@ -64,6 +68,11 @@
 						<div class="item">
 							<div class="apply-mini-form">
 								<p>Wrapping up.</p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								<p>Done!</p>
 							</div>
 						</div>
 					</div>
@@ -187,11 +196,16 @@
 								<p id="confirm_passErr" class="apply-error"></p>
 							</div>
 						</div>
+						<div class="item">
+							<div class="apply-mini-form">
+								Done!
+							</div>
+						</div>
 					</div>
 				</div>
-				<button id="apply-prev" type="button" class="btn">Back</button>
-				<button ng-click="next()" id="apply-next" type="button" class="btn pull-right">Next</button>
-				<input id="submit" class="form-control pull-right" type="submit" name="submit" value="Submit">
+				<button ng-click="next()" id="apply-next" type="button" class="active btn pull-right">Next</button>
+				<button id="apply-prev" type="button" class="active btn">Back</button>
+				<button ng-click="next()" id="submitBtn" type="button" class="btn pull-right">Submit</button>
 			</form>
 		</div>
 		<?php
