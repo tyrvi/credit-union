@@ -1,4 +1,6 @@
 <?php
+	$GLOBALS['badLogin'] = false;
+	
 	// start session
 	session_start();
 
@@ -72,7 +74,7 @@
 						<div class="form-group">
 							<input class="form-control" type="submit" name="submit" value="Login">
 						</div>
-						<div>
+						<div class="login-error">
 						<?php 
 							if($GLOBALS['badLogin']) {
 								echo 'Incorrect password/email';

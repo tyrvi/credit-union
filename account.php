@@ -23,7 +23,7 @@
 <html>
 <head>
     <?php include_once "includes.php" ?>
-    <title>TITLE</title>
+    <title>Hello <?php echo $_SESSION["Fname"]; ?></title>
 </head>
 <body>
 	<?php
