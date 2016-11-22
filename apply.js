@@ -15,12 +15,25 @@ $(document).ready(() => {
 		$('.apply-current-progress').css('width', w + 'px');
 		$('.apply-current-slider').css('width', w + 'px');
 		
+		$('#apply-next').removeClass('active');
+		$('#submitBtn').removeClass('active');
+		
+		if(curPage < 5) {
+			$('#apply-next').addClass('active');
+		}
 		if(curPage == 5) {
-			$('#submit').addClass('lastPage');
-			$('#apply-next').addClass('lastPage');
-		} else {
-			$('#submit').removeClass('lastPage');
-			$('#apply-next').removeClass('lastPage');
+			$('#submitBtn').addClass('active');
+		}
+		if(curPage == 6) {
+			$('#apply-prev').removeClass('active');
+			
+			$.ajax({
+				type: 'POST',
+				url: 'apply.php',
+				data: $('#applyForm').serialize(),
+				success: () => {},
+				error: () => {},
+			});
 		}
 	});
 	
@@ -52,7 +65,7 @@ var validators = {
 		phone = phone.replace(/\(/g, '');
 		phone = phone.replace(/\)/g, '');
 		phone = phone.replace(/ /g, '');
-		if(/.*\D.*/.test(phone))
+		if(/\D+/.test(phone) || phone.length != 10)
 			return 'Please enter a valid phone number';
 	},
 	'SS': (ss) => {
@@ -145,21 +158,23 @@ app.controller('ctrl', ($scope) => {
 				break;
 		}
 		
-		return errors;
+		$('.apply-error').html('');
+		for(let e of errors) {
+			$('#' + e.id + 'Err').html(e.error);
+		}
+		
+		return errors.length == 0;
 	};
 	
 	$scope.next = () => {
-		errors = $scope.validate();
-		$('.apply-error').html('');
+		valid = $scope.validate();
 		
-		if(errors.length == 0 || skip) {
+		if(valid || skip) {
 			$('#apply-caption-carousel').carousel('next');
 			
 			setTimeout(() => { 
 				$('#apply-carousel').carousel('next'); 
 			}, 200);
-		} else for(let e of errors) {
-			$('#' + e.id + 'Err').html(e.error);
 		}
 	};
 });

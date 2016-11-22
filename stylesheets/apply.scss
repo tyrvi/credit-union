@@ -67,8 +67,13 @@ body {
 }
 
 .apply-progress, .apply-current-progress {
-	width: 100%;
+	position: relative;
 	height: 40px;
+	margin-bottom: 20px;
+	
+	.apply-progress-point:last-of-type {
+		margin-right: 0;
+	}
 	
 	span {
 		display: inline-block;
@@ -79,10 +84,6 @@ body {
 		margin-right: 40px;
 		
 		cursor: pointer;
-		
-		&:last-child {
-			margin-right: 0;
-		}
 		
 		&:before {
 			content: "";
@@ -105,8 +106,8 @@ body {
 }
 
 .apply-current-progress {
-	position: relative;
-	top: -32px;
+	position: absolute;
+	top: 0;
 	overflow-x: hidden;
 	width: 20px;
 	white-space: nowrap;
@@ -203,35 +204,28 @@ body {
 }
 
 
-#apply-prev, #apply-next, #submit {
-	top: 0;
+#apply-prev, #apply-next, #submitBtn {
 	position: relative;
+	opacity: 0.0;
+	top: -20px;
+	bottom: 999999999px;
 	width: 100px;
 	color: white;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	background-color: $progress-color;
 	transition: opacity 0.7s, top 0.7s;
-}
-
-#submit {
-	right: -100px;
-	background-color: white;
-	color: #666;
-	opacity: 0;
-	top: 50px;
-	bottom: 999999999px;
 	
-	&.lastpage {
-		opacity: 1.0;
-		top: 0px;
-		display: inherit;
+	&.active {
+		top: 0;
 		bottom: 0;
+		opacity: 1.0;
 	}
 }
 
-#apply-next.lastpage { 
-	opacity: 0.0;
-	top: -20px;
+#submitBtn {
+	right: -100px;
+	background-color: white;
+	color: #666;
+	top: 50px;
 }
-
