@@ -26,10 +26,19 @@
     <title>TITLE</title>
 </head>
 <body>
-	<?php include_once "navbar.php"; ?>
+	<?php
+		include_once "navbar.php";	
+	?>
+	
+	<div>
+		<?php
+			$welcome = "Welcome, ".$_SESSION['Fname'];
+			echo $welcome;
+		?>
+	</div>
 	<div id="main">
 		<!-- main content -->
-		<<div>
+		<div>
 			<!-- accounts -->
 			<div>
 			
@@ -40,7 +49,7 @@
 			</div>
 		</div>
 		<!-- star wars add -->
-		<<div>
+		<div>
 			
 		</div>
 	</div>
