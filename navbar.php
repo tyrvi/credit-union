@@ -45,15 +45,24 @@
 					<div class="highlight2"></div>
 					<div>Apply</div>
 				</li></a>
-			<a href="login.php">
+			<a href="
+			<?php
+				if($GLOBALS['loggedIn'])
+					echo 'signout.php';
+				else
+					echo 'login.php';
+			?>">
 				<li class="list-group-item">
 					<div class="highlight"></div>
 					<div class="highlight2"></div>
-					<?php if($GLOBALS['loggedIn']): ?>
-						<div>Sign Out</div>
-					<?php else: ?>
-						<div>Log In</div>
-					<?php endif; ?>
+					<div>
+					<?php 
+						if($GLOBALS['loggedIn'])
+							echo 'Sign Out';
+						else
+							echo 'Log In';
+					?>
+					</div>
 				</li>
 			</a>
 		</ul>
