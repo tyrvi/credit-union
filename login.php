@@ -49,7 +49,7 @@
 				$username = $_POST["username"];
 				$password = $_POST["pass"];
 
-				$res = $mysqli->query("SELECT Email, Pass from icudb.customers where Email = '$username'");
+				$res = $mysqli->query("SELECT Email, Pass from cudb.customers where Email = '$username'");
 				$row = $res->fetch_assoc();
 
 				if ($row["Pass"] != $password) {

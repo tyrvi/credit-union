@@ -232,12 +232,20 @@
 				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass', '$income', '$gender')";
 
 				if ($mysqli->query($form) === TRUE) {
-					$res = $mysqli->query("SELECT C_Id FROM customers where Email = $email");
-					$row = $res->fetch_assoc();
-					$C_Id = $row["C_Id"];
-					$insert_phone = "INSERT INTO contact (C_Id, Phone, Ptype)
-					VALUES ($C_Id, '$Phone', 'Primary')";
-					echo "Application successful!";
+					$find_C_Id = "SELECT C_Id FROM customers where Email = '$email'";
+					$res = $mysqli->query($find_C_Id);
+
+					if ($res !== FALSE) {
+						$row = $res->fetch_assoc();
+						$C_Id = $row["C_Id"];
+						$insert_phone = "INSERT INTO contact (C_Id, Phone, Ptype)
+						VALUES ('$C_Id', '$Phone', 'Primary')";
+						echo "Application successful!";
+					}
+					else {
+						echo "Error: ".$find_C_Id."<br>".$mysqli->error;
+					}
+					
 				} 
 				else {
 					echo "Error: ".$form."<br>".$mysqli->error;
