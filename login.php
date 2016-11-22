@@ -2,6 +2,10 @@
 	// start session
 	session_start();
 
+	if (array_key_exists('Email', $_SESSION)) {
+		header("Location: account.php");
+	}
+
 	$GLOBALS['badLogin'] = FALSE;
 	// open connection to database
 	$mysqli = new mysqli("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
@@ -23,14 +27,15 @@
 		
 		if ($row === NULL || $row["Pass"] != $password) {
 			$GLOBALS['badLogin'] = true;
-			$_SESSION['email'] = $row["Email"];
-			$_SESSION['password'] = $row["Pass"];
-			//$_SESSION = $row;
+			
 			
 		}
 		else {
 			header('Location: account.php');
 			$GLOBALS['badLogin'] = false;
+			//$_SESSION['email'] = $row["Email"];
+			//$_SESSION['password'] = $row["Pass"];
+			$_SESSION = $row;
 		}
 	}
 	mysqli_close($mysqli);
