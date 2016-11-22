@@ -5,6 +5,19 @@
 	if (!array_key_exists('Email', $_SESSION)) {
 		header("Location: index.php");
 	}
+
+	// change to this database when merging to master 
+	//mysqli = mysqli_connect("us-cdbr-azure-southcentral-f.cloudapp.net", "b7974b78735401", "50849710", "icudb");
+
+	// open connection to database
+	$mysqli = new mysqli("us-cdbr-azure-central-a.cloudapp.net", "b3749d9a9bbf00", "c55f1efd", "cudb");
+	
+	// check for database connection error
+	if ($mysqli->connect_errno) {
+		echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+	}
+
+	mysqli_close($mysqli);
 ?>
 <!DOCTYPE <html>
 <html>
@@ -15,8 +28,21 @@
 <body>
 	<?php include_once "navbar.php"; ?>
 	<div id="main">
-		<!-- Content -->
+		<!-- main content -->
+		<<div>
+			<!-- accounts -->
+			<div>
 			
+			</div>
+			<!-- user info -->
+			<div>
+				
+			</div>
+		</div>
+		<!-- star wars add -->
+		<<div>
+			
+		</div>
 	</div>
 </body>
 </html>
