@@ -19,6 +19,12 @@
 	
 	<script>
 	var contact = '<?php echo $_SESSION['Contact']; ?>';
+	var Fname = '<?php echo $_SESSION['Fname']; ?>';
+	var Lname = '<?php echo $_SESSION['Lname']; ?>';
+	var email = '<?php echo $_SESSION['Email']; ?>';
+	var Address1 = '<?php echo $_SESSION['Address1']; ?>';
+	var City = '<?php echo $_SESSION['City']; ?>';
+	var Pass = '<?php echo $_SESSION['Pass']; ?>';
 	</script>
 	
 	<div>
@@ -50,19 +56,26 @@
 			<!-- user info -->
 			<div>
 				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-					<input type="text" name="Fname" value="<?php echo $_SESSION['Fname']; ?>">
-					<input type="text" name="Mname" value="<?php echo $_SESSION['Mname']; ?>">
-					<input type="text" name="Lname" value="<?php echo $_SESSION['Lname']; ?>">
-					<input type="text" name="email" value="<?php echo $_SESSION['Email']; ?>">
-					<input type="hidden" name="Contact" value=""> 
-					<input type="text" name="Address1" value="<?php echo $_SESSION['Address1']; ?>">
-					<input type="text" name="Address2" value="<?php echo $_SESSION['Address2']; ?>">
-					<input type="text" name="City" value="<?php echo $_SESSION['City']; ?>">
-					<div><?php echo $_SESSION['Planet'];?></div> 
-					</select>
-					<input type="password" name="pass" value="<?php echo $_SESSION['Pass']; ?>">
-					<input type="password" name="confirm_pass" placeholder="confirm new password">
+					<div>
+						<input ng-model="Fname" type="text" name="Fname">
+						<p id="FnameErr" class="apply-error"></p>
+
+						<input type="text" name="Mname" value="<?php echo $_SESSION['Mname']; ?>">
+
+						<input ng-model="Lname" type="text" name="Lname">
+						<p id="LnameErr" class="apply-error"></p>
+					</div>
 					
+					<input ng-model="email" type="text" name="email" value="<?php echo $_SESSION['Email']; ?>">
+					<p id="emailErr" class="apply-error"></p>
+					<div>
+						<input type="hidden" name="Contact" value=""> 
+						<input ng-model="Address1" type="text" name="Address1" value="<?php echo $_SESSION['Address1']; ?>">
+						<input type="text" name="Address2" value="<?php echo $_SESSION['Address2']; ?>">
+						<input ng-model="City" type="text" name="City" value="<?php echo $_SESSION['City']; ?>">
+					</div>
+					<div><?php echo $_SESSION['Planet'];?></div> 
+
 					<button type="button" id="showPlanets" ng-click="showPlanets()">Change Planet</button>
 					<select id="planets" class="form-control" name="Planet">
 						<option placeholder="AL">AL - Alderaan</option>
@@ -95,19 +108,22 @@
 						<option placeholder="UR">UR - Uranus</option>
 						<option placeholder="YA">YA - Yavin</option>
 					</select>
+					<div>
+						<input ng-model="pass" type="password" name="pass" value="<?php echo $_SESSION['Pass']; ?>">
+						<p id="passErr" class="apply-error"></p>
+						
+						<input ng-model="confirm_pass" type="password" name="confirm_pass" placeholder="confirm new password">
+						<p id="confirm_passErr" class="apply-error"></p>
+					</div>
+
 					<div ng-repeat="c in contacts">
 						Type:{{c.type}}, Val: {{c.val}}
 						<button ng-click="removeContact(c.val)" type="button">-</button>
 					</div>
 					<button id="addContactBtn" ng-click="addContact()" type="button">+</button>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
+
 					<input type="hidden" name="Contact" value="{{contact}}">
-					<input type="submit" name="submit" value="update">
+					<button ng-click="update()" type="button">update</button>
 				</form>
 
 				<?php

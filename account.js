@@ -39,6 +39,12 @@ var validators = {
 var app = angular.module('app', []);
 app.controller('ctrl', ($scope) => {
 	$scope.contact = contact;
+	$scope.Fname = Fname;
+	$scope.Lname = Lname;
+	$scope.email = email;
+	$scope.Address1 = Address1;
+	$scope.City = City;
+	$scope.pass = Pass;
 	
 	var updateContacts = () => {
 		var con = $scope.contact.split('|').filter((e) => {
