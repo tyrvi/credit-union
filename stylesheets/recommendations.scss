@@ -1,0 +1,52 @@
+#recommendations {	
+	* {
+		font-family: Roboto;
+	}
+	
+	.myRow {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		
+		@media screen and (max-width: 800px) {
+			flex-direction: column;
+			align-items: center;
+			
+			.col {
+				width: 100%;
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+	}
+	
+	.col {
+		background-color: rgb(236, 236, 236);
+		border: 1px solid rgb(227, 222, 222);
+		padding: 20px;
+		box-shadow: 0px 0px 5px rgb(209, 206, 206);
+		margin: 10px;
+		width: 47%;
+	}
+}
+
+.recommendations-image {
+	background-image: url("https://s-media-cache-ak0.pinimg.com/originals/22/ae/b6/22aeb6abdf20aff74f73aed8c036ebf3.jpg");
+	border-radius: 100%;
+	width: 70px;
+	height: 70px;
+	background-size: cover;
+	background-position: 50% 0%;
+}
+
+.recommendations-text {
+	
+}
+
+.recommendations-portrait {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}
