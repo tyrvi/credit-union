@@ -104,9 +104,16 @@
 						$Phone = validate($_POST['Phone']); // This one will be tricky
 						$Planet = validate($_POST['Planet']);
 
-						$form = "UPDATE customers
-						SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Planet='$Planet', Email='$email', Pass='$Pass' 
-						WHERE C_Id = '$_SESSION[C_Id]'";
+						if ($_SESSION['Planet'] != $Planet) {
+							$form = "UPDATE customers
+							SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Planet='$Planet', Email='$email', Pass='$Pass' 
+							WHERE C_Id = '$_SESSION[C_Id]'";
+						}
+						else {
+							$form = "UPDATE customers
+							SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Email='$email', Pass='$Pass' 
+							WHERE C_Id = '$_SESSION[C_Id]'";
+						}
 						
 						//$mysqli->query($form);
 						
