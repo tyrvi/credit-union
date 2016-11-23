@@ -31,11 +31,11 @@
 					<div>Invest</div>
 				</li>
 			</a>
-				<a href="borrow.php">
+			<a href="account.php">
 				<li class="list-group-item">
 					<div class="highlight"></div>
 					<div class="highlight2"></div>
-					<div>Borrow</div>
+					<div>Account</div>
 				</li>
 			</a>
 			<a href="apply.php">
