@@ -1,3 +1,5 @@
+var maxContacts = 3;
+
 $(document).ready(() => {			
 	$('#planets').hide();
 });
@@ -20,11 +22,28 @@ app.controller('ctrl', ($scope) => {
 				val: cc[1]
 			});
 		}
+		
+		if($scope.contacts.length == maxContacts) {
+			$('#addContactBtn').hide();
+		} else {
+			$('#addContactBtn').show();
+		}
 	};
 	updateContacts();
 	
 	$scope.showPlanets = () => {
 		$('#planets').show();
 		$('#showPlanets').hide();
+	};
+	
+	$scope.addContact = () => {
+		$scope.contact += '|Secondary.';
+		updateContacts();
+	};
+	
+	$scope.removeContact = (c) => {
+		$scope.contact = $scope.contact.replace(new RegExp('[^.|]+\\.' + c + '\\|*', 'i'), '');
+		console.log($scope.contact);
+		updateContacts();
 	};
 });

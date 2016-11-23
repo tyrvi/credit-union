@@ -97,8 +97,9 @@
 					</select>
 					<div ng-repeat="c in contacts">
 						Type:{{c.type}}, Val: {{c.val}}
-						<button ></button>
+						<button ng-click="removeContact(c.val)" type="button">-</button>
 					</div>
+					<button id="addContactBtn" ng-click="addContact()" type="button">+</button>
 					</br>
 					</br>
 					</br>
