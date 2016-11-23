@@ -17,6 +17,10 @@
 		include_once "navbar.php";	
 	?>
 	
+	<script>
+	var contact = '<?php echo $_SESSION['Contact']; ?>';
+	</script>
+	
 	<div>
 		<?php
 			$welcome = "Welcome, ".$_SESSION['Fname'];
@@ -91,12 +95,17 @@
 						<option placeholder="UR">UR - Uranus</option>
 						<option placeholder="YA">YA - Yavin</option>
 					</select>
+					<div ng-repeat="c in contacts">
+						Type:{{c.type}}, Val: {{c.val}}
+						<button ></button>
+					</div>
 					</br>
 					</br>
 					</br>
 					</br>
 					</br>
 					</br>
+					<input type="hidden" name="Contact" value="{{contact}}">
 					<input type="submit" name="submit" value="update">
 				</form>
 
