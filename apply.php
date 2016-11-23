@@ -239,7 +239,7 @@
 				$Phone = validate($_POST['Phone']);
 				$SS =validate($_POST['SS']);
 				$Pass = validate($_POST['pass']);
-				$confirm_pass = validate($_POST['confirm_pass']);
+				//$confirm_pass = validate($_POST['confirm_pass']);
 				$email = validate($_POST['email']);
 				$DOB = date('Y-m-d', strtotime(str_replace('-', '/', $_POST['DOB'])));
 				$gender = validate($_POST['gender']);

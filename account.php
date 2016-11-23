@@ -130,21 +130,40 @@
 						$Address2 = validate($_POST['Address2']);
 						$City = validate($_POST['City']);
 						$Pass = validate($_POST['pass']);
-						$confirm_pass = validate($_POST['confirm_pass']);
+						//$confirm_pass = validate($_POST['confirm_pass']);
 						$email = validate($_POST['email']);
 						// still need to be handled in the form
-						$Phone = validate($_POST['Phone']); // This one will be tricky
+						$Phone = validate($_POST['Phone']);
 						$Planet = validate($_POST['Planet']);
 
 						if ($_SESSION['Planet'] != $Planet) {
 							$form = "UPDATE customers
 							SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Planet='$Planet', Email='$email', Pass='$Pass' 
 							WHERE C_Id = '$_SESSION[C_Id]'";
+							$_SESSION['Fname'] = $Fname;
+							$_SESSION['Mname'] = $Mname;
+							$_SESSION['Lname'] = $Lname;
+							$_SESSION['Address1'] = $Address1;
+							$_SESSION['Address2'] = $Address2;
+							$_SESSION['City'] = $City;
+							$_SESSION['Pass'] = $Pass;
+							$_SESSION['Email'] = $email;
+							$_SESSION['Contact'] = $Phone;
+							$_SESSION['Planet'] = $Planet;
 						}
 						else {
 							$form = "UPDATE customers
 							SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Email='$email', Pass='$Pass' 
 							WHERE C_Id = '$_SESSION[C_Id]'";
+							$_SESSION['Fname'] = $Fname;
+							$_SESSION['Mname'] = $Mname;
+							$_SESSION['Lname'] = $Lname;
+							$_SESSION['Address1'] = $Address1;
+							$_SESSION['Address2'] = $Address2;
+							$_SESSION['City'] = $City;
+							$_SESSION['Pass'] = $Pass;
+							$_SESSION['Email'] = $email;
+							$_SESSION['Contact'] = $Phone;
 						}
 						
 						//$mysqli->query($form);
