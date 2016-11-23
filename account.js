@@ -9,9 +9,8 @@ app.controller('ctrl', ($scope) => {
 	$scope.contact = contact;
 	
 	var updateContacts = () => {
-		var con = $scope.contact.split('|').filter((e) => {
-			return e != undefined && e.length > 0;
-		});
+		$scope.contact = $scope.contact.replace(/\|$/, '');
+		var con = $scope.contact.split('|');
 		
 		$scope.contacts = [];
 		for(var c of con) {
@@ -28,6 +27,8 @@ app.controller('ctrl', ($scope) => {
 		} else {
 			$('#addContactBtn').show();
 		}
+		
+		console.log($scope.contact);
 	};
 	updateContacts();
 	
@@ -42,8 +43,12 @@ app.controller('ctrl', ($scope) => {
 	};
 	
 	$scope.removeContact = (c) => {
-		$scope.contact = $scope.contact.replace(new RegExp('[^.|]+\\.' + c + '\\|*', 'i'), '');
-		console.log($scope.contact);
+		if($scope.contacts.length == 1)
+			return;
+			
+		var remove = new RegExp('[^.|]+\\.' + c + '(\\||$)', 'i');
+		$scope.contact = $scope.contact.replace(remove, '');
+		console.log(remove);
 		updateContacts();
 	};
 });
