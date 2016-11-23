@@ -54,8 +54,7 @@
 					<input type="text" name="Address1" value="<?php echo $_SESSION['Address1']; ?>">
 					<input type="text" name="Address2" value="<?php echo $_SESSION['Address2']; ?>">
 					<input type="text" name="City" value="<?php echo $_SESSION['City']; ?>">
-					<select name="Planet">
-						<option name="<?php echo $_SESSION['Planet']; ?>" placeholder="<?php echo $_SESSION['Planet']; ?>"><?php echo $_SESSION['Planet']; ?></option>
+					<div><?php echo $_SESSION['Planet'];?></div> 
 					</select>
 					<input type="password" name="pass" value="<?php echo $_SESSION['Pass']; ?>">
 					<input type="password" name="confirm_pass" placeholder="confirm new password">
