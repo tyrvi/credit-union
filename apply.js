@@ -176,7 +176,7 @@ app.controller('ctrl', ($scope) => {
 	};
 	
 	$scope.next = () => {
-		valid = $scope.validate();
+		var valid = $scope.validate();
 		
 		if(valid || skip) {
 			$('#apply-caption-carousel').carousel('next');
