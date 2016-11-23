@@ -3,7 +3,7 @@
 	
 	// check if logged in and if they are not redirect to home page
 	if (!array_key_exists('Email', $_SESSION)) {
-		header("Location: index.php");
+		header("Location: login.php");
 	}
 ?>
 <!DOCTYPE <html>
@@ -50,8 +50,7 @@
 					<input type="text" name="Mname" value="<?php echo $_SESSION['Mname']; ?>">
 					<input type="text" name="Lname" value="<?php echo $_SESSION['Lname']; ?>">
 					<input type="text" name="email" value="<?php echo $_SESSION['Email']; ?>">
-					 <!-- This is a hack I think need to check if it works when there are multiple phone numbers-->
-					<input type="tel" name="Phone" value="<?php echo $_SESSION['Phones']['Phone']; ?>"> 
+					<input type="hidden" name="Contact" value=""> 
 					<input type="text" name="Address1" value="<?php echo $_SESSION['Address1']; ?>">
 					<input type="text" name="Address2" value="<?php echo $_SESSION['Address2']; ?>">
 					<input type="text" name="City" value="<?php echo $_SESSION['City']; ?>">

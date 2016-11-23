@@ -31,10 +31,6 @@
 
 		$res = $mysqli->query("SELECT * from cudb.customers where Email = '$username'");
 		$row = $res->fetch_assoc();
-		$C_Id = $row['C_Id'];
-		$phone_res = $mysqli->query("SELECT * FROM cudb.contact where C_ID = '$C_Id'");
-		$phone_row = $phone_res->fetch_assoc();
-
 		
 		// if the password does not match or the user does not exist then login fails
 		if ($row === NULL || $row["Pass"] != $password) {
@@ -45,7 +41,6 @@
 			header('Location: account.php');
 			$GLOBALS['badLogin'] = false;
 			$_SESSION = $row;
-			$_SESSION['Phones'] = $phone_row;
 		}
 	}
 	mysqli_close($mysqli);
