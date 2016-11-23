@@ -247,12 +247,15 @@
 				$Planet = validate($_POST['Planet']);
 				// income not initialized anywhere but it works so leaving it as is...
 				$income = validate($_POST['income']);
+
+				$Phone = "Primary.".$Phone."|";
 				
-				$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass, Income, Gender) 
-				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass', '$income', '$gender')";
+				$form = "INSERT INTO customers (Fname, Mname, Lname, Address1, Address2, City, Planet, DOB, SS, Email, Pass, Income, Gender, Contact) 
+				VALUES ('$Fname', '$Mname', '$Lname', '$Address1', '$Address2', '$City', '$Planet', '$DOB', '$SS', '$email', '$Pass', '$income', '$gender', '$Phone')";
 
 				// If the application is successful insert phone number using C_Id
 				if ($mysqli->query($form) === TRUE) {
+					/*
 					$find_C_Id = "SELECT C_Id FROM customers where Email = '$email'";
 					$res = $mysqli->query($find_C_Id); // get C_Id for this person
 
@@ -267,7 +270,7 @@
 					// error with C_Id query
 					else {
 						echo "Error: ".$find_C_Id."<br>".$mysqli->error;
-					}
+					}*/
 					
 				} 
 				// error with form database insertion
