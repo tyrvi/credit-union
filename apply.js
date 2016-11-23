@@ -80,6 +80,16 @@ var validators = {
 		if(!/.+@.+/.test(email))
 			return 'Must be a valid email address';
 	},
+	'Pass': (pass) => {
+		if(pass == undefined || pass == '') 
+			return 'Required';
+		if (pass.length < 8)
+			return 'Your password must be at least 8 characters';
+		if (!/\d/g.test(pass))
+			return 'Your password must contain at least 1 digit';
+		if (!/[A-Z]+/g.test(pass))
+			return 'Your password must have at least 1 uppercase letter'; 
+	}
 };
 
 var app = angular.module('app', []);
@@ -149,8 +159,7 @@ app.controller('ctrl', ($scope) => {
 				break;
 			case 5:
 				check('email', 'Email');
-				check('pass', 'Required');
-				check('confirm_pass', 'Required');
+				check('pass', 'Pass');
 				
 				if($scope.confirm_pass != $scope.pass) {
 					errors.push({id: 'confirm_pass', error: 'Passwords must match'});
