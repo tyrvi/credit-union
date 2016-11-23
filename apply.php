@@ -6,7 +6,6 @@
 <head>
     <?php include_once "includes.php" ?>
 	<link rel="stylesheet" href="style.php/apply.scss">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <title>Apply</title>
 </head>
 
