@@ -19,6 +19,7 @@
 	
 	<script>
 	var contact = '<?php echo $_SESSION['Contact']; ?>';
+	var planet = '<?php echo $_SESSION['Planet']; ?>';
 	</script>
 	
 	<div>
@@ -29,24 +30,12 @@
 	</div>
 	<div id="main">
 		<!-- main content -->
-		<?php
-			/* 
-			var_dump($_SESSION['Phones']);
-			foreach ($_SESSION['Phones'] as $item) {
-				echo "</br>";
-				echo $item;
-				for ($i = 0; $i < count($item); $i++) {
-					echo "</br>";
-					echo $item;
-				}
-			}
-			*/
-		?>
 		<div>
 			<!-- accounts -->
 			<div>
 			
 			</div>
+			
 			<!-- user info -->
 			<div>
 				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -58,13 +47,11 @@
 					<input type="text" name="Address1" value="<?php echo $_SESSION['Address1']; ?>">
 					<input type="text" name="Address2" value="<?php echo $_SESSION['Address2']; ?>">
 					<input type="text" name="City" value="<?php echo $_SESSION['City']; ?>">
-					<div><?php echo $_SESSION['Planet'];?></div> 
 					</select>
 					<input type="password" name="pass" value="<?php echo $_SESSION['Pass']; ?>">
 					<input type="password" name="confirm_pass" placeholder="confirm new password">
 					
-					<button type="button" id="showPlanets" ng-click="showPlanets()">Change Planet</button>
-					<select id="planets" class="form-control" name="Planet">
+					<select ng-model="Planet" id="planets" class="form-control" name="Planet">
 						<option placeholder="AL">AL - Alderaan</option>
 						<option placeholder="AP">AP - Amethia Prime</option>
 						<option placeholder="BE">BE - Bespin</option>
@@ -96,9 +83,12 @@
 						<option placeholder="YA">YA - Yavin</option>
 					</select>
 					<div ng-repeat="c in contacts" class="contact">
-						Type:<span class="contactType">{{c.type}}</span>
+						<select ng-model="c.type" ng-change="contactChange()">
+							<option placeholder="Primary">Primary</option>
+							<option placeholder="Secondary">Secondary</option>
+						</select>
 						<input ng-model="c.val" ng-change="contactChange()" type="text" value="{{c.val}}">
-						<button ng-click="removeContact(c.val)" type="button">-</button>
+						<button ng-click="removeContact($index)" type="button">-</button>
 					</div>
 					<button id="addContactBtn" ng-click="addContact()" type="button">+</button>
 					</br>

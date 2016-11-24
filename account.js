@@ -1,15 +1,27 @@
 var maxContacts = 3;
 
-$(document).ready(() => {			
-	$('#planets').hide();
-});
-
 var app = angular.module('app', []);
 app.controller('ctrl', ($scope) => {
 	$scope.contact = contact;
+	$scope.Planet = planet;
 	
-	var updateContacts = () => {
-		$scope.contact = $scope.contact.replace(/\|$/, '');
+	function updateContacts() {
+		// Update DB representation
+		$scope.contact = '';
+		for(var c of $scope.contacts) {
+			$scope.contact += c.type + '.' + c.val + '|';
+		}
+		
+		// Check if we should show the add button or not
+		if($scope.contacts.length == maxContacts) {
+			$('#addContactBtn').hide();
+		} else {
+			$('#addContactBtn').show();
+		}
+	};
+	
+	function getContacts() {
+		$scope.contact = contact.replace(/\|$/, '');
 		var con = $scope.contact.split('|');
 		
 		$scope.contacts = [];
@@ -21,14 +33,9 @@ app.controller('ctrl', ($scope) => {
 				val: cc[1]
 			});
 		}
-		
-		if($scope.contacts.length == maxContacts) {
-			$('#addContactBtn').hide();
-		} else {
-			$('#addContactBtn').show();
-		}
+		updateContacts();
 	};
-	updateContacts();
+	getContacts();
 	
 	$scope.showPlanets = () => {
 		$('#planets').show();
@@ -36,27 +43,20 @@ app.controller('ctrl', ($scope) => {
 	};
 	
 	$scope.addContact = () => {
-		$scope.contact += '|Secondary.';
+		$scope.contacts.push(
+		{
+			val: '',
+			type: 'Secondary'
+		});
 		updateContacts();
 	};
 	
 	$scope.removeContact = (c) => {
-		if($scope.contacts.length == 1)
-			return;
-		
-		var remove = new RegExp('[^.|]+\\.' + c + '(\\||$)', 'i');
-		$scope.contact = $scope.contact.replace(remove, '');
+		$scope.contacts.splice(c, 1);
 		updateContacts();
 	};
 	
 	$scope.contactChange = () => {
-		console.log($scope.contacts);
-		
-		$scope.contact = '';
-		$('.contact').each((i, e) => {
-			var type = $(e).children('.contactType')[0].innerHTML;
-			var val = $(e).children('input').val();
-			$scope.contact += type + '.' + val + '|';
-		});
+		updateContacts();
 	};
 });
