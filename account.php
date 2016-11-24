@@ -95,8 +95,9 @@
 						<option placeholder="UR">UR - Uranus</option>
 						<option placeholder="YA">YA - Yavin</option>
 					</select>
-					<div ng-repeat="c in contacts">
-						Type:{{c.type}}, Val: {{c.val}}
+					<div ng-repeat="c in contacts" class="contact">
+						Type:<span class="contactType">{{c.type}}</span>
+						<input ng-model="c.val" ng-change="contactChange()" type="text" value="{{c.val}}">
 						<button ng-click="removeContact(c.val)" type="button">-</button>
 					</div>
 					<button id="addContactBtn" ng-click="addContact()" type="button">+</button>

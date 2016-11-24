@@ -27,8 +27,6 @@ app.controller('ctrl', ($scope) => {
 		} else {
 			$('#addContactBtn').show();
 		}
-		
-		console.log($scope.contact);
 	};
 	updateContacts();
 	
@@ -45,10 +43,20 @@ app.controller('ctrl', ($scope) => {
 	$scope.removeContact = (c) => {
 		if($scope.contacts.length == 1)
 			return;
-			
+		
 		var remove = new RegExp('[^.|]+\\.' + c + '(\\||$)', 'i');
 		$scope.contact = $scope.contact.replace(remove, '');
-		console.log(remove);
 		updateContacts();
+	};
+	
+	$scope.contactChange = () => {
+		console.log($scope.contacts);
+		
+		$scope.contact = '';
+		$('.contact').each((i, e) => {
+			var type = $(e).children('.contactType')[0].innerHTML;
+			var val = $(e).children('input').val();
+			$scope.contact += type + '.' + val + '|';
+		});
 	};
 });
