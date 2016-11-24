@@ -85,17 +85,16 @@
 					<div ng-repeat="c in contacts" class="contact">
 						<select ng-model="c.type" ng-change="contactChange()">
 							<option placeholder="Primary">Primary</option>
-							<option placeholder="Secondary">Secondary</option>
+							<option placeholder="Secondary">Home</option>
+							<option placeholder="Secondary">Work</option>
+							<option placeholder="Secondary">Subspace Transceiver</option>
+							<option placeholder="Secondary">Mobile</option>
+							<option placeholder="Secondary">Fax</option>
 						</select>
 						<input ng-model="c.val" ng-change="contactChange()" type="text" value="{{c.val}}">
 						<button ng-click="removeContact($index)" type="button">-</button>
 					</div>
 					<button id="addContactBtn" ng-click="addContact()" type="button">+</button>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
 					</br>
 					<input type="hidden" name="Contact" value="{{contact}}">
 					<input type="submit" name="submit" value="update">

@@ -46,7 +46,7 @@ app.controller('ctrl', ($scope) => {
 		$scope.contacts.push(
 		{
 			val: '',
-			type: 'Secondary'
+			type: 'Home'
 		});
 		updateContacts();
 	};
