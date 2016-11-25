@@ -85,10 +85,12 @@ h3 {
 	button {
 		width: 40px;
 		height: 40px;
+		font-size: 20px;
 	}
 }
 
 #addContactBtn {
+	font-size: 20px;
 	margin-top: 30px;
 	height: 40px;
 	width: 40px;
@@ -111,9 +113,10 @@ h3 {
 	background-color: white;
 }
 
-.apply-error {
+.apply-error, .contact-error {
+	display: block;
 	font-family: roboto;
 	color: rgb(249, 76, 71);
-	height: 20px;
-	margin-left: 10px;
+	width: auto !important;
+	margin-left: 20px;
 }

@@ -11,31 +11,36 @@
 			<div id="basicInfo" class="tab-pane fade in active">
 				<p>Email:</p>
 				<input ng-model="email" class="form-control" type="text" name="Email" readonly="readonly" value="<?php echo $_SESSION['Email']; ?>">
-				<p id="emailErr" class="apply-error"></p>	
+				<br />
 				<br />
 				
 				<p>First Name:</p>
 				<input ng-model="Fname" class="form-control" type="text" name="Fname" value="<?php echo $_SESSION['Fname']; ?>">
-				<p id="FnameErr" class="apply-error"></p>	
+				<br />
+				<p id="FnameErr" class="apply-error"></p>
 				<br />
 				
 				<p>Middle Name:</p>
 				<input ng-model="Mname" class="form-control" type="text" name="Mname" value="<?php echo $_SESSION['Mname']; ?>">	
 				<br />
+				<br />
 				
 				<p>Last Name:</p>
 				<input ng-model="Lname" class="form-control" type="text" name="Lname" value="<?php echo $_SESSION['Lname']; ?>">
+				<br />
 				<p id="LnameErr" class="apply-error"></p>
 				<br />
 
 				<!--PASSWORD STUFF-->
 				<p>Password:</p>
 				<input ng-model="pass" class="form-control" type="password" name="pass" value="<?php echo $_SESSION['Pass']; ?>">
+				<br />
 				<p id="passErr" class="apply-error"></p>
 				<br />
 				
 				<p>Confirm Password:</p>
 				<input ng-model="confirm_pass" class="form-control" type="password" name="confirm_pass" placeholder="confirm new password">
+				<br />
 				<p id="confirm_passErr" class="apply-error"></p>
 				<br />
 			</div>
@@ -44,17 +49,19 @@
 				<input type="hidden" name="Contact" value="{{contact}}">
 				<p>Address 1:</p>
 				<input ng-model="Address1" class="form-control" type="text" name="Address1" value="<?php echo $_SESSION['Address1']; ?>">
+				<br />
 				<p id="Address1Err" class="apply-error"></p>
 				<br />
 				
 				<p>Address 2:</p>
 				<input ng-model="Address2" class="form-control" type="text" name="Address2" value="<?php echo $_SESSION['Address2']; ?>">
-				<p id="Address2Err" class="apply-error"></p>
+				<br />
 				<br />
 				
 				<p>City:</p>
 				<input ng-model="City" class="form-control" type="text" name="City" value="<?php echo $_SESSION['City']; ?>">
-				<p id="CityErr" class="apply-error"></p>	
+				<br />
+				<p id="CityErr" class="apply-error"></p>
 				<br />
 				
 				<p>Planet:</p>
@@ -76,6 +83,9 @@
 					</select>
 					<input ng-model="c.val" ng-change="contactChange()" class="form-control" type="text" value="{{c.val}}">
 					<button ng-click="removeContact($index)" type="button">-</button>
+					<br />
+					<p class="contact-error">{{c.err}}</p>
+					<br />
 				</div>
 				<button id="addContactBtn" ng-click="addContact()" type="button">+</button>
 			</div>

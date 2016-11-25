@@ -69,7 +69,8 @@ app.controller('ctrl', ($scope) => {
 			$scope.contacts.push(
 			{
 				type: cc[0],
-				val: cc[1]
+				val: cc[1],
+				err: '',
 			});
 		}
 		updateContacts();
@@ -85,7 +86,8 @@ app.controller('ctrl', ($scope) => {
 		$scope.contacts.push(
 		{
 			val: '',
-			type: 'Home'
+			type: 'Home',
+			err: '',
 		});
 		updateContacts();
 	};
@@ -96,6 +98,26 @@ app.controller('ctrl', ($scope) => {
 	};
 	
 	$scope.contactChange = () => {
+		for(let i = 0; i < $scope.contacts.length; i++) {
+			let phone = $scope.contacts[i].val;
+			
+			phone = phone.replace(/-/g, '');
+			phone = phone.replace(/\D/g, '');
+
+			if (phone.length > 3) {
+				phone = phone.slice(0, 3) + '-' + phone.slice(3);
+			}
+
+			if (phone.length > 7) {
+				phone = phone.slice(0, 7) + '-' + phone.slice(7);
+			}
+
+			if (phone.length > 11) {
+				phone = phone.slice(0, 12);
+			}
+			$scope.contacts[i].val = phone;
+		}
+		
 		updateContacts();
 	};
 
@@ -115,13 +137,26 @@ app.controller('ctrl', ($scope) => {
 		check('Address1', 'Required');
 		check('email', 'Email');
 		check('pass', 'Pass');
-
+		
+		for(let i = 0; i < $scope.contacts.length; i++) {
+			$scope.contacts[i].err = '';
+		}
+		
 		$('.apply-error').html('');
 		for(let e of errors) {
 			$('#' + e.id + 'Err').html(e.error);
 		}
 		
-		return errors.length == 0;
+		let contactErrors = false;
+		for(let i = 0; i < $scope.contacts.length; i++) {
+			let err = validators['Phone']($scope.contacts[i].val);
+			if(err !== undefined) {
+				$scope.contacts[i].err = err;
+				contactErrors = true;
+			}
+		}
+				
+		return errors.length == 0 && !contactErrors;
 	};
 
 	$scope.update = () => {
