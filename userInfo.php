@@ -112,11 +112,30 @@
 				$form = "UPDATE customers
 				SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Planet='$Planet', Email='$email', Pass='$Pass', Contact='$Phone' 
 				WHERE C_Id = '$_SESSION[C_Id]'";
+				$_SESSION['Fname'] = $Fname;
+				$_SESSION['Mname'] = $Mname;
+				$_SESSION['Lname'] = $Lname;
+				$_SESSION['Address1'] = $Address1;
+				$_SESSION['Address2'] = $Address2;
+				$_SESSION['City'] = $City;
+				$_SESSION['Pass'] = $Pass;
+				$_SESSION['Email'] = $email;
+				$_SESSION['Contact'] = $Phone;
+				$_SESSION['Planet'] = $Planet;
 			}
 			else {
 				$form = "UPDATE customers
 				SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Email='$email', Pass='$Pass', Contact='$Phone'
 				WHERE C_Id = '$_SESSION[C_Id]'";
+				$_SESSION['Fname'] = $Fname;
+				$_SESSION['Mname'] = $Mname;
+				$_SESSION['Lname'] = $Lname;
+				$_SESSION['Address1'] = $Address1;
+				$_SESSION['Address2'] = $Address2;
+				$_SESSION['City'] = $City;
+				$_SESSION['Pass'] = $Pass;
+				$_SESSION['Email'] = $email;
+				$_SESSION['Contact'] = $Phone;
 			}
 			
 			//$mysqli->query($form);

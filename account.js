@@ -36,6 +36,7 @@ var app = angular.module('app', []);
 app.controller('ctrl', ($scope) => {
 	$scope.contact = contact;
 	$scope.Fname = Fname;
+	$scope.Mname = Mname;
 	$scope.Lname = Lname;
 	$scope.email = email;
 	$scope.Address1 = Address1;
