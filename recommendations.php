@@ -21,7 +21,7 @@
 			
 			<div class="col-md-10 recommendations-text">
 			“Being Dark Lord of the Sith is great, but I know it’s only a matter of 
-			time before my apprentice challenges me to a duel in a move to take the mantle in accordance 
+			time before my apprentice challenges me to a duel in a move to take up my mantle in accordance 
 			with the Rule of Two. Because of this, the folks at ICU have been great in helping me plan 
 			for retirement. I know that when the time comes, I’ll be ready.”
 			</div>	
@@ -36,9 +36,9 @@
 			
 			<div class="col-md-10 recommendations-text">
 			“As stormtrooper, I’m used to failure. Whether it’s missing shots at point 
-			blank range, being Jedi Mind tricked, or banging my head on doors. But the 
+			blank range, being Jedi Mind tricked, or banging my head on doors. But 
 			ICU doesn’t care about that. They’ve treated me and my other million clone counterparts the 
-			same- with respect, and I know they’ll do the same for you.”
+			same, with respect, and I know they’ll do the same for you.”
 			</div>
 		</div>
 		<div class="col">
