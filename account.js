@@ -113,6 +113,8 @@ app.controller('ctrl', ($scope) => {
 		check('Lname', 'Required');
 		check('City', 'Required');
 		check('Address1', 'Required');
+		check('email', 'Email');
+		check('pass', 'Pass');
 
 		$('.apply-error').html('');
 		for(let e of errors) {
