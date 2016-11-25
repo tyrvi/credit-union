@@ -51,7 +51,7 @@
 			$_SESSION['Contact'] = $Contact;
 			$_SESSION['Planet'] = $Planet;
 			$_SESSION['Pass'] = $Pass;
-			echo "$form";
+			//echo "$form";
 		}
 		else {
 			echo "Error: ".$form."<br>".$mysqli->error;

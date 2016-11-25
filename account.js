@@ -138,6 +138,10 @@ app.controller('ctrl', ($scope) => {
 		check('email', 'Email');
 		check('pass', 'Pass');
 		
+		if($scope.confirm_pass != $scope.pass) {
+					errors.push({id: 'confirm_pass', error: 'Passwords must match'});
+				}
+		
 		for(let i = 0; i < $scope.contacts.length; i++) {
 			$scope.contacts[i].err = '';
 		}
