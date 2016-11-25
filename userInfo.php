@@ -14,15 +14,16 @@
 				<br />
 				
 				<p>First Name:</p>
-				<input class="form-control" type="text" name="Fname" value="<?php echo $_SESSION['Fname']; ?>">	
+				<input ng-model="Fname" class="form-control" type="text" name="Fname" value="<?php echo $_SESSION['Fname']; ?>">
+				<p id="FnameErr" class="apply-error"></p>	
 				<br />
 				
 				<p>Middle Name:</p>
-				<input class="form-control" type="text" name="Mname" value="<?php echo $_SESSION['Mname']; ?>">	
+				<input ng-model="Mname" class="form-control" type="text" name="Mname" value="<?php echo $_SESSION['Mname']; ?>">	
 				<br />
 				
 				<p>Last Name:</p>
-				<input class="form-control" type="text" name="Lname" value="<?php echo $_SESSION['Lname']; ?>">
+				<input ng-model="Lname" class="form-control" type="text" name="Lname" value="<?php echo $_SESSION['Lname']; ?>">
 				<br />
 			</div>
 			
@@ -62,7 +63,7 @@
 				</div>
 				<button id="addContactBtn" ng-click="addContact()" type="button">+</button>
 			</div>
-			<button type="button">Update</button>
+			<button ng-click="update()" type="button">Update</button>
 		</div>
 		<!--
 		PASSWORD STUFF
@@ -109,19 +110,19 @@
 
 			if ($_SESSION['Planet'] != $Planet) {
 				$form = "UPDATE customers
-				SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Planet='$Planet', Email='$email', Pass='$Pass' 
+				SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Planet='$Planet', Email='$email', Pass='$Pass', Contact='$Phone' 
 				WHERE C_Id = '$_SESSION[C_Id]'";
 			}
 			else {
 				$form = "UPDATE customers
-				SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Email='$email', Pass='$Pass' 
+				SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Email='$email', Pass='$Pass', Contact='$Phone'
 				WHERE C_Id = '$_SESSION[C_Id]'";
 			}
 			
 			//$mysqli->query($form);
 			
 			if ($mysqli->query($form) === TRUE) {
-				echo "Update successful";
+				//echo "Update successful";
 			}
 			else {
 				echo "Error: ".$form."<br>".$mysqli->error;

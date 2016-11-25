@@ -97,4 +97,41 @@ app.controller('ctrl', ($scope) => {
 	$scope.contactChange = () => {
 		updateContacts();
 	};
+
+	$scope.validate = () => {
+		errors = [];
+
+		var check = (id, validator) => {
+			e = validators[validator]($scope[id]);
+			if(e != undefined) {
+				errors.push({id: id, error: e});
+			}
+		};	
+		
+		check('Fname', 'Required');
+		check('Lname', 'Required');
+		check('City', 'Required');
+		check('Address1', 'Required');
+
+		$('.apply-error').html('');
+		for(let e of errors) {
+			$('#' + e.id + 'Err').html(e.error);
+		}
+		
+		return errors.length == 0;
+	};
+
+	$scope.update = () => {
+		var valid = $scope.validate();
+
+		if (valid) {
+			$.ajax({
+				type: 'POST',
+				url: 'account.php',
+				data: $('#applyForm').serialize(),
+				success: () => {},
+				error: () => {},
+			});
+		}
+	}
 });
