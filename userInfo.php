@@ -27,6 +27,17 @@
 				<input ng-model="Lname" class="form-control" type="text" name="Lname" value="<?php echo $_SESSION['Lname']; ?>">
 				<p id="LnameErr" class="apply-error"></p>
 				<br />
+
+				<!--PASSWORD STUFF-->
+				<p>Password:</p>
+				<input ng-model="pass" class="form-control" type="password" name="pass" value="<?php echo $_SESSION['Pass']; ?>">
+				<p id="passErr" class="apply-error"></p>
+				<br />
+				
+				<p>Confirm Password:</p>
+				<input ng-model="confirm_pass" class="form-control" type="password" name="confirm_pass" placeholder="confirm new password">
+				<p id="confirm_passErr" class="apply-error"></p>
+				<br />
 			</div>
 			
 			<div id="addressInfo" class="tab-pane fade">
@@ -70,11 +81,8 @@
 			</div>
 			<button ng-click="update()" type="button">Update</button>
 		</div>
-		<!--
-		PASSWORD STUFF
-		<input class="form-control" type="password" name="pass" value="<?php echo $_SESSION['Pass']; ?>">
-		<input class="form-control" type="password" name="confirm_pass" placeholder="confirm new password">
-		-->
+		
+		
 		
 	</form>
 	<?php
