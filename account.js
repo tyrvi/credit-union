@@ -165,11 +165,14 @@ app.controller('ctrl', ($scope) => {
 		if (valid) {
 			$.ajax({
 				type: 'POST',
-				url: 'account.php',
+				url: 'updateUserInfo.php',
 				data: $('#userInfoForm').serialize(),
-				success: () => {},
+				success: (msg) => {
+					console.log(msg);
+				},
 				error: () => {},
 			});
+			alert('ding');
 		};
 	};
 });
