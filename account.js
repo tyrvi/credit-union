@@ -115,6 +115,7 @@ app.controller('ctrl', ($scope) => {
 		check('Address1', 'Required');
 		check('email', 'Email');
 		check('pass', 'Pass');
+		//check('contact', 'Phone')
 
 		$('.apply-error').html('');
 		for(let e of errors) {
