@@ -129,10 +129,10 @@ app.controller('ctrl', ($scope) => {
 			$.ajax({
 				type: 'POST',
 				url: 'account.php',
-				data: $('#applyForm').serialize(),
+				data: $('#userInfoForm').serialize(),
 				success: () => {},
 				error: () => {},
 			});
-		}
-	}
+		};
+	};
 });

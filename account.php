@@ -33,7 +33,7 @@
 		<!-- main content -->
 		<div id="content">
 			<!-- accounts -->
-			<div></div>
+			<div><?php echo $_SESSION['C_Id']; ?></div>
 			
 			<?php include_once("userInfo.php"); ?>
 		</div>

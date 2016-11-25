@@ -10,7 +10,8 @@
 		<div class="tab-content">
 			<div id="basicInfo" class="tab-pane fade in active">
 				<p>Email:</p>
-				<input class="form-control" type="text" name="Email" readonly="readonly" value="<?php echo $_SESSION['Email']; ?>">	
+				<input ng-model="email" class="form-control" type="text" name="Email" readonly="readonly" value="<?php echo $_SESSION['Email']; ?>">
+				<p id="emailErr" class="apply-error"></p>	
 				<br />
 				
 				<p>First Name:</p>
@@ -24,21 +25,25 @@
 				
 				<p>Last Name:</p>
 				<input ng-model="Lname" class="form-control" type="text" name="Lname" value="<?php echo $_SESSION['Lname']; ?>">
+				<p id="LnameErr" class="apply-error"></p>
 				<br />
 			</div>
 			
 			<div id="addressInfo" class="tab-pane fade">
 				<input type="hidden" name="Contact" value="{{contact}}">
 				<p>Address 1:</p>
-				<input class="form-control" type="text" name="Address1" value="<?php echo $_SESSION['Address1']; ?>">
+				<input ng-model="Address1" class="form-control" type="text" name="Address1" value="<?php echo $_SESSION['Address1']; ?>">
+				<p id="Address1Err" class="apply-error"></p>
 				<br />
 				
 				<p>Address 2:</p>
-				<input class="form-control" type="text" name="Address2" value="<?php echo $_SESSION['Address2']; ?>">
+				<input ng-model="Address2" class="form-control" type="text" name="Address2" value="<?php echo $_SESSION['Address2']; ?>">
+				<p id="Address2Err" class="apply-error"></p>
 				<br />
 				
 				<p>City:</p>
-				<input class="form-control" type="text" name="City" value="<?php echo $_SESSION['City']; ?>">	
+				<input ng-model="City" class="form-control" type="text" name="City" value="<?php echo $_SESSION['City']; ?>">
+				<p id="CityErr" class="apply-error"></p>	
 				<br />
 				
 				<p>Planet:</p>
@@ -92,7 +97,7 @@
 		}
 
 		$Fname = $Mname = $Lname = $Address1 = $Address2 = $City = $Pass = $confirm_pass = $email = "";
-		$Phone = $Planet = ""; // These are not yet ready to be processed
+		$Phone = $Planet = "";
 
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$Fname = validate($_POST['Fname']);
@@ -103,15 +108,25 @@
 			$City = validate($_POST['City']);
 			$Pass = validate($_POST['pass']);
 			$confirm_pass = validate($_POST['confirm_pass']);
-			$email = validate($_POST['email']);
-			// still need to be handled in the form
-			$Phone = validate($_POST['Phone']); // This one will be tricky
+			$email = validate($_POST['Email']);
+			$Phone = validate($_POST['Phone']);
 			$Planet = validate($_POST['Planet']);
 
 			if ($_SESSION['Planet'] != $Planet) {
 				$form = "UPDATE customers
 				SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Planet='$Planet', Email='$email', Pass='$Pass', Contact='$Phone' 
 				WHERE C_Id = '$_SESSION[C_Id]'";
+			}
+			else {
+				$form = "UPDATE customers
+				SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Email='$email', Pass='$Pass', Contact='$Phone'
+				WHERE C_Id = '$_SESSION[C_Id]'";
+			}
+			
+			//$mysqli->query($form);
+			
+			if ($mysqli->query($form) === TRUE) {
+				//echo "Update successful";
 				$_SESSION['Fname'] = $Fname;
 				$_SESSION['Mname'] = $Mname;
 				$_SESSION['Lname'] = $Lname;
@@ -122,26 +137,7 @@
 				$_SESSION['Email'] = $email;
 				$_SESSION['Contact'] = $Phone;
 				$_SESSION['Planet'] = $Planet;
-			}
-			else {
-				$form = "UPDATE customers
-				SET Fname='$Fname', Mname='$Mname', Lname='$Lname', Address1='$Address1', Address2='$Address2', City='$City', Email='$email', Pass='$Pass', Contact='$Phone'
-				WHERE C_Id = '$_SESSION[C_Id]'";
-				$_SESSION['Fname'] = $Fname;
-				$_SESSION['Mname'] = $Mname;
-				$_SESSION['Lname'] = $Lname;
-				$_SESSION['Address1'] = $Address1;
-				$_SESSION['Address2'] = $Address2;
-				$_SESSION['City'] = $City;
 				$_SESSION['Pass'] = $Pass;
-				$_SESSION['Email'] = $email;
-				$_SESSION['Contact'] = $Phone;
-			}
-			
-			//$mysqli->query($form);
-			
-			if ($mysqli->query($form) === TRUE) {
-				//echo "Update successful";
 			}
 			else {
 				echo "Error: ".$form."<br>".$mysqli->error;
