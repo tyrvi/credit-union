@@ -20,6 +20,12 @@
 	<script>
 	var contact = '<?php echo $_SESSION['Contact']; ?>';
 	var planet = '<?php echo $_SESSION['Planet']; ?>';
+	var Fname = '<?php echo $_SESSION['Fname']; ?>';
+	var Lname = '<?php echo $_SESSION['Lname']; ?>';
+	var email = '<?php echo $_SESSION['Email']; ?>';
+	var Address1 = '<?php echo $_SESSION['Address1']; ?>';
+	var City = '<?php echo $_SESSION['City']; ?>';
+	var Pass = '<?php echo $_SESSION['Pass']; ?>';
 	</script>
 	
 	<div id="main">

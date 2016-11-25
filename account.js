@@ -1,8 +1,46 @@
 var maxContacts = 3;
 
+var validators = {
+	'Required' : (val) => {
+		if(val == undefined || val == '')
+			return 'Required';
+	},
+	'Phone': (phone) => {
+		if(phone == undefined)
+			return 'Required';
+		
+		phone = phone.replace(/-/g, '');
+		phone = phone.replace(/\(/g, '');
+		phone = phone.replace(/\)/g, '');
+		phone = phone.replace(/ /g, '');
+		if(/\D+/.test(phone) || phone.length != 10)
+			return 'Please enter a valid phone number';
+	},
+	'Email': (email) => {
+		if(!/.+@.+/.test(email))
+			return 'Must be a valid email address';
+	},
+	'Pass': (pass) => {
+		if(pass == undefined || pass == '') 
+			return 'Required';
+		if (pass.length < 8)
+			return 'Your password must be at least 8 characters';
+		if (!/\d/g.test(pass))
+			return 'Your password must contain at least 1 digit';
+		if (!/[A-Z]+/g.test(pass))
+			return 'Your password must have at least 1 uppercase letter'; 
+	}
+};
+
 var app = angular.module('app', []);
 app.controller('ctrl', ($scope) => {
 	$scope.contact = contact;
+	$scope.Fname = Fname;
+	$scope.Lname = Lname;
+	$scope.email = email;
+	$scope.Address1 = Address1;
+	$scope.City = City;
+	$scope.pass = Pass;
 	$scope.Planet = planet;
 	
 	function updateContacts() {
