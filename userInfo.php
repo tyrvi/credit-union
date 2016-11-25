@@ -11,32 +11,40 @@
 			<div id="basicInfo" class="tab-pane fade in active">
 				<p>Email:</p>
 				<input class="form-control" type="text" name="Email" readonly="readonly" value="<?php echo $_SESSION['Email']; ?>">	
+				<br />
 				
 				<p>First Name:</p>
 				<input class="form-control" type="text" name="Fname" value="<?php echo $_SESSION['Fname']; ?>">	
+				<br />
 				
 				<p>Middle Name:</p>
 				<input class="form-control" type="text" name="Mname" value="<?php echo $_SESSION['Mname']; ?>">	
+				<br />
 				
 				<p>Last Name:</p>
 				<input class="form-control" type="text" name="Lname" value="<?php echo $_SESSION['Lname']; ?>">
+				<br />
 			</div>
 			
 			<div id="addressInfo" class="tab-pane fade">
 				<input type="hidden" name="Contact" value="{{contact}}">
 				<p>Address 1:</p>
 				<input class="form-control" type="text" name="Address1" value="<?php echo $_SESSION['Address1']; ?>">
+				<br />
 				
 				<p>Address 2:</p>
 				<input class="form-control" type="text" name="Address2" value="<?php echo $_SESSION['Address2']; ?>">
+				<br />
 				
 				<p>City:</p>
 				<input class="form-control" type="text" name="City" value="<?php echo $_SESSION['City']; ?>">	
+				<br />
 				
 				<p>Planet:</p>
 				<select ng-model="Planet" id="planets" class="form-control" name="Planet">
 					<?php include('planets.php'); ?>
 				</select>
+				<br />
 			</div>
 			
 			<div id="contactInfo" class="tab-pane fade">
@@ -49,7 +57,7 @@
 						<option placeholder="Secondary">Mobile</option>
 						<option placeholder="Secondary">Fax</option>
 					</select>
-					<input ng-model="c.val" ng-change="contactChange()" type="text" value="{{c.val}}">
+					<input ng-model="c.val" ng-change="contactChange()" class="form-control" type="text" value="{{c.val}}">
 					<button ng-click="removeContact($index)" type="button">-</button>
 				</div>
 				<button id="addContactBtn" ng-click="addContact()" type="button">+</button>

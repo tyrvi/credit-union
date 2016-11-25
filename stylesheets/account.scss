@@ -16,7 +16,7 @@ body {
 	background-color: rgb(255, 255, 255);
 	border: 1px solid rgb(237, 237, 237);
 	box-shadow: 0px 0px 5px rgb(228, 228, 228);
-	min-width: 500px;
+	min-width: 630px;
 	width: 100%;
 	padding: 20px;
 }
@@ -33,6 +33,65 @@ h3 {
 #userInfoForm {
 	background-color: white;
 	border: 1px solid #ddd;
+	
+	button {
+		color: black;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		background-color: rgb(242, 241, 241); 
+	}
+
+	p {
+		display: inline-block;
+		width: 90px;
+		font-family: Roboto;
+	}
+	
+	input {
+		display: inline;
+		width: 70%;
+		margin-top: 10px;
+	}
+	
+	select {
+		display: inline;
+		width: 70%;
+		margin-top: 10px;
+	}
+}
+
+.contact {
+	height: 40px;
+	
+	* {
+		height: 100%;
+	}
+	
+	margin-bottom: 30px;
+	
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+	
+	select {
+		display: inline;
+		width: 20% !important;
+	}
+	
+	input {
+		margin-top: 20px;
+	}
+	
+	button {
+		width: 40px;
+		height: 40px;
+	}
+}
+
+#addContactBtn {
+	margin-top: 30px;
+	height: 40px;
+	width: 40px;
 }
 
 .nav-tabs {
@@ -41,7 +100,7 @@ h3 {
 }
 
 .tab-pane.active {
-	min-height: 300px;
+	min-height: 350px;
 }
 
 .tab-content {
@@ -50,11 +109,4 @@ h3 {
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
 	background-color: white;
-}
-
-button {
-	color: black;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	background-color: rgb(242, 241, 241); 
 }
