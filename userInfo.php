@@ -89,7 +89,7 @@
 				</div>
 				<button id="addContactBtn" ng-click="addContact()" type="button">+</button>
 			</div>
-			<button ng-click="update()" type="button">Update</button>
+			<button id="updateBtn" ng-click="update()" type="button">Update</button>
 			<!--<input ng-click="update()" type="submit" value="submit" />-->
 		</div>
 	</form>
