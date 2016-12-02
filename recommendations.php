@@ -15,13 +15,13 @@
 		</div>
 		<div class="col">
 			<div class="col-md-2 recommendations-portrait">
-				<div class="recommendations-image" style="background-image: url('https://s-media-cache-ak0.pinimg.com/originals/22/ae/b6/22aeb6abdf20aff74f73aed8c036ebf3.jpg')"></div>
+				<div class="recommendations-image" style="background-image: url('images/Palpatine.png')"></div>
 				<b>Emperor Palpatine</b>
 			</div>
 			
 			<div class="col-md-10 recommendations-text">
 			“Being Dark Lord of the Sith is great, but I know it’s only a matter of 
-			time before my apprentice challenges me to a duel in a move to take the mantle in accordance 
+			time before my apprentice challenges me to a duel in a move to take up my mantle in accordance 
 			with the Rule of Two. Because of this, the folks at ICU have been great in helping me plan 
 			for retirement. I know that when the time comes, I’ll be ready.”
 			</div>	
@@ -30,20 +30,20 @@
 	<div class="myRow">
 		<div class="col">
 			<div class="col-md-2 recommendations-portrait">
-				<div class="recommendations-image" style="background-image: url('https://s-media-cache-ak0.pinimg.com/originals/22/ae/b6/22aeb6abdf20aff74f73aed8c036ebf3.jpg')"></div>
+				<div class="recommendations-image" style="background-image: url('images/StormTrooper.png')"></div>
 				<b>Stormtrooper No. 5C87</b>
 			</div>
 			
 			<div class="col-md-10 recommendations-text">
 			“As stormtrooper, I’m used to failure. Whether it’s missing shots at point 
-			blank range, being Jedi Mind tricked, or banging my head on doors (see photo above). But the 
+			blank range, being Jedi Mind tricked, or banging my head on doors. But 
 			ICU doesn’t care about that. They’ve treated me and my other million clone counterparts the 
-			same- with respect, and I know they’ll do the same for you.”
+			same, with respect, and I know they’ll do the same for you.”
 			</div>
 		</div>
 		<div class="col">
 			<div class="col-md-2 recommendations-portrait">
-				<div class="recommendations-image" style="background-image: url('https://s-media-cache-ak0.pinimg.com/originals/22/ae/b6/22aeb6abdf20aff74f73aed8c036ebf3.jpg')"></div>
+				<div class="recommendations-image" style="background-image: url('images/Ackbar.jpg')"></div>
 				<b>Admiral Ackbar</b>
 			</div>
 			
