@@ -10,6 +10,7 @@
 	<?php include_once "navbar.php"; ?>
 	<div id="main">
 		<div id="calculator">
+			<h1>Amortization Calculator</h1>
 	        <div class="row">
 	            <div class="col-sm-4">
 					<div class="row">
