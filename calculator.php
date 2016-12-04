@@ -30,9 +30,6 @@
             <br/>
             <br/>
 
-            <p>Monthly Payment</p>
-            <h1 ng-model="monthlyPayment">{{monthlyPayment}}</h1>
-
             <!-- <button ng-click="calculate()">Calculate Table</button> -->
         </div>
 

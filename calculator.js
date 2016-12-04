@@ -14,7 +14,8 @@ app.controller("ctrl", ($scope) => {
         let H = 0;
         let C = 0;
         let Q = 0;
-        let month = 0;
+        let month = 1;
+        results.push({"month": month, "principal": P.toFixed(2), "currentMonthlyInterest": H.toFixed(2), "monthPayment": C.toFixed(2), "newBalance": Q.toFixed(2)});
 
         while (true) {
             if (P.toFixed(2) <= 0) break;
