@@ -2,11 +2,20 @@
 <html>
 
 
+
 <head> 
+	
     <?php include_once "includes.php"?>
+    <link href="style.php/about.scss" rel = "stylesheet"> 
     <link href="stylesheets/bootstrap.min.css" rel = "stylesheet">
 </head>
-<xmp>
+<body>
+	<?php include_once "navbar.php"; ?>
+	<div id="main">
+
+
+	</div>
+		<xmp>
 
 # FAQ’s:
 
@@ -34,6 +43,8 @@ Phone: 1-800-ICU-HELP
 P.O. Box for Deposits/Payments: Imperial Credit Union P.O. Box 5743 1 Uranus Way, UR, 37211-4903
 
 </xmp>
-<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+	<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</body>
+
 
 </html>
