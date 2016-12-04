@@ -45,7 +45,6 @@ app.controller("ctrl", ($scope) => {
     }
 
     $scope.calculate = () => {
-        validate();
 
         monthlyInterestRate = $scope.annualInterestRate / (12 * 100);
 		
