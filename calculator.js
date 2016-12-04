@@ -14,18 +14,19 @@ app.controller("ctrl", ($scope) => {
         let H = 0;
         let C = 0;
         let Q = 0;
-        let month = 1;
-        results.push({"month": month, "principal": P.toFixed(2), "currentMonthlyInterest": H.toFixed(2), "monthPayment": C.toFixed(2), "newBalance": Q.toFixed(2)});
+        let month = 0;
+        let totalInterest = 0;
+        //results.push({"month": month, "payment": M.toFixed(2), "currentMonthlyInterest": H.toFixed(2), "monthPayment": C.toFixed(2), "balance": P.toFixed(2)});
 
         while (true) {
-            if (P.toFixed(2) <= 0) break;
             month += 1;
             H = P * J;
+            totalInterest += H;
             C = M - H;
             Q = P - C;
             P = Q;
-            
-            results.push({"month": month, "principal": P.toFixed(2), "currentMonthlyInterest": H.toFixed(2), "monthPayment": C.toFixed(2), "newBalance": Q.toFixed(2)});
+            if (P.toFixed(2) < 0) break;
+            results.push({"month": month, "payment": M.toFixed(2), "principal": C.toFixed(2), "interest": H.toFixed(2), "totalInterest": totalInterest.toFixed(2), "balance": P.toFixed(2)});
         }
 
         return results;

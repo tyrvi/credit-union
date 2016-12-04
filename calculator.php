@@ -26,35 +26,32 @@
 				</div>
 				
 				<div class="col-md-4">
-	            <p>Length in Years</p>
-	            <input ng-change="calculate()" type="number" min="1" ng-model="lengthYears" class="form-control">
-			</div>	
-            	<p>monthly interest rate</p>
-            	<p ng-change="calculate()" ng-model="monthlyInterestRate">{{monthlyInterestRate}}</p>
-				
+                    <p>Length in Years</p>
+                    <input ng-change="calculate()" type="number" min="1" ng-model="lengthYears" class="form-control">
+                </div>
+            </div>
+		</div>					
 	            <p>length in months</p>
 	            <p ng-change="calculate()" ng-model="lengthMonths">{{lengthMonths}}</p>
-
-            <table>
-        <div>
-        </div>
-                <tr>
-                    <td>Month</td>
-                    <td>Principal</td>
-                    <td>Current Monthly Interest</td>
-                    <td>Monthly Payment</td>
-                <tr ng-repeat="x in table track by $index">
-                    <td>New Balance</td>
-                </tr>
-                    <td>{{x.month}}</td>
-                    <td>{{x.principal}}</td>
-                    <td>{{x.currentMonthlyInterest}}</td>
-                    <td>{{x.monthPayment}}</td>
-            </table>
-                </tr>    
-                    <td>{{x.newBalance}}</td>
-        
-        
+        <table>
+            <tr>
+                <td>Month</td>
+                <td>Payment</td>
+                <td>Principal</td>
+                <td>Interest</td>
+                <td>Total Interest</td>
+                <td>Balance</td>
+            </tr>
+            <tr ng-repeat="x in table track by $index">            
+                <td>{{x.month}}</td>
+                <td>{{x.payment}}</td>
+                <td>{{x.principal}}</td>
+                <td>{{x.interest}}</td>
+                <td>{{x.totalInterest}}</td>
+                <td>{{x.balance}}</td>
+            </tr>  
+        </table>
+                  
 	</div>
     <script src="calculator.js"></script>
 </body>
