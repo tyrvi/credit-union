@@ -43,9 +43,71 @@ app.controller("ctrl", ($scope) => {
             $scope.annualInterestRate = 1;
         }
     }
+	
+	function createChart() {
+		let labels = [];
+		let principal = [];
+		let interest = [];
+		
+		let step = 1;
+		if($scope.table.length > 20) {
+			step = Math.round($scope.table.length / 20);
+		} 
+		
+		for(let i = 0; i < $scope.table.length; i += step) {
+			let row = $scope.table[i];
+			labels.push(row.month);
+			principal.push(row.principal);
+			interest.push(row.interest);
+		}
+		
+		var ctx = document.getElementById("myChart").getContext("2d");;
+		ctx.canvas.width = 400;
+		ctx.canvas.height = 200;
+		
+		var myChart = new Chart(ctx, {
+			type: 'line',
+			data: {
+				labels: labels,
+				datasets: 
+				[
+					{
+						label: 'Principal',
+						data: principal,
+						backgroundColor: [
+							'rgba(121, 173, 235, 0.2)',
+						],
+						borderColor: [
+							'rgba(121, 173, 235, 1)',
+						],
+						borderWidth: 2
+					},
+					{
+						label: 'Interest',
+						data: interest,
+						backgroundColor: [
+							'rgba(255, 99, 132, 0.2)',
+						],
+						borderColor: [
+							'rgba(255,99,132,1)',
+						],
+						borderWidth: 2
+					},
+				]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+	}
 
     $scope.calculate = () => {
-
         monthlyInterestRate = $scope.annualInterestRate / (12 * 100);
 		
         $scope.lengthMonths = $scope.lengthYears * 12;
@@ -57,5 +119,7 @@ app.controller("ctrl", ($scope) => {
 
         $scope.monthlyPayment = M.toFixed(2);
         $scope.table = calculateTable(P, J, M);
+		
+		createChart();
     };
 });
