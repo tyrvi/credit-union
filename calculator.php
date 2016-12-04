@@ -38,8 +38,19 @@
 
         <div>
             <table>
+                <tr>
+                    <td>Month</td>
+                    <td>Principal</td>
+                    <td>Current Monthly Interest</td>
+                    <td>Monthly Payment</td>
+                    <td>New Balance</td>
+                </tr>
                 <tr ng-repeat="x in table track by $index">
-                    <td>{{x}}</td>
+                    <td>{{x.month}}</td>
+                    <td>{{x.principal}}</td>
+                    <td>{{x.currentMonthlyInterest}}</td>
+                    <td>{{x.monthPayment}}</td>
+                    <td>{{x.newBalance}}</td>
                 </tr>    
             </table>
         </div>
