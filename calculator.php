@@ -26,7 +26,7 @@
             <br/>
 
             <p>length in years</p>
-            <input ng-change="calculate())" type="number" min="0" ng-model="lengthYears">
+            <input ng-change="calculate()" type="number" min="1" ng-model="lengthYears">
             <br/>
             <br/>
 
@@ -38,7 +38,7 @@
             <p>Monthly Payment</p>
             <h1 ng-model="monthlyPayment">{{monthlyPayment}}</h1>
 
-            <!--<button ng-click="calculateTable()">Calculate Table</button>-->
+            <!-- <button ng-click="calculate()">Calculate Table</button> -->
         </div>
 
         <div>
