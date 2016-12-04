@@ -11,32 +11,32 @@
 		<!-- Content -->
         <div>
             <p>principal</p>
-            <input ng-change="calculate()" type="number" min="0" ng-model="principal">
+            <input ng-change="yearChangeCalculate()" type="number" min="0" ng-model="principal">
             <br/>
             <br/>
 
             <p>annual interest rate</p>
-            <input ng-change="calculate()" type="number" min="1" max="100" ng-model="annualInterestRate">
+            <input ng-change="yearChangeCalculate()" type="number" min="1" max="100" ng-model="annualInterestRate">
             <br/>
             <br/>
 
             <p>monthly interest rate</p>
-            <input type="number" ng-model="monthlyInterestRate">
+            <p ng-change="yearChangeCalculate()" ng-model="monthlyInterestRate">{{monthlyInterestRate}}</p>
             <br/>
             <br/>
 
             <p>length in years</p>
-            <input type="number" min="0" ng-model="lengthYears">
+            <input ng-change="yearChangeCalculate()" type="number" min="0" ng-model="lengthYears">
             <br/>
             <br/>
 
             <p>length in months</p>
-            <input ng-change="calculate()" type="number" min="0" ng-model="lengthMonths">
+            <p ng-change="yearChangeCalculate()" ng-model="lengthMonths">{{lengthMonths}}</p>
             <br/>
             <br/>
 
-            <p></p>
-            <h1 ng-model="result">{{result}}</h1>
+            <p>Monthly Payment</p>
+            <h1 ng-model="monthlyPayment">{{monthlyPayment}}</h1>
         </div>
         
         
