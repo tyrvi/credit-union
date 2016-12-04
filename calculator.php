@@ -33,8 +33,8 @@
 					<div class="row">
 	            		<p>Length in Years</p>
 					</div>
-					<div class="row">
 	            		<input ng-change="calculate()" type="number" min="1" ng-model="lengthYears" class="form-control">
+					<div class="row">
 					</div>
 				</div>
 			</div>
@@ -44,21 +44,23 @@
 			</div>
 			
 			<table>
-                <tr>
-                    <th width="12%">Month</th>
-                    <th width="12%">Principal</th>
-                    <th width="36%">Current Monthly Interest</th>
-                    <th width="24%">Monthly Payment</th>
-					<th width="16%">New Balance</th>
-				</tr>
-                <tr ng-repeat="x in table track by $index">
-                    <td>{{x.month}}</td>
-                    <td>{{x.principal}}</td>
-                    <td>{{x.currentMonthlyInterest}}</td>
-                    <td>{{x.monthPayment}}</td>
-					<td>{{x.newBalance}}</td>
-				</tr>
-        	</table>
+            <tr>
+                <td>Payment</td>
+                <td>Month</td>
+                <td>Principal</td>
+                <td>Interest</td>
+                <td>Total Interest</td>
+                <td>Balance</td>
+            </tr>
+            <tr ng-repeat="x in table track by $index">            
+                <td>{{x.month}}</td>
+                <td>{{x.payment}}</td>
+                <td>{{x.principal}}</td>
+                <td>{{x.interest}}</td>
+                <td>{{x.totalInterest}}</td>
+                <td>{{x.balance}}</td>
+            </tr>  
+        </table>
 		</div>
 	</div>
     <script src="calculator.js"></script>

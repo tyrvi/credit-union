@@ -2,7 +2,7 @@
 var app = angular.module("app", []);
 
 app.controller("ctrl", ($scope) => {
-    $scope.principal = $scope.principal = 1;
+    $scope.principal = 1;
     $scope.annualInterestRate = 1;
     //monthlyInterestRate = $scope.annualInterestRate / (12 * 100);
     $scope.lengthYears = 1;
@@ -15,22 +15,38 @@ app.controller("ctrl", ($scope) => {
         let C = 0;
         let Q = 0;
         let month = 0;
+        let totalInterest = 0;
+        //results.push({"month": month, "payment": M.toFixed(2), "currentMonthlyInterest": H.toFixed(2), "monthPayment": C.toFixed(2), "balance": P.toFixed(2)});
 
         while (true) {
-            if (P.toFixed(2) <= 0) break;
             month += 1;
             H = P * J;
+            totalInterest += H;
             C = M - H;
             Q = P - C;
             P = Q;
-            
-            results.push({"month": month, "principal": P.toFixed(2), "currentMonthlyInterest": H.toFixed(2), "monthPayment": C.toFixed(2), "newBalance": Q.toFixed(2)});
+            if (P.toFixed(2) < 0) break;
+            results.push({"month": month, "payment": M.toFixed(2), "principal": C.toFixed(2), "interest": H.toFixed(2), "totalInterest": totalInterest.toFixed(2), "balance": P.toFixed(2)});
         }
 
         return results;
     }
 	
+    function validate() {
+        if ($scope.principal == undefined || $scope.principal < 1) {
+            $scope.principal = 1;
+        }
+        if ($scope.lengthYears == undefined || $scope.lengthYears < 1) {
+            $scope.lengthYears = 1;
+        }
+        if ($scope.annualInterestRate == undefined || $scope.annualInterestRate <= 0) {
+            $scope.annualInterestRate = 1;
+        }
+    }
+
     $scope.calculate = () => {
+        validate();
+
         monthlyInterestRate = $scope.annualInterestRate / (12 * 100);
 		
         $scope.lengthMonths = $scope.lengthYears * 12;
