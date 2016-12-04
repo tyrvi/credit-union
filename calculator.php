@@ -11,7 +11,7 @@
 	<div id="main">
 		<div id="calculator">
 	        <div class="row">
-	            <div class="col-md-4">
+	            <div class="col-sm-4">
 					<div class="row">
 						<p>Principal</p>
 					</div>
@@ -20,41 +20,46 @@
 					</div>
 				</div>
 				
-				<div class="col-md-4">
-	            	<p>Annual Interest Rate</p>
-	            	<input ng-change="calculate()" type="number" min="1" max="100" ng-model="annualInterestRate" class="form-control">
+				<div class="col-sm-4">
+					<div class="row">
+	            		<p>Annual Interest Rate</p>
+					</div>
+					<div class="row">
+	            		<input ng-change="calculate()" type="number" min="1" max="100" ng-model="annualInterestRate" class="form-control">
+					</div>
 				</div>
 				
-				<div class="col-md-4">
-	            <p>Length in Years</p>
-	            <input ng-change="calculate()" type="number" min="1" ng-model="lengthYears" class="form-control">
-			</div>	
-            	<p>monthly interest rate</p>
-            	<p ng-change="calculate()" ng-model="monthlyInterestRate">{{monthlyInterestRate}}</p>
-				
-	            <p>length in months</p>
-	            <p ng-change="calculate()" ng-model="lengthMonths">{{lengthMonths}}</p>
-
-            <table>
-        <div>
-        </div>
+				<div class="col-sm-4">
+					<div class="row">
+	            		<p>Length in Years</p>
+					</div>
+					<div class="row">
+	            		<input ng-change="calculate()" type="number" min="1" ng-model="lengthYears" class="form-control">
+					</div>
+				</div>
+			</div>
+			
+			<div style="text-align: left; margin-left: 18px;">
+	            <p>Length in Months: {{lengthMonths}}</p>
+			</div>
+			
+			<table>
                 <tr>
-                    <td>Month</td>
-                    <td>Principal</td>
-                    <td>Current Monthly Interest</td>
-                    <td>Monthly Payment</td>
+                    <th width="12%">Month</th>
+                    <th width="12%">Principal</th>
+                    <th width="36%">Current Monthly Interest</th>
+                    <th width="24%">Monthly Payment</th>
+					<th width="16%">New Balance</th>
+				</tr>
                 <tr ng-repeat="x in table track by $index">
-                    <td>New Balance</td>
-                </tr>
                     <td>{{x.month}}</td>
                     <td>{{x.principal}}</td>
                     <td>{{x.currentMonthlyInterest}}</td>
                     <td>{{x.monthPayment}}</td>
-            </table>
-                </tr>    
-                    <td>{{x.newBalance}}</td>
-        
-        
+					<td>{{x.newBalance}}</td>
+				</tr>
+        	</table>
+		</div>
 	</div>
     <script src="calculator.js"></script>
 </body>
