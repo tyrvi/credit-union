@@ -20,11 +20,6 @@
             <br/>
             <br/>
 
-            <p>monthly interest rate</p>
-            <p ng-change="calculate()" ng-model="monthlyInterestRate">{{monthlyInterestRate}}</p>
-            <br/>
-            <br/>
-
             <p>length in years</p>
             <input ng-change="calculate()" type="number" min="1" ng-model="lengthYears">
             <br/>
