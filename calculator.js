@@ -2,7 +2,7 @@
 var app = angular.module("app", []);
 
 app.controller("ctrl", ($scope) => {
-    $scope.principal = $scope.principal = 1;
+    $scope.principal = 1;
     $scope.annualInterestRate = 1;
     //monthlyInterestRate = $scope.annualInterestRate / (12 * 100);
     $scope.lengthYears = 1;
@@ -32,7 +32,21 @@ app.controller("ctrl", ($scope) => {
         return results;
     }
 	
+    function validate() {
+        if ($scope.principal == undefined || $scope.principal < 1) {
+            $scope.principal = 1;
+        }
+        if ($scope.lengthYears == undefined || $scope.lengthYears < 1) {
+            $scope.lengthYears = 1;
+        }
+        if ($scope.annualInterestRate == undefined || $scope.annualInterestRate <= 0) {
+            $scope.annualInterestRate = 1;
+        }
+    }
+
     $scope.calculate = () => {
+        validate();
+
         monthlyInterestRate = $scope.annualInterestRate / (12 * 100);
 		
         $scope.lengthMonths = $scope.lengthYears * 12;
