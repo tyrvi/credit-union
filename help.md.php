@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
-<title>Help Page</title>
 
-<xmp theme="Spacelab" style="display:none;">
+
+<head> 
+    <?php include_once "includes.php"?>
+    <link href="stylesheets/bootstrap.min.css" rel = "stylesheet">
+</head>
+<xmp>
+
 # FAQ’s:
 
 How do I join?
@@ -29,6 +34,6 @@ Phone: 1-800-ICU-HELP
 P.O. Box for Deposits/Payments: Imperial Credit Union P.O. Box 5743 1 Uranus Way, UR, 37211-4903
 
 </xmp>
-
 <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+
 </html>
