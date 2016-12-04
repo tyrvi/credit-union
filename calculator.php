@@ -27,7 +27,7 @@
 				
 				<div class="col-md-4">
                     <p>Length in Years</p>
-                    <input ng-change="calculate()" type="number" min="1" ng-model="lengthYears" class="form-control">
+                    <input ng-change="calculate()" type="number" min="1" max="40" ng-model="lengthYears" class="form-control">
                 </div>
             </div>
 		</div>					

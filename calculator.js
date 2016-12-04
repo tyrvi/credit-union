@@ -38,7 +38,7 @@ app.controller("ctrl", ($scope) => {
         if (P == undefined || P < 1) {
             P = 1;
         }
-        if (L == undefined || L < 1) {
+        if (L == undefined || L < 1 || L > 40) {
             L = 1;
         }
         if (A == undefined || A < 1) {
