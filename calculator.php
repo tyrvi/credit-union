@@ -35,15 +35,24 @@
 	            <p>length in months</p>
 	            <p ng-change="calculate()" ng-model="lengthMonths">{{lengthMonths}}</p>
 
-	            <!-- <button ng-click="calculate()">Calculate Table</button> -->
-	        <div>
-	            <table>
-	                <tr ng-repeat="x in table track by $index">
-	                    <td>{{x}}</td>
-	                </tr>    
-	            </table>
-	        </div>
-		</div>
+            <table>
+        <div>
+        </div>
+                <tr>
+                    <td>Month</td>
+                    <td>Principal</td>
+                    <td>Current Monthly Interest</td>
+                    <td>Monthly Payment</td>
+                <tr ng-repeat="x in table track by $index">
+                    <td>New Balance</td>
+                </tr>
+                    <td>{{x.month}}</td>
+                    <td>{{x.principal}}</td>
+                    <td>{{x.currentMonthlyInterest}}</td>
+                    <td>{{x.monthPayment}}</td>
+            </table>
+                </tr>    
+                    <td>{{x.newBalance}}</td>
         
         
 	</div>
