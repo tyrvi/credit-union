@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="style.php/calculator.scss">
 </head>
 <body ng-app="app", ng-controller="ctrl">
-	<!--<?php include_once "navbar.php"; ?>-->
+	<?php include_once "navbar.php"; ?>
 	<div id="main">
 		<div id="calculator">
 	        <div class="row">

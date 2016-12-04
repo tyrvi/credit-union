@@ -25,11 +25,11 @@
 					<a href="index.php">Home</a>
 				</li>
 			</a>
-			<a href="invest.php">
+			<a href="calculator.php">
 				<li class="list-group-item">
 					<div class="highlight"></div>
 					<div class="highlight2"></div>
-					<div>Invest</div>
+					<div>Calculator</div>
 				</li>
 			</a>
 			<a href="account.php">
