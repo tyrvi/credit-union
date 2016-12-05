@@ -42,6 +42,7 @@
 		<div>
 			
 		</div>
+	<?php include_once "footer.php"; ?>
 	</div>
 	
 	<script src="account.js"></script>

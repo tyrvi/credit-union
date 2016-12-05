@@ -252,6 +252,8 @@
 			
 			mysqli_close($mysqli);
 		?>
+		
+		<?php include_once "footer.php"; ?>
 	</div>
 	<script src="apply.js"></script>
 </body>
