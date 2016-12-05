@@ -1,3 +1,91 @@
+@import "globals";
+
+#deathstar {
+	z-index: 99999999;
+	
+	#backdrop {
+		position: fixed;
+		top: 0;
+		left: 0;
+		
+		opacity: 0.0;
+		
+		transition: 0.4s ease-out;
+		
+		background-color: rgba(0, 0, 0, 0.26);
+		width: 100%;
+		height: 100%;
+	}
+	
+	#message-holder {
+		position: fixed;
+		top: 90px;
+		opacity: 0.0;
+		left: 0;
+		
+		transition: 0.4s ease-out;
+		
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100vw;
+		height: 100vh;
+	}
+	
+	&.active {
+		#message-holder {
+			top: 0;
+			opacity: 1.0;
+		}
+		
+		#backdrop {
+			opacity: 1.0;
+		}
+	}
+	
+	#message {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-direction: column;
+		
+		background-color: rgb(242, 242, 242);
+		border: 1px solid rgb(237, 237, 237);
+		padding: 20px;
+		box-shadow: 0px 0px 5px rgba(228, 228, 228, 0.1);
+		width: 90vw;
+		height: 90vh;
+	}
+}
+
+#button-holder {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	
+	button {
+		background-color: $error-color;
+		border: 1px solid rgb(223, 223, 223);
+		border-radius: 10px;
+		width: 120px;
+		height: 40px;
+		font-size: 20px;
+		color: rgb(237, 237, 237);
+	}
+}
+
+#email-signup {
+	width: calc(100% - 130px) !important;
+	color: black !important;
+	display: inline;
+	margin-left: 20px;
+}
+
+#cancel-signup {
+	background-color: rgb(176, 176, 176) !important;
+}
+
 body {
 	background-color: rgb(246, 246, 246);
 	height: 100%;

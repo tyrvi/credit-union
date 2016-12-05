@@ -30,18 +30,48 @@
 	</script>
 	
 	<div id="main">
+		<div id="deathstar">
+			<div id="backdrop"></div>
+			<div id="message-holder">
+				<div id="message">
+					<div style="text-align: center;">
+						<h1 style="font-family: federation;">JOIN THE IMPERIAL GUARD!</h1>
+						<h4 style="position: relative; bottom: 10px;">We want you to join the ever growing community built to destory the rebel scum!</h4>
+					</div>
+					<img width="400" src="http://img12.deviantart.net/5284/i/2013/300/3/7/darth_vader_uncle_sam_poster_by_fyredesign-d6s3djr.jpg">
+					
+					<div style="width: 40vw;"><h2 style="display: inline;">Email:</h2><input id="email-signup" style="width=calc(100% - 200px);" type="text" class="form-control"></div>
+					
+					<div id="button-holder">
+						<button id="register-signup">Register</button>
+						<button id="cancel-signup">No Thanks</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<!-- main content -->
 		<div id="content">
 			<?php include_once("userInfo.php"); ?>
 		</div>
-		
-		<!-- star wars ad -->
-		<div>
-			
-		</div>
-	
 	</div>
 	<?php include_once "footer.php"; ?>
 	<script src="account.js"></script>
+	
+	<script>
+	$(document).ready(() => {
+		setTimeout(() => {
+			$('#deathstar').addClass('active');
+		}, 4000);
+		
+		$('#register-signup').click(() => {
+			$('#deathstar').removeClass('active');
+		});
+		
+		$('#cancel-signup').click(() => {
+			$('#deathstar').removeClass('active');
+		});
+	});
+	</script>
 </body>
 </html>
