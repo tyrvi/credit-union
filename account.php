@@ -32,9 +32,6 @@
 	<div id="main">
 		<!-- main content -->
 		<div id="content">
-			<!-- accounts -->
-			<div><?php echo $_SESSION['C_Id']; ?></div>
-			
 			<?php include_once("userInfo.php"); ?>
 		</div>
 		
@@ -42,9 +39,9 @@
 		<div>
 			
 		</div>
-	<?php include_once "footer.php"; ?>
-	</div>
 	
+	</div>
+	<?php include_once "footer.php"; ?>
 	<script src="account.js"></script>
 </body>
 </html>

@@ -7,7 +7,10 @@
 
 
 <head> 
-	
+	<style>
+	body{ 
+	width: 100%;}
+	</style>
     <?php include_once "includes.php"?>
     <link href="style.php/about.scss" rel = "stylesheet"> 
     <link href="stylesheets/bootstrap.min.css" rel = "stylesheet">
@@ -47,6 +50,7 @@ P.O. Box for Deposits/Payments: Imperial Credit Union P.O. Box 5743 1 Uranus Way
 
 </xmp>
 	<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+	<?php include_once "footer.php"; ?>
 </body>
 
 
