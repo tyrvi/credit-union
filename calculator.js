@@ -4,7 +4,6 @@ var app = angular.module("app", []);
 app.controller("ctrl", ($scope) => {
     $scope.principal = 1;
     $scope.annualInterestRate = 1;
-    //monthlyInterestRate = $scope.annualInterestRate / (12 * 100);
     $scope.lengthYears = 1;
     $scope.lengthMonths = $scope.lengthYears * 12;
     $scope.table = [];
@@ -16,7 +15,6 @@ app.controller("ctrl", ($scope) => {
         let Q = 0;
         let month = 0;
         let totalInterest = 0;
-        //results.push({"month": month, "payment": M.toFixed(2), "currentMonthlyInterest": H.toFixed(2), "monthPayment": C.toFixed(2), "balance": P.toFixed(2)});
 
         while (true) {
             month += 1;
@@ -33,15 +31,20 @@ app.controller("ctrl", ($scope) => {
     }
 	
     function validate() {
-        if ($scope.principal == undefined || $scope.principal < 1) {
-            $scope.principal = 1;
+        let P = $scope.principal.toFixed(2);
+        let L = $scope.lengthYears.toFixed(0);
+        let A = $scope.annualInterestRate;
+        
+        if (P == undefined || P < 1) {
+            P = 1;
         }
-        if ($scope.lengthYears == undefined || $scope.lengthYears < 1) {
-            $scope.lengthYears = 1;
+        if (L == undefined || L < 1 || L > 40) {
+            L = 1;
         }
-        if ($scope.annualInterestRate == undefined || $scope.annualInterestRate <= 0) {
-            $scope.annualInterestRate = 1;
+        if (A == undefined || A < 1) {
+            A = 1;
         }
+        return [P, L, A]
     }
 	
 	function createChart() {
@@ -108,18 +111,15 @@ app.controller("ctrl", ($scope) => {
 	}
 
     $scope.calculate = () => {
-        monthlyInterestRate = $scope.annualInterestRate / (12 * 100);
-		
-        $scope.lengthMonths = $scope.lengthYears * 12;
+        let P = validate()[0]; // Principal amount
+        let L = validate()[1]; // length in years
+        let J = validate()[2] / (12 * 100); // monthly interest rate
 
-        let P = $scope.principal;
-        let J = monthlyInterestRate;
-        let N = $scope.lengthMonths;
-        let M = P * (J/(1 - (1 + J) ** (-N)));
+        $scope.lengthMonths = L * 12; // number of months
+        let N = $scope.lengthMonths; 
+        let M = P * (J/(1 - (1 + J) ** (-N))); // formula for monthly payment
 
         $scope.monthlyPayment = M.toFixed(2);
-        $scope.table = calculateTable(P, J, M);
-		
-		createChart();
+        $scope.table = calculateTable(P, J, M); // calculate the table
     };
 });
