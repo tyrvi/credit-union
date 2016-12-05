@@ -31,7 +31,7 @@
 		<div class="col">
 			<div class="col-md-2 recommendations-portrait">
 				<div class="recommendations-image" style="background-image: url('images/StormTrooper.png')"></div>
-				<b>Stormtrooper No. 5C87</b>
+				<b>Stormtrooper TK-421</b>
 			</div>
 			
 			<div class="col-md-10 recommendations-text">
