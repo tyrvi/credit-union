@@ -63,7 +63,7 @@
                 <td>{{x.balance}}<span>$</span></td>
             </tr>  
         </table>
-		</div>
+    <?php include_once "footer.php"; ?>
 	</div>
     <script src="calculator.js"></script>
 </body>
