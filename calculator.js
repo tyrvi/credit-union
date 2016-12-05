@@ -121,5 +121,7 @@ app.controller("ctrl", ($scope) => {
 
         $scope.monthlyPayment = M.toFixed(2);
         $scope.table = calculateTable(P, J, M); // calculate the table
+		
+		createChart();
     };
 });
