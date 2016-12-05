@@ -169,7 +169,7 @@
 						</div>
 						<div class="item">
 							<div class="apply-mini-form">
-								Done!
+								Thanks for applying!
 							</div>
 						</div>
 					</div>
