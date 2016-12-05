@@ -6,6 +6,11 @@ $progress-color: rgb(228, 105, 105);
 body {
 	background-color: rgb(240, 240, 240);
 	background: linear-gradient(to bottom, rgb(241, 241, 241) 0%, rgb(189, 189, 189) 100%);	
+	padding-bottom: 147px;
+}
+
+.footer {
+	position: absolute !important;
 }
 
 #main {
