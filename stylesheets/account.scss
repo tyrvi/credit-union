@@ -1,7 +1,7 @@
 @import "globals";
 
 #deathstar {
-	z-index: 99999999;
+	z-index: 0;
 	
 	#backdrop {
 		position: fixed;
@@ -33,6 +33,7 @@
 	}
 	
 	&.active {
+		z-index: 99999999;
 		#message-holder {
 			top: 0;
 			opacity: 1.0;
