@@ -28,7 +28,7 @@
 	            		<p>Annual Interest Rate</p>
 					</div>
 					<div class="row">
-	            		<input ng-change="calculate()" type="number" min="1" max="100" ng-model="annualInterestRate" class="form-control">
+	            		<input ng-change="calculate()" type="number" min="1" max="50" ng-model="annualInterestRate" class="form-control">
 					</div>
 				</div>
 				
