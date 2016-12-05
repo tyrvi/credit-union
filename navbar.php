@@ -39,6 +39,13 @@
 					<div>Account</div>
 				</li>
 			</a>
+			<a href="help.md.php">
+				<li class="list-group-item">
+					<div class="highlight"></div>
+					<div class="highlight2"></div>
+					<div>Help</div>
+				</li>
+			</a>
 			<a href="apply.php">
 				<li class="list-group-item">
 					<div class="highlight"></div>
