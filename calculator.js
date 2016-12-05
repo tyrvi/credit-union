@@ -41,7 +41,7 @@ app.controller("ctrl", ($scope) => {
         if (L == undefined || L < 1 || L > 40) {
             L = 1;
         }
-        if (A == undefined || A < 1) {
+        if (A == undefined || A < 1 || A > 50) {
             A = 1;
         }
         return [P, L, A]
