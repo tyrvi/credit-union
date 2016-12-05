@@ -16,11 +16,5 @@
 		<p>Li</p>	
 	</div>
 	
-	<span class="footer-social">
-		<img width="80px" src="images/Twitter_Social_Icon_White.png"/>
-		<img width="49px" src="images/FB-f-Logo__white_512.png"/>
-		<img width="56px" src="images/LinkedIn-In-White-128px-TM.png"/>
-	</span>
-	
 	<div class="footer-copyright" style="clear: both" class="footer-text">© 2016 Imperial Credit Union<br /><p>Do no copy - Simmons</p></div>
 </div>

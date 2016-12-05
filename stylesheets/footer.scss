@@ -1,6 +1,9 @@
 .footer {
+	@media screen and (min-height: 100vw) {
+		position: absolute;
+	}
+	
 	background-color: rgb(66, 66, 66);
-	position: absolute;;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -40,6 +43,11 @@
 	position: absolute;
 	right: 0;
 	top: 0;
+	
+	@media screen and (min-height: 100vw) {
+		bottom: 0;
+	}
+	
 	img {
 		margin: 20px;
 		padding: 5px;
@@ -53,13 +61,16 @@
 }
 
 body {
-	min-height: 880px;
 	position: relative;
+	@media screen and (min-height: 100vw) {
+		padding-bottom: 155px;
+	}
 }
 
 .footer-copyright {
 	padding-left: 44px;
-	position: absolute;
+	top: 10px;
+	position: relative;
 	bottom: 0;
 	p {
 		font-family: aurebesh;
