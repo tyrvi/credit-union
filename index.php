@@ -20,6 +20,10 @@
 #main {
 	transition: 0.2s filter;
 }
+
+.footer {
+	position: absolute;
+}
 </style>
 
 </head>

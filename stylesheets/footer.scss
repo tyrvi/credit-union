@@ -1,5 +1,5 @@
 .footer {
-	@media screen and (min-height: 100vw) {
+	@media screen and (min-height: calc(100vw - 120px)) {
 		position: absolute;
 	}
 	
@@ -44,7 +44,7 @@
 	right: 0;
 	top: 0;
 	
-	@media screen and (min-height: 100vw) {
+	@media screen and (min-height: calc(100vw - 120px)) {
 		bottom: 0;
 	}
 	

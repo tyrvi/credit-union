@@ -50,7 +50,6 @@ P.O. Box for Deposits/Payments: Imperial Credit Union P.O. Box 5743 1 Uranus Way
 
 </xmp>
 	<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
-	<?php include_once "footer.php"; ?>
 </body>
 
 
